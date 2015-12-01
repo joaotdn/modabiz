@@ -1,3 +1,10 @@
+//placeholders
+%transition {
+  transition: all .3s linear;
+  -webkit-transition: all .3s linear;
+  -moz-transition: all .3s linear;
+}
+
 //icones
 @font-face {
   font-family: 'icomoon';
@@ -187,4 +194,29 @@
 }
 .left-axy {
   top: 0; left: 0;
+}
+
+//margins
+%common-divides {
+  @extend .small-12;
+  @extend .left;
+}
+.no-margin {
+  margin: 0 !important;
+}
+.divide-10 {
+  @extend %common-divides;
+  margin-bottom: rem-calc(10);
+}
+.divide-20 {
+  @extend %common-divides;
+  margin-bottom: rem-calc(20);
+}
+.divide-30 {
+  @extend %common-divides;
+  margin-bottom: rem-calc(30);
+}
+.divide-40 {
+  @extend %common-divides;
+  margin-bottom: rem-calc(40);
 }

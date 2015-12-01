@@ -32,6 +32,14 @@ define( 'ACF_LITE' , true );
 //include_once( get_stylesheet_directory() . '/includes/acf/preconfig.php' );
 
 /**
+ * Menus
+ */
+register_nav_menus( array(
+    'primary' => __( 'Menu principal',   'plandd' ),
+    'footer' => __( 'Menu Rodape',   'plandd' ),
+) );
+
+/**
  * Opções gerais para a aplicação e seus
  * componentes
  */
