@@ -2,6 +2,20 @@
 // Documentation can be found at: http://foundation.zurb.com/docs
 $(document).foundation();
 
+//plugins
+$.fn.getDataThumb = function(options) {
+    options = $.extend({
+        bgClass: 'bg-cover'
+    }, options || {});
+    return this.each(function() {
+        var th = $(this).data('thumb');
+        if (th) {
+            $(this).css('background-image', 'url(' + th + ')').addClass(options.bgClass);
+        }
+    });
+};
+$('*[data-thumb]').getDataThumb(); // data-thumb para esses elementos
+
 //trocar icone com hover
 $(document).on('mouseover', '*[data-hover]', function(event) {
 	event.preventDefault();

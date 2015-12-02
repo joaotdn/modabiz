@@ -28,7 +28,7 @@ function plandd_acf_dir( $dir ) {
  * (custom meta post)
  */
 include_once( get_stylesheet_directory() . '/includes/acf-pro/acf.php' );
-define( 'ACF_LITE' , true );
+//define( 'ACF_LITE' , true );
 //include_once( get_stylesheet_directory() . '/includes/acf/preconfig.php' );
 
 /**
@@ -38,6 +38,30 @@ register_nav_menus( array(
     'primary' => __( 'Menu principal',   'plandd' ),
     'footer' => __( 'Menu Rodape',   'plandd' ),
 ) );
+
+/**
+ * Custom Post Types
+ */
+
+//PAINEL
+include_once( get_stylesheet_directory() . '/includes/post-types/painel.php' );
+
+/*
+    Icones para post-types
+    (http://melchoyce.github.io/dashicons/)
+    edit.php?post_type=acf
+ */
+function add_menu_icons_styles(){
+?>
+<style>
+#menu-posts-painel div.wp-menu-image:before {
+  content: "\f233";
+}
+</style>
+<?php
+}
+
+add_action( 'admin_head', 'add_menu_icons_styles' );
 
 /**
  * Opções gerais para a aplicação e seus

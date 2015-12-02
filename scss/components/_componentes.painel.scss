@@ -1,0 +1,56 @@
+#main-painel {
+	&:hover {
+		.next-painel {
+			right: 4.5%;
+		}
+		.prev-painel {
+			left: 4.5%;
+		}
+	}
+}
+.slider-loader {
+	z-index: 0;
+}
+.slider-items {
+	@extend %full-height;
+	z-index: 99;
+	.d-table-cell > div {
+		z-index: 2;
+	}
+}
+.nav-painel {
+	z-index: 999;
+	top: 0;
+	font-size: rem-calc(36);
+}
+.next-painel {
+	right: 5%;
+}
+.prev-painel {
+	left: 5%;
+}
+.slider-mask,.slider-link {
+	z-index: 1;
+}
+.slider-button {
+	padding: rem-calc(20 40);
+	@extend %transition;
+}
+
+@media #{$medium-down} {
+	#main-painel {
+		height: rem-calc(320) !important;
+		.row {
+			height: rem-calc(320) !important;
+		}
+		h1 {
+			font-size: rem-calc(28) !important;
+		}
+		h3 {
+			font-size: rem-calc(22) !important;
+		}
+	}
+	.nav-painel {
+		display: none;
+	}
+}
