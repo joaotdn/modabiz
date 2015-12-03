@@ -53,3 +53,33 @@ $(document).on('click', '.close-menu,.open-menu', function(event) {
     event.preventDefault();
     $('#list-menu,.close-canvas').toggleClass('show');
 });
+
+//Painel 
+//------------------------------------------------------------------------
+
+(function() {
+    var painel = $(".slider-items");
+
+    painel.owlCarousel({
+        responsiveBaseWidth: $("#main-painel"),
+        responsive: true,
+        responsiveRefreshRate: 200,
+        pagination: true,
+        autoPlay: 5000,
+        rewindNav: true,
+        rewindSpeed: 1000,
+        loop: true,
+        singleItem: true,
+        rewindNav: true,
+        rewindSpeed: 300
+    });
+
+    $(".next-painel").click(function(e) {
+        e.preventDefault();
+        painel.trigger('owl.next');
+    });
+    $(".prev-painel").click(function(e) {
+        e.preventDefault();
+        painel.trigger('owl.prev');
+    });
+})();

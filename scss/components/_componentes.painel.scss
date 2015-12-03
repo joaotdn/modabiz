@@ -7,6 +7,23 @@
 			left: 4.5%;
 		}
 	}
+	.owl-carousel {
+		position: absolute !important;
+	}
+	.owl-controls {
+		position: absolute;
+		bottom: rem-calc(20);
+		@extend .small-12;
+		span {
+			@extend %transition;
+		}
+		.owl-page.active,.owl-page:hover {
+			span {
+				background-color: transparent;
+				@include scale(1.5);
+			}
+		}
+	}
 }
 .slider-loader {
 	z-index: 0;
@@ -16,6 +33,11 @@
 	z-index: 99;
 	.d-table-cell > div {
 		z-index: 2;
+	}
+	video {
+		width: 100%;
+		height: auto;
+		z-index: 0;
 	}
 }
 .nav-painel {
@@ -30,7 +52,7 @@
 	left: 5%;
 }
 .slider-mask,.slider-link {
-	z-index: 1;
+	z-index: 2;
 }
 .slider-button {
 	padding: rem-calc(20 40);
@@ -40,7 +62,7 @@
 @media #{$medium-down} {
 	#main-painel {
 		height: rem-calc(320) !important;
-		.row {
+		.row,.nav-painel {
 			height: rem-calc(320) !important;
 		}
 		h1 {

@@ -1,0 +1,11 @@
+#footer {
+	padding: rem-calc(40 0);
+}
+#social-footer {
+	li:not(:first-child) {
+		margin-left: rem-calc(10);
+	}
+	a {
+		font-size: rem-calc(36);
+	}
+}

@@ -9,6 +9,18 @@
   height: 100%;
 }
 
+//utilitarios
+.show-onload {
+  @extend %transition;
+  visibility: hidden !important;
+  opacity: 0 !important;
+
+  &.active {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
 //icones
 @font-face {
   font-family: 'icomoon';
@@ -186,6 +198,11 @@
 }
 .font-large {
   font-size: rem-calc(20);
+}
+
+//text-transform
+.text-up {
+  text-transform: uppercase;
 }
 
 //displays
