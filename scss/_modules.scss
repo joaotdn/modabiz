@@ -200,6 +200,11 @@
   font-size: rem-calc(20);
 }
 
+//font-weights
+.font-lite {
+  font-weight: 300;
+}
+
 //text-transform
 .text-up {
   text-transform: uppercase;
@@ -234,6 +239,12 @@
 //dimensions
 .full-height {
   @extend %full-height;
+}
+
+//containers
+.section-block {
+  padding-top: rem-calc(50);
+  padding-bottom: rem-calc(50);
 }
 
 //margins

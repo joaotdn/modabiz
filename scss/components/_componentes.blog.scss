@@ -1,0 +1,40 @@
+$comp_height : rem-calc(396);
+
+.comp-post {
+	height: $comp_height;
+	padding: rem-calc(20);
+	@extend %transition;
+
+	&:hover {
+		padding: 0;
+		> div {
+			padding: rem-calc(40);
+		}
+	}
+
+	header {
+		z-index: 9;
+		top: rem-calc(20);
+		left: 0;
+	}
+
+	footer {
+		z-index: 9;
+		bottom: rem-calc(20);
+		left: 0;
+	}
+
+	> div {
+		@extend .full-height;
+		@extend %transition;
+		padding: rem-calc(20);
+	}
+}
+
+@media #{$small-only} {
+	#list-posts figure {
+		&:not(:last-child) {
+			margin-bottom: rem-calc(20);
+		}
+	}
+}

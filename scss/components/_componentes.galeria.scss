@@ -1,0 +1,53 @@
+.grid-item {
+	margin-bottom: rem-calc(24);
+	
+	&:hover {
+		.grid-thumb {
+			@include filter(grayscale(100%));
+			opacity: .7;
+		}
+		figcaption {
+			visibility: visible;
+			opacity: 1;
+		}
+		hgroup,span {
+			@include translateY(rem-calc(0));
+		}
+	}
+
+	figcaption {
+		//background-color: rgba(#000,.6);
+		z-index: 99;
+		overflow: hidden;
+		visibility: hidden;
+		opacity: 0;
+		@extend %transition;
+
+		hgroup {
+			@extend %transition;
+			@include translateY(rem-calc(20));
+		}
+
+		span {
+			@extend %transition;
+			@include translateY(rem-calc(-10));
+		}
+	}
+}
+
+.grid-thumb,.grid-item h2,.grid-item h4 {
+	@extend %transition;
+}
+
+.play-btn {
+	width: rem-calc(80);
+	height: rem-calc(80);
+	border: 4px solid #fff;
+	border-radius: 100%;
+	background-color: #000;
+
+	h1 {
+		line-height: rem-calc(80);
+		color: #fff;
+	}
+}

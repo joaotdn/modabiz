@@ -1,0 +1,20 @@
+#comp-cadastro {
+
+}
+.button-cadastro {
+	padding: rem-calc(20 40);
+	@extend %transition;
+}
+@media #{$medium-down} {
+	#comp-cadastro {
+		h1 {
+			font-size: rem-calc(26) !important;
+		}
+		h3 {
+			font-size: rem-calc(16) !important;
+		}
+		.button-cadastro {
+			padding: rem-calc(16);
+		}
+	}
+}

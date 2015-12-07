@@ -264,5 +264,8 @@ $(document).ready(function() {
     }, function() {
         $('#jpreBar').fadeOut('fast');
         $('.show-onload').addClass('active');
+        $('.grid').masonry({
+          itemSelector: '.grid-item',
+        });
     });
 });

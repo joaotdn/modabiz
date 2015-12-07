@@ -28,7 +28,7 @@ function plandd_acf_dir( $dir ) {
  * (custom meta post)
  */
 include_once( get_stylesheet_directory() . '/includes/acf-pro/acf.php' );
-//define( 'ACF_LITE' , true );
+define( 'ACF_LITE' , true );
 //include_once( get_stylesheet_directory() . '/includes/acf/preconfig.php' );
 
 /**
@@ -40,11 +40,38 @@ register_nav_menus( array(
 ) );
 
 /**
+ * Posts
+ */
+//Thumbnails
+add_theme_support('post-thumbnails');
+if (function_exists('add_image_size')) {
+    add_image_size('blog-component', 303, 415, true);
+}
+remove_filter('the_excerpt', 'wpautop'); // sem paragrafo no resumo
+//Nome da 1a categoria de uma postagem em um loop
+function get_first_category_name($post_id) {
+    $category = get_the_category($post_id);
+    if ($category[0]) {
+        return $category[0]->cat_name;
+    }
+}
+//Link da 1a categoria de uma postagem em um loop
+function get_first_category_link($post_id) {
+    $category = get_the_category($post_id);
+    if ($category[0]) {
+        return get_category_link($category[0]->term_id);
+    }
+}
+
+/**
  * Custom Post Types
  */
 
 //PAINEL
 include_once( get_stylesheet_directory() . '/includes/post-types/painel.php' );
+
+//GALERIA
+include_once( get_stylesheet_directory() . '/includes/post-types/galeria.php' );
 
 /*
     Icones para post-types
@@ -56,6 +83,9 @@ function add_menu_icons_styles(){
 <style>
 #menu-posts-painel div.wp-menu-image:before {
   content: "\f233";
+}
+#menu-posts-galeria div.wp-menu-image:before {
+  content: "\f180";
 }
 </style>
 <?php

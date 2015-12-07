@@ -9,3 +9,12 @@
 		font-size: rem-calc(36);
 	}
 }
+.share-footer {
+	iframe[id^="twitter-widget"],
+	div[id^="___plusone"] {
+		margin-top: rem-calc(4) !important;
+	}
+}
+iframe[id^="oauth"] {
+	left: 0;
+}
