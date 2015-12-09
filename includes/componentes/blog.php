@@ -1,7 +1,7 @@
 <?php
 /**
- * Componente: Cadastro
- * Descrição: Leva a página de cadastro de revendedores
+ * Componente: Blog
+ * Descrição: Lista de posts e link para campanhas personalizadas
  * Última atualização: 7 de dezembro de 2015
  */
 global $plandd_option;

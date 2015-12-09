@@ -52,6 +52,21 @@
 @import "components/componentes.cadastro";
 @import "components/componentes.blog";
 @import "components/componentes.galeria";
+@import "components/componentes.instagram";
 
 //Rodapé
 @import "components/footer";
+
+//fix mobile
+@media #{$small-only} {
+  .row {
+    width: rem-calc(320);
+    max-width: none;
+  }
+}
+@media #{$medium-only} {
+  .row {
+    width: rem-calc(728);
+    max-width: none;
+  }
+}

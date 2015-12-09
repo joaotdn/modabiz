@@ -1,14 +1,37 @@
 <?php
-  get_header();
+get_header();
 
-  require get_template_directory()."/includes/componentes/painel.php";
-  
-  require get_template_directory()."/includes/componentes/cadastro.php";
+global $plandd_option;
+$layout = $plandd_option['temp-home-blocks-template']['template'];
 
-  require get_template_directory()."/includes/componentes/blog.php";
+if ($layout): foreach ($layout as $key=>$value) {
+ 
+    switch($key) {
+ 
+        case 'painel': require get_template_directory()."/includes/componentes/painel.php";
+        break;
+ 
+        case 'cadastro': require get_template_directory()."/includes/componentes/cadastro.php";
+        break;
+ 
+        case 'blog': require get_template_directory()."/includes/componentes/blog.php";
+        break;
+ 
+        case 'galeria': require get_template_directory()."/includes/componentes/galeria.php";    
+        break;
 
-  require get_template_directory()."/includes/componentes/galeria.php";
+        case 'instagram-hash': require get_template_directory()."/includes/componentes/instagram.hashtag.php";    
+        break;
 
-  get_footer();
+        case 'instagram-perfil': require get_template_directory()."/includes/componentes/instagram.perfil.php";    
+        break;  
+ 
+    }
+ 
+}
+ 
+endif;
+
+get_footer();
 ?>
 

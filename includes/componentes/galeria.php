@@ -1,13 +1,58 @@
 <?php
 /**
- * Componente: Cadastro
- * Descrição: Leva a página de cadastro de revendedores
- * Última atualização: 7 de dezembro de 2015
+ * Componente: Galeria
+ * Descrição: Conteudo personalizado em grade
+ * Última atualização: 8 de dezembro de 2015
  */
 global $plandd_option;
 ?>
 <section id="comp-galeria" class="small-12 left section-block">
 	<div class="row">
+		
+<?php
+// banner topo
+$banner = $plandd_option['comp-galeria-banner-top-active'];
+$banner_img = $plandd_option['comp-galeria-banner-top-bg']['url'];
+$banner_icon = $plandd_option['comp-galeria-banner-top-icon']['url'];
+$banner_title = $plandd_option['comp-galeria-banner-top-title'];
+$banner_subtitle = $plandd_option['comp-galeria-banner-top-subtitle'];
+$banner_url = $plandd_option['comp-galeria-banner-top-url'];
+$banner_url = (!empty($banner_url)) ? $banner_url : '#';
+
+if($banner == 1 && $banner_img && !empty($banner_img)):
+?>
+		<figure class="big-ads divide-40 column grid-item">
+			<a href="<?php echo $banner_url; ?>" title="<?php echo $banner_title; ?>" class="d-block small-12 left rel">
+				<img src="<?php echo $banner_img ?>" alt="" class="grid-thumb small-12 left">
+				<figcaption class="small-12 abs full-height left-axy show-for-large-up">
+					<div class="d-table full-height small-12 text-center">
+					    <div class="d-table-cell small-12">
+					    	<?php
+					    		if($banner_icon && !empty($banner_icon)):
+					    	?>
+							<span class="d-iblock divide-10">
+								<img src="<?php echo $banner_icon ?>" alt="">
+							</span>
+							<?php
+								endif;
+							?>
+							<hgroup class="small-12 left">
+								<?php
+									if($banner_title && !empty($banner_title))
+										echo '<h2 class="divide-10">'. $banner_title .'</h2>';
+
+									if($banner_subtitle && !empty($banner_subtitle))
+										echo '<h4>'. $banner_subtitle .'</h4>';
+								?>
+							</hgroup>
+						</div>
+					</div>
+				</figcaption>
+			</a>
+		</figure>
+<?php
+endif;
+?>
 		
 		<nav id="list-galeria" class="small-12 left grid show-onload">
 <?php
@@ -51,7 +96,7 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
 									endif;
 								?>
 								<hgroup class="small-12 left">
-									<h2 class="no-margin"><?php the_title(); ?></h2>
+									<h2 class="divide-10"><?php the_title(); ?></h2>
 									<?php
 										if($subtitulo && !empty($subtitulo))
 											echo '<h4 class="no-margin">'. $subtitulo .'</h4>';
@@ -91,6 +136,51 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
 	endwhile; wp_reset_postdata(); endif;
 ?>
 		</nav>
+
+<?php
+// banner rodape
+$banner = $plandd_option['comp-galeria-banner-bottom-active'];
+$banner_img = $plandd_option['comp-galeria-banner-bottom-bg']['url'];
+$banner_icon = $plandd_option['comp-galeria-banner-bottom-icon']['url'];
+$banner_title = $plandd_option['comp-galeria-banner-bottom-title'];
+$banner_subtitle = $plandd_option['comp-galeria-banner-bottom-subtitle'];
+$banner_url = $plandd_option['comp-galeria-banner-bottom-url'];
+$banner_url = (!empty($banner_url)) ? $banner_url : '#';
+
+if($banner == 1 && $banner_img && !empty($banner_img)):
+?>
+		<figure class="big-ads small-12 columns grid-item no-margin">
+			<a href="<?php echo $banner_url; ?>" title="<?php echo $banner_title; ?>" class="d-block small-12 left rel">
+				<img src="<?php echo $banner_img ?>" alt="" class="grid-thumb small-12 left">
+				<figcaption class="small-12 abs full-height left-axy show-for-large-up">
+					<div class="d-table full-height small-12 text-center">
+					    <div class="d-table-cell small-12">
+					    	<?php
+					    		if($banner_icon && !empty($banner_icon)):
+					    	?>
+							<span class="d-iblock divide-10">
+								<img src="<?php echo $banner_icon ?>" alt="">
+							</span>
+							<?php
+								endif;
+							?>
+							<hgroup class="small-12 left">
+								<?php
+									if($banner_title && !empty($banner_title))
+										echo '<h2 class="divide-10">'. $banner_title .'</h2>';
+
+									if($banner_subtitle && !empty($banner_subtitle))
+										echo '<h4>'. $banner_subtitle .'</h4>';
+								?>
+							</hgroup>
+						</div>
+					</div>
+				</figcaption>
+			</a>
+		</figure>
+<?php
+endif;
+?>
 
 	</div>
 </section>

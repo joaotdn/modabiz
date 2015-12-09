@@ -4,6 +4,7 @@
  * Descrição: Conteúdo alimentado a partir do CPT painel
  * Última atualização: 3 de dezembro de 2015
  */
+global $plandd_option;
 $height = $plandd_option['comp-painel-altura']['height']; // altura do painel (desktop)
 ?>
 <section id="main-painel" class="small-12 left d-table rel">

@@ -73,32 +73,16 @@ include_once( get_stylesheet_directory() . '/includes/post-types/painel.php' );
 //GALERIA
 include_once( get_stylesheet_directory() . '/includes/post-types/galeria.php' );
 
-/*
-    Icones para post-types
-    (http://melchoyce.github.io/dashicons/)
-    edit.php?post_type=acf
- */
-function add_menu_icons_styles(){
-?>
-<style>
-#menu-posts-painel div.wp-menu-image:before {
-  content: "\f233";
-}
-#menu-posts-galeria div.wp-menu-image:before {
-  content: "\f180";
-}
-</style>
-<?php
-}
-
-add_action( 'admin_head', 'add_menu_icons_styles' );
-
 /**
  * Opções gerais para a aplicação e seus
  * componentes
  */
 require_once (dirname(__FILE__) . '/includes/options/redux-framework.php');
 require_once (dirname(__FILE__) . '/includes/options/sample/barebones-config.php');
+
+//Admin instagram
+require_once (dirname(__FILE__) . '/includes/functions/componentes.instagram.hash.php');
+require_once (dirname(__FILE__) . '/includes/functions/componentes.instagram.perfil.php');
 
 /**
  * Incorpore scripts essenciais para toda a
@@ -130,4 +114,35 @@ function plandd_scripts() {
   wp_enqueue_script('scripts', get_stylesheet_directory_uri() . '/scripts.js', array(), THEME_VERSION, true);
 }
 add_action( 'wp_enqueue_scripts', 'plandd_scripts' );
+
+/**
+ * Incorpore scripts essenciais
+ * apenas para o admin
+ *
+ * @since ModaBiz 1.0
+ */
+function add_menu_icons_styles() {
+  ?>
+    <style>
+    #menu-posts-painel div.wp-menu-image:before {
+      content: "\f233";
+    }
+    #menu-posts-galeria div.wp-menu-image:before {
+      content: "\f180";
+    }
+    </style>
+
+    <script>
+      //<![CDATA[
+      var getData = {
+        'urlDir':'<?php bloginfo('template_directory');?>/',
+        'ajaxDir':'<?php echo stripslashes(get_admin_url()).'admin-ajax.php';?>',
+      }
+      //]]>
+    </script>
+  <?php
+  wp_enqueue_script('admin-jquery', '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js', array(), THEME_VERSION, true);
+  wp_enqueue_script('admin-scripts', get_stylesheet_directory_uri() . '/admin_scripts.js', array(), THEME_VERSION, true);
+}
+add_action('admin_head', 'add_menu_icons_styles');
 ?>
