@@ -1,0 +1,22 @@
+#comp-geo {
+	padding-bottom: 0;
+}
+
+.geo-btn,
+#comp-geo input[type="text"] {
+	height: rem-calc(72);
+	@extend %transition;
+	line-height: rem-calc(68);
+	padding: rem-calc(0 20);
+}
+#comp-geo input[type="text"] {
+	padding-right: rem-calc(60);
+}
+.search-location {
+	> span {
+		font-size: rem-calc(36);
+		line-height: rem-calc(70);
+		right: rem-calc(26);
+		top: 0;
+	}
+}

@@ -50,15 +50,29 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
 			</figure>
 <?php
     endwhile; wp_reset_postdata(); endif;
+
     $campanha = $plandd_option['comp-blog-camp-active'];
-    if($campanha && $campanha == 1):
-    	$th = $plandd_option['comp-blog-camp-bg']['url'];
+    $items = $plandd_option['comp-blog-camp-items'];
+    $total = $plandd_option['comp-blog-camp-total'];
+    $ordem = $plandd_option['comp-blog-camp-ordem'];
+
+    if($campanha && $campanha == 1 && isset($items) && !empty($items[0]['thumb'])):
+    	if($ordem == 2)
+    		shuffle($items);
+
+    	$i = 0;
+    	
+    	foreach ($items as $item):
+    		if($total == $i) break;
+    		$th = wp_get_attachment_image_src($item['attachment_id'], 'medium');
 ?>
 			<figure class="small-12 medium-4 columns">
-				<a href="<?php echo $plandd_option['comp-blog-camp-url']; ?>" class="d-block comp-post camp small-12 left rel" data-thumb="<?php echo $th; ?>">
+				<a href="<?php echo $item['url']; ?>" title="<?php echo $item['title']; ?>" class="d-block comp-post camp small-12 left rel" data-thumb="<?php echo $item['image']; ?>">
 				</a>
 			</figure>
 <?php
+			$i++;
+		endforeach;
 	endif;
 ?>
 		</nav>

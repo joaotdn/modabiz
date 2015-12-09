@@ -2,7 +2,7 @@
 get_header();
 
 global $plandd_option;
-$layout = $plandd_option['temp-home-blocks-template']['template'];
+$layout = $plandd_option['temp-home-blocks-layout']['template'];
 
 if ($layout): foreach ($layout as $key=>$value) {
  
@@ -24,8 +24,11 @@ if ($layout): foreach ($layout as $key=>$value) {
         break;
 
         case 'instagram-perfil': require get_template_directory()."/includes/componentes/instagram.perfil.php";    
-        break;  
- 
+        break;
+
+        case 'geolocalizacao': require get_template_directory()."/includes/componentes/geolocalizacao.php";    
+        break;
+
     }
  
 }

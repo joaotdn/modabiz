@@ -10,6 +10,7 @@ global $plandd_option;
 	<div class="row">
 <?php
 $gallery = get_option( 'hashtag_object' );
+$hash = $plandd_option['instagram-hash'];
 shuffle($gallery);
 ?>
 		<div class="hash-block small-12 medium-4 columns">
@@ -18,7 +19,7 @@ shuffle($gallery);
 					<header class="small-12 columns">
 						<h1 class="icon-instagram"></h1>
 						<h5>Publique suas fotos com a hashtag:</h5>
-						<h3>#modabiz</h3>
+						<h3>#<?php echo $hash; ?></h3>
 					</header>
 				</div>
 			</div>
