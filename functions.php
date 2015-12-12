@@ -28,7 +28,7 @@ function plandd_acf_dir( $dir ) {
  * (custom meta post)
  */
 include_once( get_stylesheet_directory() . '/includes/acf-pro/acf.php' );
-define( 'ACF_LITE' , true );
+//define( 'ACF_LITE' , true );
 //include_once( get_stylesheet_directory() . '/includes/acf/preconfig.php' );
 
 /**
@@ -72,6 +72,9 @@ include_once( get_stylesheet_directory() . '/includes/post-types/painel.php' );
 
 //GALERIA
 include_once( get_stylesheet_directory() . '/includes/post-types/galeria.php' );
+
+//LOCALIZAÇÕES
+include_once( get_stylesheet_directory() . '/includes/post-types/localizacoes.php' );
 
 /**
  * Opções gerais para a aplicação e seus
@@ -130,6 +133,9 @@ function add_menu_icons_styles() {
     #menu-posts-galeria div.wp-menu-image:before {
       content: "\f180";
     }
+    #menu-posts-localizacao div.wp-menu-image:before {
+      content: "\f231";
+    }
     </style>
 
     <script>
@@ -145,4 +151,54 @@ function add_menu_icons_styles() {
   wp_enqueue_script('admin-scripts', get_stylesheet_directory_uri() . '/admin_scripts.js', array(), THEME_VERSION, true);
 }
 add_action('admin_head', 'add_menu_icons_styles');
+
+/**
+ * Ao cadastrar um mapa escreva as informações no arquivo
+ * json para consultas no lado cliente
+ */
+function save_gmap_meta() {
+
+  $args = array(
+      'posts_per_page' => -1,
+      'orderby' => 'date',
+      'post_type' => 'localizacao'
+  );
+  $the_query = new WP_Query( $args );
+  $output = array();
+
+  if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_query->the_post();
+    global $post;
+
+    $location = get_field('gmap_latlng', $post->ID);
+
+    //$output[] = $post->post_title . ' - ' . get_field('gmap_uf',$post->ID);
+
+    $output[] = array(
+      'id' => $post->ID,
+      'titulo' => $post->post_title,
+      'nome' => get_field('gmap_nome',$post->ID),
+      'tipo' => get_field('gmap_tipo',$post->ID),
+      'endereco' => get_field('gmap_endereco',$post->ID),
+      'cep' => get_field('gmap_cep',$post->ID),
+      'uf' => get_field('gmap_uf',$post->ID),
+      'horarios' => get_field('gmap_horarios',$post->ID),
+      'telefones' => get_field('gmap_telefones',$post->ID),
+      'whatsapp' => get_field('gmap_whatsapp',$post->ID),
+      'facebook' => get_field('gmap_facebook',$post->ID),
+      'instagram' => get_field('gmap_instagram',$post->ID),
+      'email' => get_field('gmap_email',$post->ID),
+      'endereco_formatado' => get_field('gmap_nome',$post->ID) . " - " . get_field('gmap_uf',$post->ID),
+      'lat' => $location['lat'],
+      'lng' => $location['lng'],
+    );
+
+  endwhile; wp_reset_postdata(); endif;
+
+  $f = fopen(dirname(__FILE__) . '/places.json', 'w');
+  $txt = json_encode($output);
+  fwrite($f, $txt);
+  fclose($f);
+
+}
+add_action( 'save_post', 'save_gmap_meta' );
 ?>

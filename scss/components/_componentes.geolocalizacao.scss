@@ -13,10 +13,24 @@
 	padding-right: rem-calc(60);
 }
 .search-location {
-	> span {
-		font-size: rem-calc(36);
+	> span:not(.twitter-typeahead) {
+		font-size: rem-calc(32);
 		line-height: rem-calc(70);
-		right: rem-calc(26);
+		right: rem-calc(30);
 		top: 0;
 	}
+}
+.twitter-typeahead {
+	@extend .small-12;
+	@extend .columns;
+}
+.tt-suggestion {
+	padding: rem-calc(10);
+	cursor: pointer;
+	&:hover {
+		background-color: #006699;
+	}
+}
+#map-layer {
+	height: rem-calc(420);
 }

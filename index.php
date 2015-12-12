@@ -30,7 +30,6 @@ if ($layout): foreach ($layout as $key=>$value) {
         break;
 
     }
- 
 }
  
 endif;

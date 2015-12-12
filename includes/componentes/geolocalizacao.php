@@ -22,8 +22,12 @@ global $plandd_option;
 		</div>
 
 		<div class="small-12 large-7 columns rel search-location">
-			<input type="text" class="divide-20 geo-input text-up" placeholder="Faça uma busca personalizada">
+			<input type="text" class="divide-20 geo-input text-up typeahead" placeholder="Faça uma busca personalizada">
 			<span class="abs icon-search"></span>
 		</div>
+	</div>
+
+	<div id="map-layer" class="small-12 left" data-lat="" data-lng="" data-brandicon="<?php echo get_stylesheet_directory_uri(); ?>/images/icon.png" data-brandiconover="<?php echo get_stylesheet_directory_uri(); ?>/images/icon.png" data-usericon="<?php echo get_stylesheet_directory_uri(); ?>/images/icon.png">
+		
 	</div>
 </section>

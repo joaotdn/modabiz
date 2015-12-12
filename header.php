@@ -4,11 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php bloginfo('name'); ?> | <?php is_home()?bloginfo('description'):wp_title(''); ?></title>
-    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyB664XOo1V2z76RD87sMi4b4nAM1JzKthg&sensor=false'></script>
-    
+    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyB664XOo1V2z76RD87sMi4b4nAM1JzKthg'></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+   
     <?php
       global $plandd_option;
-      $icon = $plandd_option['app-favicon'];
+      $icon = $plandd_option['app-favicon']['url'];
       if($icon && !empty($icon)):
         ?>
         <link rel="shortcut icon" href="<?php echo $icon; ?>" type="image/vnd.microsoft.icon"/>
