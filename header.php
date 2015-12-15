@@ -1,15 +1,18 @@
+<?php
+  global $plandd_option;
+  $gmap_api = $plandd_option['comp-geo-api'];
+  $icon = $plandd_option['app-favicon']['url'];
+?>
 <!doctype html>
 <html class="no-js" lang="pt-br">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php bloginfo('name'); ?> | <?php is_home()?bloginfo('description'):wp_title(''); ?></title>
-    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyB664XOo1V2z76RD87sMi4b4nAM1JzKthg'></script>
-    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
-   
     <?php
-      global $plandd_option;
-      $icon = $plandd_option['app-favicon']['url'];
+      if($gmap_api && !empty($gmap_api))
+        echo '<script src="https://maps.googleapis.com/maps/api/js?key='. $gmap_api .'"></script>';
+      
       if($icon && !empty($icon)):
         ?>
         <link rel="shortcut icon" href="<?php echo $icon; ?>" type="image/vnd.microsoft.icon"/>
