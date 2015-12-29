@@ -4804,7 +4804,7 @@ th.hide-for-touch {
 }
 /* line 2, ../scss/_modules.scss */
 .show-onload, #list-menu, #main-menu-mo, #main-painel .owl-controls span, .slider-button, .button-cadastro, .comp-post, .comp-post > div, .grid-item figcaption, .grid-item figcaption hgroup, .grid-item figcaption span, .grid-thumb, .grid-item h2, .grid-item h4, .geo-btn,
-#comp-geo input[type="text"], #map-info, #map-info .icon-cross {
+#comp-geo input[type="text"], #map-info, #map-info .icon-cross, .reven-btn {
   transition: all .3s linear !important;
   -webkit-transition: all .3s linear !important;
   -moz-transition: all .3s linear !important;
@@ -5103,7 +5103,7 @@ th.hide-for-touch {
 }
 
 /* line 209, ../scss/_modules.scss */
-.text-up {
+.text-up, .reven-btn {
   text-transform: uppercase;
 }
 
@@ -5706,6 +5706,50 @@ a {
   height: auto;
 }
 
+/* line 1, ../scss/templates/_marca.scss */
+.slideshow {
+  margin: auto;
+}
+
+/* line 2, ../scss/templates/_marca.scss */
+.slideshow img {
+  width: auto;
+  height: 450px;
+  padding: 0px;
+}
+
+/* line 3, ../scss/templates/_marca.scss */
+.slideshow img.small {
+  width: auto;
+  height: 450px;
+  padding: 0px;
+}
+
+/* line 5, ../scss/templates/_marca.scss */
+.reven-btn {
+  padding: 0.625rem 1.875rem;
+}
+
+@media only screen and (max-width: 64em) {
+  /* line 12, ../scss/templates/_marca.scss */
+  .slideshow {
+    margin: auto;
+  }
+
+  /* line 13, ../scss/templates/_marca.scss */
+  .slideshow img {
+    width: auto;
+    height: 300px;
+    padding: 0px;
+  }
+
+  /* line 14, ../scss/templates/_marca.scss */
+  .slideshow img.small {
+    width: auto;
+    height: 300px;
+    padding: 0px;
+  }
+}
 /* line 1, ../scss/components/_footer.scss */
 #footer {
   padding: 2.5rem 0;
@@ -5732,14 +5776,14 @@ iframe[id^="oauth"] {
 }
 
 @media only screen and (max-width: 40em) {
-  /* line 63, ../scss/app.scss */
+  /* line 66, ../scss/app.scss */
   .row {
     width: 20rem;
     max-width: none;
   }
 }
 @media only screen and (min-width: 40.0625em) and (max-width: 64em) {
-  /* line 69, ../scss/app.scss */
+  /* line 72, ../scss/app.scss */
   .row {
     width: 45.5rem;
     max-width: none;

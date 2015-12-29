@@ -1,6 +1,5 @@
   <?php
     global $plandd_option;
-
   	$marca = $plandd_option['comp-footer-marca']['url'];
   	$rua = $plandd_option['corp-rua'];
   	$bairro = $plandd_option['corp-bairro'];
@@ -165,6 +164,13 @@
   <a href="#" class="close-menu close-canvas"></a>
   <?php wp_footer(); ?>
 
+  <script>
+  jQuery(document).ready(function($) {
+  	if($( '.slideshow' ).length) {
+  		$( '.slideshow' ).cycle();
+  	}
+  });
+  </script>
   <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
   <style>
 	.twitter-typeahead .tt-query,
@@ -217,7 +223,5 @@
 	}
   </style>
   
-
-   
   </body>
 </html>

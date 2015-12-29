@@ -1,0 +1,15 @@
+.slideshow { margin: auto }
+.slideshow img { width: auto; height: 450px; padding: 0px; }
+.slideshow img.small { width: auto; height: 450px; padding: 0px; }
+
+.reven-btn {
+	padding: rem-calc(10 30);
+	@extend .text-up;
+	@extend %transition;
+}
+
+@media #{$medium-down} {
+	.slideshow { margin: auto }
+	.slideshow img { width: auto; height: 300px; padding: 0px; }
+	.slideshow img.small { width: auto; height: 300px; padding: 0px; }
+}
