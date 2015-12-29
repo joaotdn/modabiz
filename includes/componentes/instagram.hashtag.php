@@ -19,7 +19,7 @@ shuffle($gallery);
 					<header class="small-12 columns">
 						<h1 class="icon-instagram"></h1>
 						<h5>Publique suas fotos com a hashtag:</h5>
-						<h3>#<?php echo $hash; ?></h3>
+						<h3><a href="http://instagram.com/explore/tags/<?php echo $hash ?>" target="_blank">#<?php echo $hash; ?></a></h3>
 					</header>
 				</div>
 			</div>

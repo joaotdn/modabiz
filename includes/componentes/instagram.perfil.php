@@ -21,7 +21,7 @@ $perfil = $plandd_option['instagram-username'];
 				<div class="d-table-cell small-12 text-center">
 					<header class="small-12 columns">
 						<h1 class="icon-instagram"></h1>
-						<h3 class="no-margin"><?php echo $perfil; ?></h3>
+						<h3 class="no-margin"><a href="http://instagram.com/<?php echo $perfil; ?>" target="_blank">@<?php echo $perfil; ?></a></h3>
 					</header>
 				</div>
 			</div>

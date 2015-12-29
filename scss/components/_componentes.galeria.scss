@@ -33,6 +33,10 @@
 			@include translateY(rem-calc(-10));
 		}
 	}
+	.icon-play3:before {
+		display: inline-block;
+		@include translateX(rem-calc(4));
+	}
 }
 
 .grid-thumb,.grid-item h2,.grid-item h4 {

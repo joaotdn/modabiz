@@ -1,5 +1,5 @@
 <?php
-define('THEME_VERSION', '1.0.0');
+define('THEME_VERSION', '1.0.1');
 define('THEME_ICON', get_stylesheet_directory_uri() . '/images/icon.png');
 error_reporting(E_ERROR | E_PARSE);
 
@@ -87,6 +87,9 @@ require_once (dirname(__FILE__) . '/includes/options/sample/barebones-config.php
 require_once (dirname(__FILE__) . '/includes/functions/componentes.instagram.hash.php');
 require_once (dirname(__FILE__) . '/includes/functions/componentes.instagram.perfil.php');
 
+//Funções ajax para galeria
+require_once (dirname(__FILE__) . '/includes/functions/componentes.galeria.php');
+
 /**
  * Incorpore scripts essenciais para toda a
  * aplicação
@@ -156,6 +159,8 @@ add_action('admin_head', 'add_menu_icons_styles');
  * Ao cadastrar um mapa escreva as informações no arquivo
  * json para consultas no lado cliente
  */
+
+
 function save_gmap_meta() {
 
   $args = array(

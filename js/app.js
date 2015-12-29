@@ -89,5 +89,30 @@ $(document).on('click', '.close-menu,.open-menu', function(event) {
 })();
 
 
-//Geolocalização
+//video na galeria
 //------------------------------------------------------------------------
+$.ajaxSetup({
+    url: getData.ajaxDir,
+    type: 'GET',
+    dataType: 'html'
+});
+
+$(document).on('click', '[data-videoid]', function(event) {
+    event.preventDefault();
+    var dt = $(this).data('videoid'),
+        dtv = $(this).data('reveal-id');
+
+    $.ajax({
+        data: {
+            action: 'get_video_galeria',
+            video_id: dt
+        },
+        success: function(data) {
+            $('#' + dtv).append(data);
+        }
+    });
+});
+$(document).on('close.fndtn.reveal', '[data-reveal]', function () {
+  var modal = $(this);
+  modal.find('.flex-video').remove();
+});

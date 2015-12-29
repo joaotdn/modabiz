@@ -1,7 +1,9 @@
 #comp-geo {
 	padding-bottom: 0;
 }
-
+#map-layer {
+	height: rem-calc(600);
+}
 .geo-btn,
 #comp-geo input[type="text"] {
 	height: rem-calc(72);
@@ -24,10 +26,73 @@
 	@extend .small-12;
 	@extend .columns;
 }
-.tt-suggestion {
-	padding: rem-calc(10);
-	cursor: pointer;
-	&:hover {
-		background-color: #006699;
+.search-location {
+	.tt-menu {
+		width: 90% !important;
+		padding: rem-calc(10);
+		border-radius: 6px;
+		background-color: #fff;
+		left: rem-calc(10) !important;
+		top: rem-calc(75) !important;
+		cursor: pointer;
+		&:hover {
+			background-color: #f5f5f5;
+		}
+	}
+}
+#map-info {
+	padding: rem-calc(0 20);
+	//height: 0;
+	height: rem-calc(600);
+	//overflow: hidden;
+	@extend %transition;
+	@include translateX(-100%);
+	opacity: 0;
+	z-index: 99999999;
+	left: 0;
+	bottom: 0;
+
+	&.active {
+		//height: rem-calc(600);
+		@include translateX(0);
+		opacity: 1;
+	}
+
+	> .row {
+		@extend .d-table;
+		height: rem-calc(600);
+	}
+	
+	article {
+		padding-left: rem-calc(45);
+	}
+	figcaption {
+		margin-left: rem-calc(10);
+	}
+	li:not(:first-child) {
+		margin-left: rem-calc(10);
+	}
+	ul {
+		margin-bottom: 0 !important;
+		h1 {
+			margin: 0;
+			line-height: 1;
+		}
+	}
+	.icon-cross {
+		top: rem-calc(20);
+		right: rem-calc(20);
+		z-index: 999;
+		cursor: pointer;
+		@extend %transition;
+		&:hover {
+			opacity: .8;
+		}
+	}
+}
+.icon-title {
+	img {
+		width: rem-calc(35);
+		height: auto;
 	}
 }

@@ -25,28 +25,57 @@ $the_query = new WP_Query( $args );
 if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_query->the_post();
     global $post;
     $thumb = get_field('painel_imagem',$post->ID);
+    
     $video = get_field('painel_video',$post->ID);
+    $video_ogv = get_field('painel_video_ogv',$post->ID);
+    $video_3gp = get_field('painel_video_3gp',$post->ID);
+
     $subtitulo = get_field('painel_subtitulo',$post->ID);
     $botao = get_field('painel_botao',$post->ID);
     $titulo = get_field('painel_titulo',$post->ID);
     $url = get_field('painel_url',$post->ID);
+
+    $mask = get_field('painel_mask', $post->ID);
 ?>	
 		<?php
 			if($video && !empty($video))
 				echo '<figure class="item small-12 left full-height">';
 			else
 				echo '<figure class="item small-12 left full-height" data-thumb="'. $thumb .'">';
+
+			if($mask == 'sim')
+				echo '<a href="'. $url .'" class="small-12 slider-mask d-block full-height abs left-axy" title=""></a>';
 		?>
-			<a href="<?php echo $url; ?>" class="small-12 slider-mask d-block full-height abs left-axy" title=""></a>
+			
 
 			<?php
 				if($video && !empty($video)):
 			?>
-			<video class="abs small-12 left-axy" loop="" autoplay="" muted="">
-	            <source src="<?php echo $video; ?>" type="video/mp4">
-	        </video>
+	        <video class="abs small-12 left-axy" controls>
+				<source id="mp4_src"
+				        src="<?php echo $video; ?>"
+				        type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+				</source>
+				<?php
+					if($video_3gp):
+				?>
+				<source id="3gp_src"
+				        src="<?php echo $video_3gp; ?>"
+				        type='video/3gpp; codecs="mp4v.20.8, samr"'>
+				</source>
+				<?php
+					endif;
+					if($video_ogv):
+				?>
+				<source id="ogg_src"
+				        src="<?php echo $video_ogv; ?>"
+				        type='video/ogg; codecs="theora, vorbis"'>
+				</source>
+				<?php
+					endif;
+				?>
+			</video>
 	    	<?php endif; ?>
-
 			
 			<div class="row rel d-table slider-content" style="<?php echo "height:{$height};"; ?>">
 				<a href="<?php echo $url; ?>" class="small-12 slider-link d-block full-height abs left-axy" title=""></a>

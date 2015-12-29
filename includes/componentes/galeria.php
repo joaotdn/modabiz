@@ -76,7 +76,7 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
 ?>
 			<figure class="small-6 columns grid-item">
 
-				<a href="<?php echo $url; ?>" class="d-block small-12 left rel" <?php if($video && !empty($video)) echo 'data-reveal-id="video-' . $post->ID . '"'; ?>>
+				<a href="<?php echo $url; ?>" class="d-block small-12 left rel" <?php if($video && !empty($video)) echo 'data-reveal-id="video-' . $post->ID . '"'; echo ' data-videoid="'. $post->ID .'"'; ?>>
 
 					<img src="<?php echo $th; ?>" alt="" class="grid-thumb">
 					
@@ -125,7 +125,6 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
 				?>
 				<div id="video-<?php echo $post->ID; ?>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 					<div class="divide-20"></div>
-					<div class="flex-video small-12 left"><?php echo $video; ?></div>
 			  		<a class="close-reveal-modal" aria-label="Close">&#215;</a>
 				</div>
 				<?php

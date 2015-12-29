@@ -118,13 +118,14 @@
 			<?php
 				endif;
 			?>
-			<nav class="share-footer small-12 left show-for-large-up text-center">
+			
+			<!--<nav class="share-footer small-12 left show-for-large-up text-center">
 				<ul class="inline-list d-iblock no-margin">
 					<li><div class="fb-like" data-layout="button_count" data-href="<?php echo home_url();?>"></div></li>
 					<li><a class="twitter-share-button" href="https://twitter.com/intent/tweet?url=<?php echo home_url();?>">Tweet</a></li>
 					<li><div class="g-plusone" data-size="medium" data-width="65" data-href="<?php echo home_url();?>"></div></li>
 				</ul>
-			</nav>
+			</nav>-->
   		</section>
 
   		<nav id="footer-menu" class="small-12 medium-4 columns show-for-medium-up text-center">
@@ -163,7 +164,60 @@
 
   <a href="#" class="close-menu close-canvas"></a>
   <?php wp_footer(); ?>
+
   <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+  <style>
+	.twitter-typeahead .tt-query,
+	.twitter-typeahead .tt-hint {
+		margin-bottom: 0;
+	}
+	.tt-hint {
+		display: block;
+		width: 100%;
+		height: 38px;
+		padding: 8px 12px;
+		font-size: 14px;
+		line-height: 1.428571429;
+		color: #999;
+		vertical-align: middle;
+		background-color: #ffffff;
+		border: 1px solid #cccccc;
+		border-radius: 4px;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+		      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+		-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+		      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	}
+	.tt-dropdown-menu {
+		min-width: 160px;
+		margin-top: 2px;
+		padding: 5px 0;
+		background-color: #ffffff;
+		border: 1px solid #cccccc;
+		border: 1px solid rgba(0, 0, 0, 0.15);
+		border-radius: 4px;
+		-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+		      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+		background-clip: padding-box;
+
+	}
+	.tt-suggestion {
+		display: block;
+		padding: 3px 20px;
+	}
+	.tt-suggestion.tt-is-under-cursor {
+		color: #fff;
+		background-color: #428bca;
+	}
+	.tt-suggestion.tt-is-under-cursor a {
+		color: #fff;
+	}
+	.tt-suggestion p {
+		margin: 0;
+	}
+  </style>
+  
+
    
   </body>
 </html>

@@ -71,6 +71,32 @@
 								}
 							});
 						}
+
+						$('#map-info')
+							.find('[data-title]').text(location.nome)
+							.end()
+							.find('[data-tipo]').text(location.tipo)
+							.end()
+							.find('[data-local]').text(location.endereco)
+							.end()
+							.find('[data-cep]').text('CEP: ' + location.cep)
+							.end()
+							.find('[data-uf]').text(location.uf)
+							.end()
+							.find('[data-tel]').text(location.telefones)
+							.end()
+							.find('[data-email]').text(location.email);
+
+							if(location.facebook !== "")
+								$('#map-info').find('[data-facebook]').html('<h1><a href="' + location.facebook + '" class="icon-facebook-with-circle" target="_blank"></a></h1>');
+
+							if(location.instagram !== "")
+								$('#map-info').find('[data-instagram]').html('<h1><a href="' + location.instagram + '" class="icon-instagram-with-circle" target="_blank"></a></h1>');
+
+							$('#map-info, #map-info > .row').addClass('active');
+							/*var ht = $('#map-info').position().top;
+							var body = $("html, body");
+							body.stop().animate({scrollTop:ht}, '500', 'swing');*/
 					});
 
 					google.maps.event.addListener(marker, 'mouseover', function() {
@@ -200,67 +226,7 @@
 			}
 		});
 		var hTml;
-		angular.module('modaBizApp', ['mm.foundation'])
-			.controller('TypeaheadCtrl', ['$scope','$http', function($scope,$http){
-				$scope.selected = undefined;
-				
-				$scope.dataLocation = function(arg) {
-					return $http.get($('#map-layer').attr('data-arraylocal'), {
-				      params: {
-				      }
-				    }).then(function(res){
-				      //var positions = [];
-				      angular.forEach(res.data, function(item){
-				        if(arg === item.endereco_formatado) {
-				        	mapLayer.setCenter(new google.maps.LatLng(item.lat,item.lng));
 
-				        	//peque os dados do local
-							var location = {
-								nome: item.nome,
-								tipo: item.tipo,
-								endereco: item.endereco,
-								cep: item.cep,
-								uf: item.uf,
-								horarios: item.horarios,
-								telefones: item.telefones,
-								whatsapp: item.whatsapp,
-								facebook: item.facebook,
-								instagram: item.instagram,
-								email: item.email,
-								lat: item.lat,
-								lng: item.lng
-							};
-				        	
-				        	(function(location) {
-				        		if($('.map-info-block').length) {
-									$('.map-info-block')
-										.addClass('active');
-									return locationsData(location);
-								}
-				        	})(location);
-				        }
-				      });
-				    });
-				};
-
-				$scope.getLocation = function(val) {
-				    return $http.get($('#map-layer').attr('data-arraylocal'), {
-				      params: {
-				        address: val,
-				        //sensor: false
-				      }
-				    }).then(function(res){
-				      var addresses = [];
-
-				      angular.forEach(res.data, function(item){
-				        addresses.push(item.endereco_formatado);
-				        //console.log($http);
-				      });
-
-				      return addresses;
-				    });
-				};
-			}]);
 		
 		//reutilize esta função para aplicar consultas
 		function locationsData(location) {
@@ -330,24 +296,107 @@
 				$('.local-social').html('');
 			}
 		}
-	}
 
-	if($('#mapInner').length) {
-		//var mapInner = document.getElementById('map-layer');
+		var my_Suggestion_class = new Bloodhound({
+		    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('vval'),
+		    queryTokenizer: Bloodhound.tokenizers.whitespace,
+		    prefetch: {
+		        url: getData.urlDir + '/places.json',
+		        filter: function(countryArray) {
+		            return $.map(countryArray, function(country) {
+		                return {vval: country.nome + ' - ' + country.uf};
+		            });
+		            //return catAR;
+		        }
+		    },
+		    /*remote: {
+		        url: getData.urlDir + '/places.json',
+		        filter: function(x) {
+		            return $.map(x, function(item) {
+		                return {vval: item.nome + ' - ' + item.uf, city: item.uf};
+		            });
+		        },
+		        wildcard: "%QUERY"
+		    }*/
+	    });
 
-		$('.item-local','#mapInner').each(function() {
-			$(this).on('click',function(e) {
-				var lat = $(this).data('lat'),
-					lng = $(this).data('lng');
-				
-				$(this).addClass('active')
-				.siblings('.item-local').removeClass('active');
+	    // Initialize Typeahead with Parameters
+	    my_Suggestion_class.initialize();
 
-				mapLayer.setCenter(new google.maps.LatLng(lat, lng));
-				
-				//alert(lat + ' - ' + lng);
-			});
-			
+	    var typeahead_elem = $('.typeahead');
+
+	    typeahead_elem.typeahead({
+	        hint: false,
+	        highlight: true,
+	        minLength: 1
+	    },
+	    {
+	        name: 'vval',
+	        displayKey: 'vval',
+	        source: my_Suggestion_class.ttAdapter()
+	    });
+
+	    $('input').on([
+	        'typeahead:initialized',
+	        'typeahead:initialized:err',
+	        'typeahead:selected',
+	        'typeahead:autocompleted',
+	        'typeahead:cursorchanged',
+	        'typeahead:opened',
+	        'typeahead:closed'
+	    ].join(' '), function(x) {
+
+	    	var v = this.value;
+
+	        $.getJSON(getData.urlDir + '/places.json', function(json, textStatus) {
+	        	//Avise se o json não estiver presente
+				if(json) places = json; else alert(textStatus);
+
+				//console.log(places);
+				len = places.length;
+
+				for(var j = 0; j < len; j++) {
+					var place = places[j];
+					if(v == place.nome + ' - ' + place.uf) {
+						mapLayer.setCenter(new google.maps.LatLng(place.lat, place.lng));
+						$('#map-info')
+							.find('[data-title]').text(place.nome)
+							.end()
+							.find('[data-tipo]').text(place.tipo)
+							.end()
+							.find('[data-local]').text(place.endereco)
+							.end()
+							.find('[data-cep]').text('CEP: ' + place.cep)
+							.end()
+							.find('[data-uf]').text(place.uf)
+							.end()
+							.find('[data-tel]').text(place.telefones)
+							.end()
+							.find('[data-email]').text(place.email);
+
+						if(place.facebook !== "")
+							$('#map-info').find('[data-facebook]').html('<h1><a href="' + place.facebook + '" class="icon-facebook-with-circle" target="_blank"></a></h1>');
+
+						if(place.instagram !== "")
+							$('#map-info').find('[data-instagram]').html('<h1><a href="' + place.instagram + '" class="icon-instagram-with-circle" target="_blank"></a></h1>');
+
+						/*if(place.twitter !== "")
+							$('#map-info').find('[data-twitter]').html('<a href="' + place.twitter + '" class="icon-twitter3" target="_blank"></a>');*/
+						$('#map-info, #map-info > .row').addClass('active');
+							/*var ht = $('#map-info').position().top;
+							var body = $("html, body");
+							body.stop().animate({scrollTop:ht}, '500', 'swing');*/
+					}
+				}
+	        });
+
+	    });
+
+		$('.icon-cross','#map-info').on('click',function() {
+			$('#map-info, #map-info > .row').removeClass('active');
 		});
 	}
+
+    
+	
 })();
