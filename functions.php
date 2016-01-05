@@ -1,5 +1,5 @@
 <?php
-define('THEME_VERSION', '1.0.1');
+define('THEME_VERSION', '1.0.3');
 define('THEME_ICON', get_stylesheet_directory_uri() . '/images/icon.png');
 error_reporting(E_ERROR | E_PARSE);
 
@@ -76,6 +76,9 @@ include_once( get_stylesheet_directory() . '/includes/post-types/galeria.php' );
 //LOCALIZAÇÕES
 include_once( get_stylesheet_directory() . '/includes/post-types/localizacoes.php' );
 
+//LOOKBOOK
+include_once( get_stylesheet_directory() . '/includes/post-types/lookbook.php' );
+
 /**
  * Opções gerais para a aplicação e seus
  * componentes
@@ -89,6 +92,9 @@ require_once (dirname(__FILE__) . '/includes/functions/componentes.instagram.per
 
 //Funções ajax para galeria
 require_once (dirname(__FILE__) . '/includes/functions/componentes.galeria.php');
+
+//Breadcrumb
+require_once (dirname(__FILE__) . '/includes/functions/breadcrumb.php');
 
 /**
  * Incorpore scripts essenciais para toda a
@@ -138,6 +144,9 @@ function add_menu_icons_styles() {
     }
     #menu-posts-localizacao div.wp-menu-image:before {
       content: "\f231";
+    }
+    #menu-posts-lookbook div.wp-menu-image:before {
+      content: "\f507";
     }
     </style>
 
