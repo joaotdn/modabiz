@@ -79,6 +79,9 @@ include_once( get_stylesheet_directory() . '/includes/post-types/localizacoes.ph
 //LOOKBOOK
 include_once( get_stylesheet_directory() . '/includes/post-types/lookbook.php' );
 
+//CAMPANHA
+include_once( get_stylesheet_directory() . '/includes/post-types/campanha.php' );
+
 /**
  * Opções gerais para a aplicação e seus
  * componentes
@@ -95,6 +98,27 @@ require_once (dirname(__FILE__) . '/includes/functions/componentes.galeria.php')
 
 //Breadcrumb
 require_once (dirname(__FILE__) . '/includes/functions/breadcrumb.php');
+
+//Enviar peça do lookbook de presente
+require_once (dirname(__FILE__) . '/includes/functions/lookbook.presente.php');
+
+/**
+ * Cofugurações SMTP
+ */
+
+/** Mudar email e nome de email padrões */
+add_filter('wp_mail_from_name', 'new_mail_from_name');
+function new_mail_from_name($old) {
+ return get_bloginfo( 'name' );
+}
+add_filter('wp_mail_from', 'new_mail_from');
+function new_mail_from($old) {
+ global $plandd_option;
+ return $plandd_option['corp-email'];
+}
+if ( !function_exists('wp_new_user_notification') ) :
+function wp_new_user_notification( $user_id, $notify = '' ) { }
+endif;
 
 /**
  * Incorpore scripts essenciais para toda a
@@ -147,6 +171,9 @@ function add_menu_icons_styles() {
     }
     #menu-posts-lookbook div.wp-menu-image:before {
       content: "\f507";
+    }
+    #menu-posts-campanha div.wp-menu-image:before {
+      content: "\f488";
     }
     </style>
 

@@ -2,6 +2,7 @@
   global $plandd_option;
   $gmap_api = $plandd_option['comp-geo-api'];
   $icon = $plandd_option['app-favicon']['url'];
+  $page_resposta = get_page_by_title( 'Resposta' );
 ?>
 <!doctype html>
 <html class="no-js" lang="pt-br">
@@ -24,7 +25,8 @@
       //<![CDATA[
       var getData = {
         'urlDir':'<?php bloginfo('template_directory');?>/',
-        'ajaxDir':'<?php echo stripslashes(get_admin_url()).'admin-ajax.php';?>'
+        'ajaxDir':'<?php echo stripslashes(get_admin_url()).'admin-ajax.php';?>',
+        'resposta': '<?php echo get_page_link( $page_resposta->ID ); ?>'
       }
       //]]>
     </script>

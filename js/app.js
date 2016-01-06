@@ -28,6 +28,9 @@ $(document).on('mouseover', '*[data-hover]', function(event) {
 	});
 });
 
+$('.item-th').zoom();
+$('.meter-list').perfectScrollbar();
+
 //Topo
 //------------------------------------------------------------------------
 
@@ -85,6 +88,92 @@ $(document).on('click', '.close-menu,.open-menu', function(event) {
         });
     }
 
+    var lookbook = $("#look-slider");
+
+    if(lookbook.length) {
+        lookbook.owlCarousel({
+            responsiveBaseWidth: $(".list-items-look"),
+            responsive: true,
+            responsiveRefreshRate: 200,
+            pagination: true,
+            autoPlay: false,
+            rewindNav: true,
+            rewindSpeed: 1000,
+            loop: true,
+            singleItem: true,
+            rewindNav: true,
+            rewindSpeed: 300
+        });
+
+        $(".next-lookbook").click(function(e) {
+            e.preventDefault();
+            lookbook.trigger('owl.next');
+        });
+        $(".prev-lookbook").click(function(e) {
+            e.preventDefault();
+            lookbook.trigger('owl.prev');
+        });
+    }
+
+    var carousel = $("#campaing-carousel");
+    carousel.owlCarousel({
+        responsive: true,
+        responsiveBaseWidth: $("#campaing-carousel"),
+        pagination: false,
+        itemsCustom: [
+            [200, 3],
+            [700, 6],
+            [800, 10],
+        ],
+        //rewindNav: false,
+        rewindSpeed: 300,
+    });
+    $(".prev-carousel").click(function(e){
+        e.preventDefault();
+        carousel.trigger('owl.next');
+
+        reloadActiveThumb();
+    });
+
+    $(".next-carousel").click(function(e){
+        e.preventDefault();
+        carousel.trigger('owl.prev');
+
+        reloadActiveThumb();
+    });
+
+    //instancias
+    var owl = $("#look-slider").data('owlCarousel'), car = $("#campaing-carousel").data('owlCarousel');
+
+    //navegação do slider
+    $(".prev-campaing").click(function(e){
+        e.preventDefault();
+        partners.trigger('owl.next');
+
+        reloadActiveThumb();
+    });
+
+    $(".next-campaing").click(function(e){
+        e.preventDefault();
+        partners.trigger('owl.prev');
+
+        reloadActiveThumb();
+    });
+
+    $('.owl-item','#campaing-carousel').each(function(i) {
+      if(i == 0)
+        $('figure',this).addClass('active');
+
+      $('figure',this).on('click',function() {
+        $(this).addClass('active')
+        .parents('div').siblings('div')
+        .find('figure').removeClass('active');
+
+        owl.goTo(i);
+      });
+
+    });
+
     
 })();
 
@@ -115,4 +204,24 @@ $(document).on('click', '[data-videoid]', function(event) {
 $(document).on('close.fndtn.reveal', '[data-reveal]', function () {
   var modal = $(this);
   modal.find('.flex-video').remove();
+});
+
+//Enviar item lookbook de presente
+//------------------------------------------------------------------------
+$(document).on('submit','.gift-form',function(e) {
+    e.preventDefault();
+    var data_f = $(this).serialize();
+
+    $.ajax({
+        data: {
+            action: 'lookbook_presente',
+            form_data: data_f
+        },
+        success: function(data) {
+            if(data !== "true")
+                alert(data);
+            else
+                window.location.href = getData.resposta;
+        }
+    });
 });
