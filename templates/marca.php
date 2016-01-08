@@ -12,7 +12,7 @@
 
   global $plandd_option;
 
-  $layout = $plandd_option['temp-marca-blocks-layout']['topo'];
+  $layout = $plandd_option['temp-revendedor-blocks-layout']['topo'];
 
   if ($layout): foreach ($layout as $key=>$value) {
    
@@ -164,7 +164,7 @@ endif;
 
   //footer
 
-  $layout = $plandd_option['temp-marca-blocks-layout']['rodape'];
+  $layout = $plandd_option['temp-revendedor-blocks-layout']['rodape'];
 
   if ($layout): foreach ($layout as $key=>$value) {
    

@@ -51,7 +51,7 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
 			<?php
 				if($video && !empty($video)):
 			?>
-	        <video class="abs small-12 left-axy" controls>
+	        <video class="abs small-12 left-axy" autoplay muted loop>
 				<source id="mp4_src"
 				        src="<?php echo $video; ?>"
 				        type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>

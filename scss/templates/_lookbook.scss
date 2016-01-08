@@ -1,4 +1,4 @@
-#look-header {
+#look-header, #camp-header {
 	height: rem-calc(580);
 	overflow: hidden;
 
@@ -14,7 +14,7 @@
 	}
 }
 
-#look-list {
+#look-list, #camp-list {
 	img {
 		@extend %transition;
 	}
@@ -90,6 +90,9 @@
 
 //interna
 #look-slider {
+	z-index: 999;
+}
+#look-slider, #camp-slider {
 	overflow: hidden;
 	img {
 		height: 100%;
@@ -125,7 +128,7 @@
 		}
 	}
 }
-.share-look {
+.share-look, .share-camp {
 	.share-icons {
 		left: 0;
 		top: rem-calc(67);

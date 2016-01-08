@@ -1,0 +1,8 @@
+#panel-revendedor {
+	.d-table {
+		height: rem-calc(600);
+	}
+	.mask {
+		@extend %full-height;
+	}
+}

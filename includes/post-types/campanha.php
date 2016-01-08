@@ -40,6 +40,28 @@ function campanha_init() {
       );
 
     register_post_type( 'campanha', $args );
+
+    register_taxonomy('colecao-camapanha', 'campanha', array(
+        'hierarchical' => true,
+        'labels' => array(
+          'name' => _x( 'Coleção', '' ),
+          'singular_name' => _x( 'Coleção', '' ),
+          'search_items' =>  __( 'Buscar Coleção' ),
+          'all_items' => __( 'Todas' ),
+          'parent_item' => __( 'Coleçõess' ),
+          'parent_item_colon' => __( 'Coleção:' ),
+          'edit_item' => __( 'Editar Coleção' ),
+          'update_item' => __( 'Atualizar Coleção' ),
+          'add_new_item' => __( 'Adicionar nova Coleção' ),
+          'new_item_name' => __( 'Nova' ),
+          'menu_name' => __( 'Coleções' ),
+        ),
+        'rewrite' => array(
+          'slug' => 'colecao-camapanha',
+          'with_front' => false,
+          'hierarchical' => true
+        ),
+    ));
 }
 add_action( 'init', 'campanha_init' );
 ?>

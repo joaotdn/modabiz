@@ -12,7 +12,7 @@
 
   global $plandd_option;
 
-  $layout = $plandd_option['temp-revenda-blocks-layout']['topo'];
+  $layout = $plandd_option['temp-revenda-blocks-template']['topo'];
 
   if ($layout): foreach ($layout as $key=>$value) {
    
@@ -126,7 +126,7 @@ $header = $plandd_option['comp-geo-header'];
 <?php
   //footer
 
-  $layout = $plandd_option['temp-revenda-blocks-layout']['rodape'];
+  $layout = $plandd_option['temp-revenda-blocks-template']['rodape'];
 
   if ($layout): foreach ($layout as $key=>$value) {
    

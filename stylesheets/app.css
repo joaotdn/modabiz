@@ -2184,7 +2184,7 @@ label.error {
   }
 
   /* line 168, ../bower_components/foundation/scss/foundation/components/_grid.scss */
-  .small-12, .divide-10, .divide-20, .divide-30, .divide-40, #list-menu ul, .close-canvas, #main-painel .owl-controls, .collapse li img, .twitter-typeahead, #look-header video, #look-header .mask, .share-icons a {
+  .small-12, .divide-10, .divide-20, .divide-30, .divide-40, #list-menu ul, .close-canvas, #main-painel .owl-controls, .collapse li img, .twitter-typeahead, #look-header video, #camp-header video, #look-header .mask, #camp-header .mask, .share-icons a {
     width: 100%;
   }
 
@@ -4913,14 +4913,14 @@ th.hide-for-touch {
 }
 /* line 2, ../scss/_modules.scss */
 .show-onload, #list-menu, #main-menu-mo, #main-painel .owl-controls span, .slider-button, .button-cadastro, .comp-post, .comp-post > div, .grid-item figcaption, .grid-item figcaption hgroup, .grid-item figcaption span, .grid-thumb, .grid-item h2, .grid-item h4, .geo-btn,
-#comp-geo input[type="text"], #map-info, #map-info .icon-cross, .reven-btn, #look-list img, .share-item, .share-icons {
+#comp-geo input[type="text"], #map-info, #map-info .icon-cross, .reven-btn, #look-list img, #camp-list img, .share-item, .share-icons {
   transition: all .3s linear !important;
   -webkit-transition: all .3s linear !important;
   -moz-transition: all .3s linear !important;
 }
 
 /* line 8, ../scss/_modules.scss */
-.full-height, .comp-post > div, .slider-items, #look-header .mask {
+.full-height, .comp-post > div, .slider-items, #look-header .mask, #camp-header .mask, #panel-revendedor .mask {
   height: 100%;
 }
 
@@ -5253,7 +5253,7 @@ th.hide-for-touch {
 }
 
 /* line 238, ../scss/_modules.scss */
-.abs, #look-header .mask {
+.abs, #look-header .mask, #camp-header .mask {
   position: absolute;
 }
 
@@ -5870,22 +5870,22 @@ a {
   }
 }
 /* line 1, ../scss/templates/_lookbook.scss */
-#look-header {
+#look-header, #camp-header {
   height: 36.25rem;
   overflow: hidden;
 }
 /* line 5, ../scss/templates/_lookbook.scss */
-#look-header video {
+#look-header video, #camp-header video {
   height: auto;
 }
 
 /* line 23, ../scss/templates/_lookbook.scss */
-#look-list a:hover > img {
+#look-list a:hover > img, #camp-list a:hover > img {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
 }
 /* line 31, ../scss/templates/_lookbook.scss */
-#look-list .grid-item:hover .share-item {
+#look-list .grid-item:hover .share-item, #camp-list .grid-item:hover .share-item {
   opacity: 1;
   visibility: visible;
 }
@@ -5944,24 +5944,29 @@ a {
 
 /* line 92, ../scss/templates/_lookbook.scss */
 #look-slider {
+  z-index: 999;
+}
+
+/* line 95, ../scss/templates/_lookbook.scss */
+#look-slider, #camp-slider {
   overflow: hidden;
 }
-/* line 94, ../scss/templates/_lookbook.scss */
-#look-slider img {
+/* line 97, ../scss/templates/_lookbook.scss */
+#look-slider img, #camp-slider img {
   height: 100%;
   width: auto;
   max-width: none;
 }
 
-/* line 101, ../scss/templates/_lookbook.scss */
+/* line 104, ../scss/templates/_lookbook.scss */
 #item-choices ul {
   overflow: visible;
 }
-/* line 104, ../scss/templates/_lookbook.scss */
+/* line 107, ../scss/templates/_lookbook.scss */
 #item-choices li {
   margin: 0;
 }
-/* line 107, ../scss/templates/_lookbook.scss */
+/* line 110, ../scss/templates/_lookbook.scss */
 #item-choices li a {
   width: 4.1875rem;
   height: 4.1875rem;
@@ -5970,75 +5975,75 @@ a {
   border-width: 3px;
   border-left-width: 0px;
 }
-/* line 116, ../scss/templates/_lookbook.scss */
+/* line 119, ../scss/templates/_lookbook.scss */
 #item-choices li a img {
   width: 1.8625rem;
   height: auto;
 }
-/* line 122, ../scss/templates/_lookbook.scss */
+/* line 125, ../scss/templates/_lookbook.scss */
 #item-choices li:first-child a {
   border-left-width: 3px;
 }
 
-/* line 129, ../scss/templates/_lookbook.scss */
-.share-look .share-icons {
+/* line 132, ../scss/templates/_lookbook.scss */
+.share-look .share-icons, .share-camp .share-icons {
   left: 0;
   top: 4.1875rem;
 }
-/* line 134, ../scss/templates/_lookbook.scss */
-.share-look:hover .share-icons {
+/* line 137, ../scss/templates/_lookbook.scss */
+.share-look:hover .share-icons, .share-camp:hover .share-icons {
   visibility: visible;
   opacity: 1;
 }
 
-/* line 140, ../scss/templates/_lookbook.scss */
+/* line 143, ../scss/templates/_lookbook.scss */
 .info-meters {
   padding: 1.25rem 0;
   background-color: #f0f0f0;
 }
-/* line 144, ../scss/templates/_lookbook.scss */
+/* line 147, ../scss/templates/_lookbook.scss */
 .info-meters li {
   padding-bottom: 0;
 }
 
-/* line 148, ../scss/templates/_lookbook.scss */
+/* line 151, ../scss/templates/_lookbook.scss */
 .meter-list {
   height: 13.75rem;
   position: relative;
   overflow: hidden;
 }
-/* line 152, ../scss/templates/_lookbook.scss */
+/* line 155, ../scss/templates/_lookbook.scss */
 .meter-list > ul li {
   border-bottom: 1px solid #eaeaea;
   padding: 0.625rem 0;
 }
-/* line 156, ../scss/templates/_lookbook.scss */
+/* line 159, ../scss/templates/_lookbook.scss */
 .meter-list > ul li li {
   padding-bottom: 0;
   border-bottom: none;
 }
 
-/* line 162, ../scss/templates/_lookbook.scss */
+/* line 165, ../scss/templates/_lookbook.scss */
 .list-choices {
   list-style: none;
 }
-/* line 164, ../scss/templates/_lookbook.scss */
+/* line 167, ../scss/templates/_lookbook.scss */
 .list-choices li {
   float: left;
 }
 
-/* line 169, ../scss/templates/_lookbook.scss */
+/* line 172, ../scss/templates/_lookbook.scss */
 #campaing-carousel, #campaing-carousel .owl-wrapper-outer, #campaing-carousel .owl-wrapper, #campaing-carousel .owl-item {
   height: 6.25rem;
   overflow: hidden;
 }
-/* line 173, ../scss/templates/_lookbook.scss */
+/* line 176, ../scss/templates/_lookbook.scss */
 #campaing-carousel .item, #campaing-carousel .owl-wrapper-outer .item, #campaing-carousel .owl-wrapper .item, #campaing-carousel .owl-item .item {
   width: 6.25rem;
   height: 100%;
 }
 
-/* line 178, ../scss/templates/_lookbook.scss */
+/* line 181, ../scss/templates/_lookbook.scss */
 .nav-thumbs {
   font-size: 1.375rem;
   line-height: 100px;
@@ -6046,44 +6051,44 @@ a {
   z-index: 999;
 }
 
-/* line 184, ../scss/templates/_lookbook.scss */
+/* line 187, ../scss/templates/_lookbook.scss */
 .next-carousel {
   right: 0.625rem;
 }
 
-/* line 187, ../scss/templates/_lookbook.scss */
+/* line 190, ../scss/templates/_lookbook.scss */
 .prev-carousel {
   left: 0.625rem;
 }
 
-/* line 191, ../scss/templates/_lookbook.scss */
+/* line 194, ../scss/templates/_lookbook.scss */
 #campaing-carousel figure {
   opacity: .8;
   cursor: pointer;
 }
-/* line 194, ../scss/templates/_lookbook.scss */
+/* line 197, ../scss/templates/_lookbook.scss */
 #campaing-carousel figure.active {
   opacity: 1;
 }
 
-/* line 200, ../scss/templates/_lookbook.scss */
+/* line 203, ../scss/templates/_lookbook.scss */
 .nav-lookbook {
   top: 0;
   font-size: 2.25rem;
   z-index: 9999;
 }
 
-/* line 205, ../scss/templates/_lookbook.scss */
+/* line 208, ../scss/templates/_lookbook.scss */
 .prev-lookbook {
   right: 1.25rem;
 }
 
-/* line 208, ../scss/templates/_lookbook.scss */
+/* line 211, ../scss/templates/_lookbook.scss */
 .next-lookbook {
   left: 1.25rem;
 }
 
-/* line 213, ../scss/templates/_lookbook.scss */
+/* line 216, ../scss/templates/_lookbook.scss */
 .gift-form button {
   background-color: transparent;
   border: 4px solid #333;
@@ -6093,26 +6098,31 @@ a {
 }
 
 @media only screen and (max-width: 40em) {
-  /* line 224, ../scss/templates/_lookbook.scss */
+  /* line 227, ../scss/templates/_lookbook.scss */
   #look-header, .nav-lookbook {
     height: 12.5rem;
   }
-  /* line 226, ../scss/templates/_lookbook.scss */
+  /* line 229, ../scss/templates/_lookbook.scss */
   #look-header h1, .nav-lookbook h1 {
     font-size: 1.375rem !important;
   }
 
-  /* line 230, ../scss/templates/_lookbook.scss */
+  /* line 233, ../scss/templates/_lookbook.scss */
   #look-slider, .list-items-look, .list-items-look figure {
     height: 18.75rem !important;
   }
 }
 @media only screen and (min-width: 40.0625em) and (max-width: 64em) {
-  /* line 236, ../scss/templates/_lookbook.scss */
+  /* line 239, ../scss/templates/_lookbook.scss */
   #look-slider, .list-items-look, .list-items-look figure, .nav-lookbook {
     height: 37.5rem !important;
   }
 }
+/* line 2, ../scss/templates/_revendedor.scss */
+#panel-revendedor .d-table, #panel-revendedor #map-info > .row {
+  height: 37.5rem;
+}
+
 /* line 1, ../scss/templates/_resposta.scss */
 #resposta {
   height: 62.5rem;
@@ -6148,14 +6158,14 @@ iframe[id^="oauth"] {
 }
 
 @media only screen and (max-width: 40em) {
-  /* line 68, ../scss/app.scss */
+  /* line 69, ../scss/app.scss */
   .row {
     width: 20rem;
     max-width: none;
   }
 }
 @media only screen and (min-width: 40.0625em) and (max-width: 64em) {
-  /* line 74, ../scss/app.scss */
+  /* line 75, ../scss/app.scss */
   .row {
     width: 45.5rem;
     max-width: none;

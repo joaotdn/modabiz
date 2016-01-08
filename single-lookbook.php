@@ -72,9 +72,6 @@ endif;
                 </a>
 
                 <nav id="look-slider" class="small-12 left rel">
-
-                    
-
                     <?php
                         $items = get_field('look_items');
                         $thumbs = array();

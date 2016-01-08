@@ -300,16 +300,17 @@
 		var my_Suggestion_class = new Bloodhound({
 		    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('vval'),
 		    queryTokenizer: Bloodhound.tokenizers.whitespace,
-		    prefetch: {
+		    /*prefetch: {
 		        url: getData.urlDir + '/places.json',
 		        filter: function(countryArray) {
 		            return $.map(countryArray, function(country) {
 		                return {vval: country.nome + ' - ' + country.uf};
 		            });
 		            //return catAR;
-		        }
-		    },
-		    /*remote: {
+		        },
+		        cache: false
+		    },*/
+		    remote: {
 		        url: getData.urlDir + '/places.json',
 		        filter: function(x) {
 		            return $.map(x, function(item) {
@@ -317,7 +318,7 @@
 		            });
 		        },
 		        wildcard: "%QUERY"
-		    }*/
+		    }
 	    });
 
 	    // Initialize Typeahead with Parameters
