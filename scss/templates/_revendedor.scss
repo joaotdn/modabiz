@@ -6,3 +6,68 @@
 		@extend %full-height;
 	}
 }
+.reven-btn-join {
+	@extend %transition;
+}
+#reven-form {
+	form {
+		display: none;
+		&.active {
+			display: block;
+		}
+	}
+	header {
+		h2 {
+			font-size: rem-calc(30);
+		}
+	}
+	nav {
+		a {
+			@extend .d-block;
+			padding: rem-calc(20 0);
+			font-size: rem-calc(18);
+			opacity: .7;
+
+			&.active {
+				background-color: #fff;
+				opacity: 1;
+				text-decoration: underline;
+			}
+		}
+	}
+	p {
+		@extend .no-margin;
+	}
+
+	input {
+		padding: rem-calc(30 20);
+		&[type="file"] {
+			display: none;
+		}
+		&[type="checkbox"] {
+			@include translateY(rem-calc(2));
+		}
+	}
+
+	span {
+		line-height: 50px;
+		font-size: rem-calc(13);
+	}
+
+	label {
+		font-size: rem-calc(14);
+	}
+}
+
+.forms-content {
+	padding: rem-calc(40 20);
+}
+
+.reven-info {
+	li {
+		margin-bottom: rem-calc(0);
+		span {
+			font-size: rem-calc(16);
+		}
+	}
+}

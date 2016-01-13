@@ -4913,7 +4913,7 @@ th.hide-for-touch {
 }
 /* line 2, ../scss/_modules.scss */
 .show-onload, #list-menu, #main-menu-mo, #main-painel .owl-controls span, .slider-button, .button-cadastro, .comp-post, .comp-post > div, .grid-item figcaption, .grid-item figcaption hgroup, .grid-item figcaption span, .grid-thumb, .grid-item h2, .grid-item h4, .geo-btn,
-#comp-geo input[type="text"], #map-info, #map-info .icon-cross, .reven-btn, #look-list img, #camp-list img, .share-item, .share-icons {
+#comp-geo input[type="text"], #map-info, #map-info .icon-cross, .reven-btn, #look-list img, #camp-list img, .share-item, .share-icons, .reven-btn-join {
   transition: all .3s linear !important;
   -webkit-transition: all .3s linear !important;
   -moz-transition: all .3s linear !important;
@@ -5227,7 +5227,7 @@ th.hide-for-touch {
 }
 
 /* line 220, ../scss/_modules.scss */
-.d-block, .share-icons a, #item-choices li a {
+.d-block, .share-icons a, #item-choices li a, #reven-form nav a {
   display: block;
 }
 
@@ -5271,7 +5271,7 @@ th.hide-for-touch {
 }
 
 /* line 262, ../scss/_modules.scss */
-.no-margin {
+.no-margin, #reven-form p {
   margin: 0 !important;
 }
 
@@ -6121,6 +6121,69 @@ a {
 /* line 2, ../scss/templates/_revendedor.scss */
 #panel-revendedor .d-table, #panel-revendedor #map-info > .row {
   height: 37.5rem;
+}
+
+/* line 13, ../scss/templates/_revendedor.scss */
+#reven-form form {
+  display: none;
+}
+/* line 15, ../scss/templates/_revendedor.scss */
+#reven-form form.active {
+  display: block;
+}
+/* line 20, ../scss/templates/_revendedor.scss */
+#reven-form header h2 {
+  font-size: 1.875rem;
+}
+/* line 25, ../scss/templates/_revendedor.scss */
+#reven-form nav a {
+  padding: 1.25rem 0;
+  font-size: 1.125rem;
+  opacity: .7;
+}
+/* line 31, ../scss/templates/_revendedor.scss */
+#reven-form nav a.active {
+  background-color: #fff;
+  opacity: 1;
+  text-decoration: underline;
+}
+/* line 42, ../scss/templates/_revendedor.scss */
+#reven-form input {
+  padding: 1.875rem 1.25rem;
+}
+/* line 44, ../scss/templates/_revendedor.scss */
+#reven-form input[type="file"] {
+  display: none;
+}
+/* line 47, ../scss/templates/_revendedor.scss */
+#reven-form input[type="checkbox"] {
+  -moz-transform: translateY(0.125rem);
+  -ms-transform: translateY(0.125rem);
+  -webkit-transform: translateY(0.125rem);
+  transform: translateY(0.125rem);
+}
+/* line 52, ../scss/templates/_revendedor.scss */
+#reven-form span {
+  line-height: 50px;
+  font-size: 0.8125rem;
+}
+/* line 57, ../scss/templates/_revendedor.scss */
+#reven-form label {
+  font-size: 0.875rem;
+}
+
+/* line 62, ../scss/templates/_revendedor.scss */
+.forms-content {
+  padding: 2.5rem 1.25rem;
+}
+
+/* line 67, ../scss/templates/_revendedor.scss */
+.reven-info li {
+  margin-bottom: 0;
+}
+/* line 69, ../scss/templates/_revendedor.scss */
+.reven-info li span {
+  font-size: 1rem;
 }
 
 /* line 1, ../scss/templates/_resposta.scss */

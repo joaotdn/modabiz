@@ -4,8 +4,7 @@
  * @return {String} Caminho da pagina corrente
  */
 function the_breadcrumb() {
-     
-    // Settings
+    
     $separator  = '<small>&bullet;</small>';
     $id         = 'breadcrumb';
     $class      = 'breadcrumbs';

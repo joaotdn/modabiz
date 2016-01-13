@@ -225,3 +225,37 @@ $(document).on('submit','.gift-form',function(e) {
         }
     });
 });
+
+//Formulario seja revendedor
+//------------------------------------------------------------------------
+$(document).on('click','.send-comp',function(e) {
+    e.preventDefault();
+    $('input[type="file"]','#reven-form').trigger('click');
+});
+
+$(document).on('change','#reven-form input[type="file"]',function(e) {
+    e.preventDefault();
+    $('.get-filename').text($(this).val());
+});
+
+$(document).on('click','#reven-form nav a',function(e) {
+    e.preventDefault();
+
+    $(this).addClass('active')
+    .parents('div')
+    .siblings('div')
+    .find('a')
+    .removeClass('active');
+
+    if($(this).hasClass('set-cpf')) {
+
+        $('#form-cpf').addClass('active');
+        $('#form-cnpj').removeClass('active');
+
+    } else {
+
+        $('#form-cnpj').addClass('active');
+        $('#form-cpf').removeClass('active');
+
+    }
+});
