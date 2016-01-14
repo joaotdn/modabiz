@@ -28,7 +28,7 @@ function plandd_acf_dir( $dir ) {
  * (custom meta post)
  */
 include_once( get_stylesheet_directory() . '/includes/acf-pro/acf.php' );
-define( 'ACF_LITE' , true );
+//define( 'ACF_LITE' , true );
 //include_once( get_stylesheet_directory() . '/includes/acf/preconfig.php' );
 
 /**
@@ -45,7 +45,7 @@ register_nav_menus( array(
 //Thumbnails
 add_theme_support('post-thumbnails');
 if (function_exists('add_image_size')) {
-    add_image_size('blog-component', 303, 415, true);
+    add_image_size('avatar_th', 50, 50, true);
 }
 remove_filter('the_excerpt', 'wpautop'); // sem paragrafo no resumo
 //Nome da 1a categoria de uma postagem em um loop

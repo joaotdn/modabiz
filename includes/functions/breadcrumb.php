@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * Breadcrumb
  * @return {String} Caminho da pagina corrente

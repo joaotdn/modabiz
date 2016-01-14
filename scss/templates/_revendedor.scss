@@ -35,9 +35,6 @@
 			}
 		}
 	}
-	p {
-		@extend .no-margin;
-	}
 
 	input {
 		padding: rem-calc(30 20);
@@ -49,11 +46,6 @@
 		}
 	}
 
-	span {
-		line-height: 50px;
-		font-size: rem-calc(13);
-	}
-
 	label {
 		font-size: rem-calc(14);
 	}
@@ -61,13 +53,82 @@
 
 .forms-content {
 	padding: rem-calc(40 20);
+	span {
+		line-height: 50px;
+		font-size: rem-calc(13);
+	}
+	p {
+		@extend .no-margin;
+	}
 }
 
 .reven-info {
+	padding: rem-calc(40);
 	li {
 		margin-bottom: rem-calc(0);
-		span {
-			font-size: rem-calc(16);
+		@extend .d-block;
+		@extend .small-12;
+		@extend .left;
+		height: 40px;
+		line-height: 0;
+	}
+
+}
+
+.infoblock-title {
+	@extend .no-margin;
+}
+
+.contact-list {
+	span {
+		&:not(:first-child) {
+			&:before {
+				content: '\00a0|\00a0';
+				display: inline;
+			}
 		}
+	}
+}
+
+#list-testimonials {
+	img {
+		width: rem-calc(65);
+		height: rem-calc(65);
+		display: block;
+		border-radius: 100%;
+		margin-right: rem-calc(20);
+	}
+	.author-name {
+		line-height: rem-calc(60);
+	}
+}
+
+.testimonial-pager {
+	span {
+		display: inline-block;
+		width: rem-calc(16);
+		height: rem-calc(16);
+		border-width: 2px;
+		border-style: solid;
+		border-radius: 100%;
+		margin: rem-calc(0 5);
+		cursor: pointer;
+		@extend %transition;
+
+		&.cycle-pager-active {
+			background-color: transparent !important;
+			color: transparent !important;
+			@include scale(1.4);
+		}
+	}
+}
+
+@media #{$large-up} {
+	.reven-info {
+		width: rem-calc(480);
+		float: right !important;
+	}
+	.icon-quotes-left {
+		font-size: rem-calc(80);
 	}
 }

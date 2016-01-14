@@ -126,7 +126,7 @@ img {
 }
 
 /* line 532, ../bower_components/foundation/scss/foundation/components/_global.scss */
-.left, .divide-10, .divide-20, .divide-30, .divide-40, .collapse li img {
+.left, .divide-10, .divide-20, .divide-30, .divide-40, .collapse li img, .reven-info li {
   float: left !important;
 }
 
@@ -2184,7 +2184,7 @@ label.error {
   }
 
   /* line 168, ../bower_components/foundation/scss/foundation/components/_grid.scss */
-  .small-12, .divide-10, .divide-20, .divide-30, .divide-40, #list-menu ul, .close-canvas, #main-painel .owl-controls, .collapse li img, .twitter-typeahead, #look-header video, #camp-header video, #look-header .mask, #camp-header .mask, .share-icons a {
+  .small-12, .divide-10, .divide-20, .divide-30, .divide-40, #list-menu ul, .close-canvas, #main-painel .owl-controls, .collapse li img, .twitter-typeahead, #look-header video, #camp-header video, #look-header .mask, #camp-header .mask, .share-icons a, .reven-info li {
     width: 100%;
   }
 
@@ -4913,7 +4913,7 @@ th.hide-for-touch {
 }
 /* line 2, ../scss/_modules.scss */
 .show-onload, #list-menu, #main-menu-mo, #main-painel .owl-controls span, .slider-button, .button-cadastro, .comp-post, .comp-post > div, .grid-item figcaption, .grid-item figcaption hgroup, .grid-item figcaption span, .grid-thumb, .grid-item h2, .grid-item h4, .geo-btn,
-#comp-geo input[type="text"], #map-info, #map-info .icon-cross, .reven-btn, #look-list img, #camp-list img, .share-item, .share-icons, .reven-btn-join {
+#comp-geo input[type="text"], #map-info, #map-info .icon-cross, .reven-btn, #look-list img, #camp-list img, .share-item, .share-icons, .reven-btn-join, .testimonial-pager span {
   transition: all .3s linear !important;
   -webkit-transition: all .3s linear !important;
   -moz-transition: all .3s linear !important;
@@ -5227,7 +5227,7 @@ th.hide-for-touch {
 }
 
 /* line 220, ../scss/_modules.scss */
-.d-block, .share-icons a, #item-choices li a, #reven-form nav a {
+.d-block, .share-icons a, #item-choices li a, #reven-form nav a, .reven-info li {
   display: block;
 }
 
@@ -5271,7 +5271,7 @@ th.hide-for-touch {
 }
 
 /* line 262, ../scss/_modules.scss */
-.no-margin, #reven-form p {
+.no-margin, .forms-content p, .infoblock-title {
   margin: 0 !important;
 }
 
@@ -6147,45 +6147,99 @@ a {
   opacity: 1;
   text-decoration: underline;
 }
-/* line 42, ../scss/templates/_revendedor.scss */
+/* line 39, ../scss/templates/_revendedor.scss */
 #reven-form input {
   padding: 1.875rem 1.25rem;
 }
-/* line 44, ../scss/templates/_revendedor.scss */
+/* line 41, ../scss/templates/_revendedor.scss */
 #reven-form input[type="file"] {
   display: none;
 }
-/* line 47, ../scss/templates/_revendedor.scss */
+/* line 44, ../scss/templates/_revendedor.scss */
 #reven-form input[type="checkbox"] {
   -moz-transform: translateY(0.125rem);
   -ms-transform: translateY(0.125rem);
   -webkit-transform: translateY(0.125rem);
   transform: translateY(0.125rem);
 }
-/* line 52, ../scss/templates/_revendedor.scss */
-#reven-form span {
-  line-height: 50px;
-  font-size: 0.8125rem;
-}
-/* line 57, ../scss/templates/_revendedor.scss */
+/* line 49, ../scss/templates/_revendedor.scss */
 #reven-form label {
   font-size: 0.875rem;
 }
 
-/* line 62, ../scss/templates/_revendedor.scss */
+/* line 54, ../scss/templates/_revendedor.scss */
 .forms-content {
   padding: 2.5rem 1.25rem;
 }
+/* line 56, ../scss/templates/_revendedor.scss */
+.forms-content span {
+  line-height: 50px;
+  font-size: 0.8125rem;
+}
 
+/* line 65, ../scss/templates/_revendedor.scss */
+.reven-info {
+  padding: 2.5rem;
+}
 /* line 67, ../scss/templates/_revendedor.scss */
 .reven-info li {
   margin-bottom: 0;
-}
-/* line 69, ../scss/templates/_revendedor.scss */
-.reven-info li span {
-  font-size: 1rem;
+  height: 40px;
+  line-height: 0;
 }
 
+/* line 85, ../scss/templates/_revendedor.scss */
+.contact-list span:not(:first-child):before {
+  content: '\00a0|\00a0';
+  display: inline;
+}
+
+/* line 94, ../scss/templates/_revendedor.scss */
+#list-testimonials img {
+  width: 4.0625rem;
+  height: 4.0625rem;
+  display: block;
+  border-radius: 100%;
+  margin-right: 1.25rem;
+}
+/* line 101, ../scss/templates/_revendedor.scss */
+#list-testimonials .author-name {
+  line-height: 3.75rem;
+}
+
+/* line 107, ../scss/templates/_revendedor.scss */
+.testimonial-pager span {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 100%;
+  margin: 0 0.3125rem;
+  cursor: pointer;
+}
+/* line 118, ../scss/templates/_revendedor.scss */
+.testimonial-pager span.cycle-pager-active {
+  background-color: transparent !important;
+  color: transparent !important;
+  -moz-transform: scale(1.4, 1.4);
+  -ms-transform: scale(1.4, 1.4);
+  -webkit-transform: scale(1.4, 1.4);
+  transform: scale(1.4, 1.4);
+}
+
+@media only screen and (min-width: 64.0625em) {
+  /* line 127, ../scss/templates/_revendedor.scss */
+  .reven-info {
+    width: 30rem;
+    float: right !important;
+  }
+
+  /* line 131, ../scss/templates/_revendedor.scss */
+  .icon-quotes-left {
+    font-size: 5rem;
+  }
+}
 /* line 1, ../scss/templates/_resposta.scss */
 #resposta {
   height: 62.5rem;

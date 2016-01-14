@@ -14,7 +14,7 @@
    * Setup de requisições
    */
   $.ajaxSetup({
-    url: redux_ajax_script.ajaxurl,
+    url: getData.ajaxDir,
     dataType: 'html',
     type: 'GET',
     beforeSend: function() {

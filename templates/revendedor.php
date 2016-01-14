@@ -294,34 +294,148 @@
         <!-- informações -->
         <div class="small-12 medium-6 columns reven-info">
           
+          <?php
+            //Requerimentos
+            $title_req = get_field('reven_lista_req_titulo');
+            $list_req = get_field('reven_lista_req');
+
+            //Pagamento
+            $title_pag = get_field('reven_pag_titulo');
+            $text_pag = get_field('reven_pag_texto');
+
+            //Dúvidas
+            $title_duv = get_field('reven_duv_titulo');
+            $telefones = get_field('reven_duv_telefones');
+            $whatsapps = get_field('reven_duv_whatapps');
+          ?>
+
+
+          <?php
+            //Requerimentos
+            if($list_req):
+          ?>
           <div class="divide-40">
             <header class="divide-20">
-              <h2>Você só precisa de</h2>
+              <h2 class="infoblock-title"><?php echo $title_req; ?></h2>
             </header>
 
-            <ul class="no-bullet">
-              <li>
-                <i class="icon-check-circle"></i> <span>Comprovar residência com documento recente</span>
-              </li>
-              <li>
-                <i class="icon-check-circle"></i> <span>Comprovar residência com documento recente</span>
-              </li>
-              <li>
-                <i class="icon-check-circle"></i> <span>Comprovar residência com documento recente</span>
-              </li>
-              <li>
-                <i class="icon-check-circle"></i> <span>Comprovar residência com documento recente</span>
-              </li>
-              <li>
-                <i class="icon-check-circle"></i> <span>Comprovar residência com documento recente</span>
-              </li>
+            <ul class="no-bullet no-margin small-12 left">
+              <?php
+                foreach ($list_req as $req) {
+                  echo '<li><i class="icon-check-circle"></i> <span>'. $req['reven_item_req'] .'</span></li>';
+                }
+              ?>
             </ul>
           </div>
+          <?php
+            endif;
+          ?>
+          
+          <?php
+            //Forma de pagamento
+            if($text_pag):
+          ?>
+          <div class="divide-40">
+            <header class="divide-20">
+              <h2 class="infoblock-title"><?php echo $title_pag; ?></h2>
+            </header>
+            
+            <span>
+              <?php echo $text_pag; ?>
+            </span>
+          </div>
+          <?php
+            endif;
+          ?>
+
+          <?php
+            //Dúvidas
+            if(isset($telefones) || isset($whatsapps)):
+          ?>
+          <div class="small-12 left">
+            <header class="divide-20">
+              <h2 class="infoblock-title"><?php echo $title_duv; ?></h2>
+            </header>
+            
+            <?php
+              if($telefones):
+            ?>
+            <p class="contact-title divide-10"><i class="icon-phone"></i> Telefone</p>
+            <nav class="contact-list divide-20">
+              <?php
+                foreach ($telefones as $tel) {
+                  echo '<span>'. $tel['reven_duv_telefone'] .'</span>';
+                }
+              ?>
+            </nav>
+            <?php
+              endif;
+              if($whatsapps):
+            ?>
+            <p class="contact-title divide-10"><i class="icon-whatsapp"></i> Whatsapp</p>
+            <nav class="contact-list divide-30">
+              <?php
+                foreach ($whatsapps as $whats) {
+                  echo '<span>'. $whats['reven_duv_whatapp'] .'</span>';
+                }
+              ?>
+            </nav>
+            <?php
+              endif;
+            ?>
+            <p class="no-margin"><a href="#" class="text-up go-faq-section">Veja as perguntas frequentes <i class="icon-chevron-small-down"></i></a></p>
+            <p>Talvez sua dúvida já tenha sido respondida lá</p>
+
+          </div>
+          <?php
+            endif;
+          ?>
 
         </div>
 
       </div>
 
+    </div>
+
+    <!-- depoimentos -->
+    <div id="testimonials" class="small-12 left section-block">
+      <div class="row">
+        <div class="small-12 columns">
+          <header class="divide-30 text-center">
+            <h2><i class="icon-quotes-left"></i></h2>
+          </header>
+
+          <nav id="list-testimonials" class="small-12 left slideshow"
+            data-cycle-fx="scrollHorz" 
+            data-cycle-timeout="6000"
+            data-cycle-slides="> figure"
+            data-cycle-pager=".testimonial-pager"
+          >
+            
+            <figure class="small-12 left text-center">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet sed dolorum repellat consequatur distinctio velit, odit laudantium harum nisi. Reiciendis dicta alias, maxime amet distinctio natus quasi corporis accusamus molestiae!</p>
+
+              <div class="small-12 large-8 large-offset-4 left">
+                <img src="http://msalx.veja.abril.com.br/2015/07/28/1539/8tds/augusto-nunes.png?1438108850" alt="" class="left">
+                <p class="author-name left">João Teodoro</p>
+              </div>
+            </figure>
+
+            <figure class="small-12 left text-center">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet sed dolorum repellat consequatur distinctio velit, odit laudantium harum nisi. Reiciendis dicta alias, maxime amet distinctio natus quasi corporis accusamus molestiae!</p>
+
+              <div class="small-12 large-8 large-offset-4 left">
+                <img src="http://msalx.veja.abril.com.br/2015/07/28/1539/8tds/augusto-nunes.png?1438108850" alt="" class="left">
+                <p class="author-name left">João Teodoro</p>
+              </div>
+            </figure>
+
+          </nav>
+          
+          <div class="divide-20"></div>
+          <div class="testimonial-pager small-12 left text-center"></div>
+        </div>
+      </div>
     </div>
 </section>
 
