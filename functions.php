@@ -82,6 +82,9 @@ include_once( get_stylesheet_directory() . '/includes/post-types/lookbook.php' )
 //CAMPANHA
 include_once( get_stylesheet_directory() . '/includes/post-types/campanha.php' );
 
+//REVENDEDORES
+include_once( get_stylesheet_directory() . '/includes/post-types/revendedores.php' );
+
 /**
  * Opções gerais para a aplicação e seus
  * componentes
@@ -89,6 +92,10 @@ include_once( get_stylesheet_directory() . '/includes/post-types/campanha.php' )
 require_once (dirname(__FILE__) . '/includes/options/redux-framework.php');
 require_once (dirname(__FILE__) . '/includes/options/sample/barebones-config.php');
 
+
+/**
+ * Funções
+ */
 //Admin instagram
 require_once (dirname(__FILE__) . '/includes/functions/componentes.instagram.hash.php');
 require_once (dirname(__FILE__) . '/includes/functions/componentes.instagram.perfil.php');
@@ -101,6 +108,9 @@ require_once (dirname(__FILE__) . '/includes/functions/breadcrumb.php');
 
 //Enviar peça do lookbook de presente
 require_once (dirname(__FILE__) . '/includes/functions/lookbook.presente.php');
+
+//Enviar dados de seja revendedor para o módulo
+require_once (dirname(__FILE__) . '/includes/functions/template.revendedor.php');
 
 /**
  * Cofugurações SMTP
@@ -174,6 +184,9 @@ function add_menu_icons_styles() {
     }
     #menu-posts-campanha div.wp-menu-image:before {
       content: "\f488";
+    }
+    #menu-posts-revendedores div.wp-menu-image:before {
+      content: "\f307";
     }
     </style>
 

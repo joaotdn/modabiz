@@ -6,3 +6,15 @@ a {
 	-webkit-transition: all .3s linear;
 	-moz-transition: all .3s linear;
 }
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+	padding: rem-calc(30 20);
+	&[type="file"] {
+		display: none;
+	}
+	&[type="checkbox"] {
+		@include translateY(rem-calc(2));
+	}
+}

@@ -252,6 +252,10 @@
   padding-top: rem-calc(50);
   padding-bottom: rem-calc(50);
   clear: both;
+
+  &.no-pb {
+    padding-bottom: 0;
+  }
 }
 
 //margins

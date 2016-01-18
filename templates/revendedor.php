@@ -47,7 +47,7 @@
   endif;
 ?>
 
-<section id="inner-revendedor" class="small-12 left section-block">
+<section id="inner-revendedor" class="small-12 left section-block no-pb">
     <div class="row">
         <div class="small-12 columnns">
             <nav id="breadcrumb" class="small-12 left">
@@ -229,7 +229,8 @@
               <span class="divide-20"></span>
               <button type="submit" class="button reven-form-btn text-up small-12 left">Enviar e dar o primeiro passo!</button>
             </p>
-
+            
+            <input type="hidden" name="form_type" value="form_cpf">
           </form>
           
           <form id="form-cnpj" class="small-12 left">
@@ -286,7 +287,8 @@
               <span class="divide-20"></span>
               <button type="submit" class="button reven-form-btn text-up small-12 left">Enviar e dar o primeiro passo!</button>
             </p>
-
+            
+            <input type="hidden" name="form_type" value="form_cnpj">
           </form>
 
         </div>
@@ -382,9 +384,11 @@
             </nav>
             <?php
               endif;
+              if(get_field('reven_faq')):
             ?>
             <p class="no-margin"><a href="#" class="text-up go-faq-section">Veja as perguntas frequentes <i class="icon-chevron-small-down"></i></a></p>
             <p>Talvez sua dúvida já tenha sido respondida lá</p>
+            <?php endif; ?>
 
           </div>
           <?php
@@ -398,6 +402,10 @@
     </div>
 
     <!-- depoimentos -->
+    <?php
+      $depoimentos = get_field('reve_depoimentos');
+      if($depoimentos):
+    ?>
     <div id="testimonials" class="small-12 left section-block">
       <div class="row">
         <div class="small-12 columns">
@@ -405,38 +413,61 @@
             <h2><i class="icon-quotes-left"></i></h2>
           </header>
 
-          <nav id="list-testimonials" class="small-12 left slideshow"
-            data-cycle-fx="scrollHorz" 
-            data-cycle-timeout="6000"
-            data-cycle-slides="> figure"
-            data-cycle-pager=".testimonial-pager"
-          >
-            
-            <figure class="small-12 left text-center">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet sed dolorum repellat consequatur distinctio velit, odit laudantium harum nisi. Reiciendis dicta alias, maxime amet distinctio natus quasi corporis accusamus molestiae!</p>
+          <nav id="list-testimonials" class="small-12 left">
+            <?php
+              foreach ($depoimentos as $depo):
+            ?>
+            <figure class="small-12 left text-center item">
+              <p><?php echo $depo['reve_depoimento_txt']; ?></p>
 
               <div class="small-12 large-8 large-offset-4 left">
-                <img src="http://msalx.veja.abril.com.br/2015/07/28/1539/8tds/augusto-nunes.png?1438108850" alt="" class="left">
-                <p class="author-name left">João Teodoro</p>
+                <?php
+                  if(!empty($depo['reve_depoimentos_img']))
+                    echo '<img src="'. $depo['reve_depoimentos_img'] .'" alt="" class="left">';
+
+                  if(!empty($depo['reve_depoimentos_autor']))
+                    echo '<p class="author-name left">'. $depo['reve_depoimentos_autor'] .'</p>';
+                ?>
               </div>
             </figure>
-
-            <figure class="small-12 left text-center">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet sed dolorum repellat consequatur distinctio velit, odit laudantium harum nisi. Reiciendis dicta alias, maxime amet distinctio natus quasi corporis accusamus molestiae!</p>
-
-              <div class="small-12 large-8 large-offset-4 left">
-                <img src="http://msalx.veja.abril.com.br/2015/07/28/1539/8tds/augusto-nunes.png?1438108850" alt="" class="left">
-                <p class="author-name left">João Teodoro</p>
-              </div>
-            </figure>
-
+            <?php
+              endforeach;
+            ?>
           </nav>
-          
-          <div class="divide-20"></div>
-          <div class="testimonial-pager small-12 left text-center"></div>
         </div>
       </div>
     </div>
+    <?php
+      endif;
+    ?>
+
+    <!-- perguntas frequentes -->
+    <?php
+      $faqs = get_field('reven_faq');
+      if($faqs):
+    ?>
+    <div id="faq-section" class="small-12 left section-block">
+      <div class="row">
+        <div class="small-12 columns">
+          <header class="divide-30 text-center">
+            <h2 class="faq-header">Perguntas frequentes</h2>
+          </header>
+
+          <nav class="small-12 left">
+            <ul class="no-bullet no-margin">
+              <?php
+                foreach ($faqs as $faq) {
+                  echo '<li> <span class="faq-answer">'. $faq['reven_pergunta'] .' <i class="right icon-chevron-small-down"></i></span><span class="faq-reply">'. $faq['reven_resposta'] .'</span></li>';
+                }
+              ?>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <?php
+      endif;
+    ?>
 </section>
 
 <?php

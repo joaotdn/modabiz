@@ -1,0 +1,25 @@
+#contact-form {
+	p {
+		@extend .no-margin;
+	}
+}
+
+.content-info {
+	span {
+		&:not(:first-child) {
+			&:before {
+				content: '\00a0|\00a0';
+				display: inline;
+			}
+		}
+	}
+	
+}
+
+.contato-info {
+	iframe {
+		@extend .small-12;
+		@extend .left;
+		height: rem-calc(370) !important;
+	}
+}

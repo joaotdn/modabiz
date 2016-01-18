@@ -126,7 +126,7 @@ img {
 }
 
 /* line 532, ../bower_components/foundation/scss/foundation/components/_global.scss */
-.left, .divide-10, .divide-20, .divide-30, .divide-40, .collapse li img, .reven-info li {
+.left, .divide-10, .divide-20, .divide-30, .divide-40, .collapse li img, .reven-info li, #faq-section li, #faq-section span, .contato-info iframe {
   float: left !important;
 }
 
@@ -2184,7 +2184,7 @@ label.error {
   }
 
   /* line 168, ../bower_components/foundation/scss/foundation/components/_grid.scss */
-  .small-12, .divide-10, .divide-20, .divide-30, .divide-40, #list-menu ul, .close-canvas, #main-painel .owl-controls, .collapse li img, .twitter-typeahead, #look-header video, #camp-header video, #look-header .mask, #camp-header .mask, .share-icons a, .reven-info li {
+  .small-12, .divide-10, .divide-20, .divide-30, .divide-40, #list-menu ul, .close-canvas, #main-painel .owl-controls, .collapse li img, .twitter-typeahead, #look-header video, #camp-header video, #look-header .mask, #camp-header .mask, .share-icons a, .reven-info li, #faq-section li, #faq-section span, .contato-info iframe {
     width: 100%;
   }
 
@@ -4913,7 +4913,7 @@ th.hide-for-touch {
 }
 /* line 2, ../scss/_modules.scss */
 .show-onload, #list-menu, #main-menu-mo, #main-painel .owl-controls span, .slider-button, .button-cadastro, .comp-post, .comp-post > div, .grid-item figcaption, .grid-item figcaption hgroup, .grid-item figcaption span, .grid-thumb, .grid-item h2, .grid-item h4, .geo-btn,
-#comp-geo input[type="text"], #map-info, #map-info .icon-cross, .reven-btn, #look-list img, #camp-list img, .share-item, .share-icons, .reven-btn-join, .testimonial-pager span {
+#comp-geo input[type="text"], #map-info, #map-info .icon-cross, .reven-btn, #look-list img, #camp-list img, .share-item, .share-icons, .reven-btn-join, #list-testimonials .owl-page span {
   transition: all .3s linear !important;
   -webkit-transition: all .3s linear !important;
   -moz-transition: all .3s linear !important;
@@ -5269,33 +5269,37 @@ th.hide-for-touch {
   padding-bottom: 3.125rem;
   clear: both;
 }
+/* line 256, ../scss/_modules.scss */
+.section-block.no-pb {
+  padding-bottom: 0;
+}
 
-/* line 262, ../scss/_modules.scss */
-.no-margin, .forms-content p, .infoblock-title {
+/* line 266, ../scss/_modules.scss */
+.no-margin, .forms-content p, .infoblock-title, #contact-form p {
   margin: 0 !important;
 }
 
-/* line 265, ../scss/_modules.scss */
+/* line 269, ../scss/_modules.scss */
 .divide-10 {
   margin-bottom: 0.625rem;
 }
 
-/* line 269, ../scss/_modules.scss */
+/* line 273, ../scss/_modules.scss */
 .divide-20 {
   margin-bottom: 1.25rem;
 }
 
-/* line 273, ../scss/_modules.scss */
+/* line 277, ../scss/_modules.scss */
 .divide-30 {
   margin-bottom: 1.875rem;
 }
 
-/* line 277, ../scss/_modules.scss */
+/* line 281, ../scss/_modules.scss */
 .divide-40 {
   margin-bottom: 2.5rem;
 }
 
-/* line 283, ../scss/_modules.scss */
+/* line 287, ../scss/_modules.scss */
 .bg-cover {
   background-size: cover;
   -webkit-background-size: cover;
@@ -5304,7 +5308,7 @@ th.hide-for-touch {
   background-repeat: no-repeat;
 }
 
-/* line 292, ../scss/_modules.scss */
+/* line 296, ../scss/_modules.scss */
 .anim-rotate {
   animation-name: rotate;
   animation-timing-function: linear;
@@ -5354,6 +5358,31 @@ a {
   transition: all .3s linear;
   -webkit-transition: all .3s linear;
   -moz-transition: all .3s linear;
+}
+
+/* line 9, ../scss/_bases.scss */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+  padding: 1.875rem 1.25rem;
+}
+/* line 14, ../scss/_bases.scss */
+input[type="text"][type="file"],
+input[type="email"][type="file"],
+input[type="tel"][type="file"],
+select[type="file"] {
+  display: none;
+}
+/* line 17, ../scss/_bases.scss */
+input[type="text"][type="checkbox"],
+input[type="email"][type="checkbox"],
+input[type="tel"][type="checkbox"],
+select[type="checkbox"] {
+  -moz-transform: translateY(0.125rem);
+  -ms-transform: translateY(0.125rem);
+  -webkit-transform: translateY(0.125rem);
+  transform: translateY(0.125rem);
 }
 
 /* line 2, ../scss/components/_header.menu.scss */
@@ -6148,53 +6177,38 @@ a {
   text-decoration: underline;
 }
 /* line 39, ../scss/templates/_revendedor.scss */
-#reven-form input {
-  padding: 1.875rem 1.25rem;
-}
-/* line 41, ../scss/templates/_revendedor.scss */
-#reven-form input[type="file"] {
-  display: none;
-}
-/* line 44, ../scss/templates/_revendedor.scss */
-#reven-form input[type="checkbox"] {
-  -moz-transform: translateY(0.125rem);
-  -ms-transform: translateY(0.125rem);
-  -webkit-transform: translateY(0.125rem);
-  transform: translateY(0.125rem);
-}
-/* line 49, ../scss/templates/_revendedor.scss */
 #reven-form label {
   font-size: 0.875rem;
 }
 
-/* line 54, ../scss/templates/_revendedor.scss */
+/* line 44, ../scss/templates/_revendedor.scss */
 .forms-content {
   padding: 2.5rem 1.25rem;
 }
-/* line 56, ../scss/templates/_revendedor.scss */
+/* line 46, ../scss/templates/_revendedor.scss */
 .forms-content span {
   line-height: 50px;
   font-size: 0.8125rem;
 }
 
-/* line 65, ../scss/templates/_revendedor.scss */
+/* line 55, ../scss/templates/_revendedor.scss */
 .reven-info {
   padding: 2.5rem;
 }
-/* line 67, ../scss/templates/_revendedor.scss */
+/* line 57, ../scss/templates/_revendedor.scss */
 .reven-info li {
   margin-bottom: 0;
   height: 40px;
   line-height: 0;
 }
 
-/* line 85, ../scss/templates/_revendedor.scss */
+/* line 75, ../scss/templates/_revendedor.scss */
 .contact-list span:not(:first-child):before {
   content: '\00a0|\00a0';
   display: inline;
 }
 
-/* line 94, ../scss/templates/_revendedor.scss */
+/* line 84, ../scss/templates/_revendedor.scss */
 #list-testimonials img {
   width: 4.0625rem;
   height: 4.0625rem;
@@ -6202,13 +6216,12 @@ a {
   border-radius: 100%;
   margin-right: 1.25rem;
 }
-/* line 101, ../scss/templates/_revendedor.scss */
+/* line 91, ../scss/templates/_revendedor.scss */
 #list-testimonials .author-name {
   line-height: 3.75rem;
 }
-
-/* line 107, ../scss/templates/_revendedor.scss */
-.testimonial-pager span {
+/* line 95, ../scss/templates/_revendedor.scss */
+#list-testimonials .owl-page span {
   display: inline-block;
   width: 1rem;
   height: 1rem;
@@ -6218,8 +6231,8 @@ a {
   margin: 0 0.3125rem;
   cursor: pointer;
 }
-/* line 118, ../scss/templates/_revendedor.scss */
-.testimonial-pager span.cycle-pager-active {
+/* line 107, ../scss/templates/_revendedor.scss */
+#list-testimonials .owl-page.active span {
   background-color: transparent !important;
   color: transparent !important;
   -moz-transform: scale(1.4, 1.4);
@@ -6228,18 +6241,61 @@ a {
   transform: scale(1.4, 1.4);
 }
 
+/* line 119, ../scss/templates/_revendedor.scss */
+#faq-section li, #faq-section span {
+  display: block;
+}
+/* line 125, ../scss/templates/_revendedor.scss */
+#faq-section span {
+  padding: 1.25rem;
+}
+/* line 129, ../scss/templates/_revendedor.scss */
+#faq-section .faq-answer {
+  cursor: pointer;
+}
+/* line 132, ../scss/templates/_revendedor.scss */
+#faq-section .faq-answer.active .icon-chevron-small-down {
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+/* line 138, ../scss/templates/_revendedor.scss */
+#faq-section .faq-reply {
+  display: none;
+}
+/* line 140, ../scss/templates/_revendedor.scss */
+#faq-section .faq-reply.active {
+  display: block;
+}
+/* line 145, ../scss/templates/_revendedor.scss */
+#faq-section .icon-chevron-small-down {
+  font-size: 1.375rem;
+}
+
 @media only screen and (min-width: 64.0625em) {
-  /* line 127, ../scss/templates/_revendedor.scss */
+  /* line 152, ../scss/templates/_revendedor.scss */
   .reven-info {
     width: 30rem;
     float: right !important;
   }
 
-  /* line 131, ../scss/templates/_revendedor.scss */
+  /* line 156, ../scss/templates/_revendedor.scss */
   .icon-quotes-left {
     font-size: 5rem;
   }
 }
+/* line 10, ../scss/templates/_fale_conosco.scss */
+.content-info span:not(:first-child):before {
+  content: '\00a0|\00a0';
+  display: inline;
+}
+
+/* line 20, ../scss/templates/_fale_conosco.scss */
+.contato-info iframe {
+  height: 23.125rem !important;
+}
+
 /* line 1, ../scss/templates/_resposta.scss */
 #resposta {
   height: 62.5rem;
@@ -6275,14 +6331,14 @@ iframe[id^="oauth"] {
 }
 
 @media only screen and (max-width: 40em) {
-  /* line 69, ../scss/app.scss */
+  /* line 70, ../scss/app.scss */
   .row {
     width: 20rem;
     max-width: none;
   }
 }
 @media only screen and (min-width: 40.0625em) and (max-width: 64em) {
-  /* line 75, ../scss/app.scss */
+  /* line 76, ../scss/app.scss */
   .row {
     width: 45.5rem;
     max-width: none;
