@@ -5275,7 +5275,7 @@ th.hide-for-touch {
 }
 
 /* line 266, ../scss/_modules.scss */
-.no-margin, .forms-content p, .infoblock-title, #contact-form p {
+.no-margin, .forms-content p, .infoblock-title, #contact-form p, #blog-header h1, #blog-header h5 {
   margin: 0 !important;
 }
 
@@ -6296,6 +6296,26 @@ select[type="checkbox"] {
   height: 23.125rem !important;
 }
 
+/* line 2, ../scss/templates/_blog.scss */
+#blog-header .d-table, #blog-header #map-info > .row {
+  height: 25rem;
+}
+/* line 5, ../scss/templates/_blog.scss */
+#blog-header h1 {
+  font-size: 7.5rem;
+  line-height: 1;
+}
+/* line 10, ../scss/templates/_blog.scss */
+#blog-header h5 {
+  font-size: 1.125rem;
+}
+
+@media only screen and (max-width: 40em) {
+  /* line 18, ../scss/templates/_blog.scss */
+  #blog-header .d-table, #blog-header #map-info > .row {
+    height: 13.75rem;
+  }
+}
 /* line 1, ../scss/templates/_resposta.scss */
 #resposta {
   height: 62.5rem;
@@ -6331,14 +6351,14 @@ iframe[id^="oauth"] {
 }
 
 @media only screen and (max-width: 40em) {
-  /* line 70, ../scss/app.scss */
+  /* line 71, ../scss/app.scss */
   .row {
     width: 20rem;
     max-width: none;
   }
 }
 @media only screen and (min-width: 40.0625em) and (max-width: 64em) {
-  /* line 76, ../scss/app.scss */
+  /* line 77, ../scss/app.scss */
   .row {
     width: 45.5rem;
     max-width: none;

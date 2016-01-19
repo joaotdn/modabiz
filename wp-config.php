@@ -16,16 +16,16 @@
 
 // ** Configurações do MySQL - Você pode pegar essas informações com o serviço de hospedagem ** //
 /** O nome do banco de dados do WordPress */
-define('DB_NAME', 'plandev_pbagora');
+define('DB_NAME', 'plandc6');
 
 /** Usuário do banco de dados MySQL */
-define('DB_USER', 'plandev_pbagora');
+define('DB_USER', 'plandc6');
 
 /** Senha do banco de dados MySQL */
-define('DB_PASSWORD', 'pba20727pba');
+define('DB_PASSWORD', 'mb20727mb');
 
 /** nome do host do MySQL */
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'mysql06.plandc.hospedagemdesites.ws');
 
 /** Conjunto de caracteres do banco de dados a ser usado na criação das tabelas. */
 define('DB_CHARSET', 'utf8mb4');
@@ -69,9 +69,10 @@ $table_prefix  = 'wp_';
  * é altamente recomendável que os desenvolvedores de plugins e temas usem o WP_DEBUG
  * em seus ambientes de desenvolvimento.
  */
-define('WP_DEBUG', false);
+define('WP_DEBUG', true);
 
 /* Isto é tudo, pode parar de editar! :) */
+define('WP_MEMORY_LIMIT', '256M');
 
 /** Caminho absoluto para o diretório WordPress. */
 if ( !defined('ABSPATH') )

@@ -1,0 +1,22 @@
+#blog-header {
+	.d-table {
+		height: rem-calc(400);
+	}
+	h1 {
+		font-size: rem-calc(120);
+		@extend .no-margin;
+		line-height: 1;
+	}
+	h5 {
+		font-size: rem-calc(18);
+		@extend .no-margin;
+	}
+}
+
+@media #{$small-only} {
+	#blog-header {
+		.d-table {
+			height: rem-calc(220);
+		}
+	}
+}
