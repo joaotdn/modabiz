@@ -6310,8 +6310,23 @@ select[type="checkbox"] {
   font-size: 1.125rem;
 }
 
+/* line 17, ../scss/templates/_blog.scss */
+.post-item {
+  padding: 1.875rem;
+}
+
+/* line 21, ../scss/templates/_blog.scss */
+.post-date img {
+  margin-right: 0.3125rem;
+}
+
+/* line 25, ../scss/templates/_blog.scss */
+.post-author {
+  padding: 1rem;
+}
+
 @media only screen and (max-width: 40em) {
-  /* line 18, ../scss/templates/_blog.scss */
+  /* line 31, ../scss/templates/_blog.scss */
   #blog-header .d-table, #blog-header #map-info > .row {
     height: 13.75rem;
   }

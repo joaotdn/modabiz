@@ -1,0 +1,1 @@
+[20-Jan-2016 15:33:04 UTC] Erro de banco de dados do WordPress Table 'irstudio_wp979.wp_site' doesn't exist para a consulta SELECT * FROM wp_site LIMIT 2 feita por require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), require('wp-includes/ms-settings.php')

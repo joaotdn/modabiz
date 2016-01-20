@@ -13,6 +13,19 @@
 	}
 }
 
+//post na listagem
+.post-item {
+	padding: rem-calc(30);
+}
+.post-date {
+	img {
+		margin-right: rem-calc(5);
+	}
+}
+.post-author {
+	padding: rem-calc(16);
+}
+
 @media #{$small-only} {
 	#blog-header {
 		.d-table {
