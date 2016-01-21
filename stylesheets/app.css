@@ -126,7 +126,7 @@ img {
 }
 
 /* line 532, ../bower_components/foundation/scss/foundation/components/_global.scss */
-.left, .divide-10, .divide-20, .divide-30, .divide-40, .collapse li img, .reven-info li, #faq-section li, #faq-section span, .contato-info iframe {
+.left, .divide-10, .divide-20, .divide-30, .divide-40, .collapse li img, .reven-info li, #faq-section li, #faq-section span, .contato-info iframe, .post-tags li:not(:first-child):before, .post-tags li a {
   float: left !important;
 }
 
@@ -4913,7 +4913,7 @@ th.hide-for-touch {
 }
 /* line 2, ../scss/_modules.scss */
 .show-onload, #list-menu, #main-menu-mo, #main-painel .owl-controls span, .slider-button, .button-cadastro, .comp-post, .comp-post > div, .grid-item figcaption, .grid-item figcaption hgroup, .grid-item figcaption span, .grid-thumb, .grid-item h2, .grid-item h4, .geo-btn,
-#comp-geo input[type="text"], #map-info, #map-info .icon-cross, .reven-btn, #look-list img, #camp-list img, .share-item, .share-icons, .reven-btn-join, #list-testimonials .owl-page span {
+#comp-geo input[type="text"], #map-info, #map-info .icon-cross, .reven-btn, #look-list img, #camp-list img, .share-item, .share-icons, .reven-btn-join, #list-testimonials .owl-page span, .post-item figure img, .post-item a {
   transition: all .3s linear !important;
   -webkit-transition: all .3s linear !important;
   -moz-transition: all .3s linear !important;
@@ -5222,7 +5222,7 @@ th.hide-for-touch {
 }
 
 /* line 215, ../scss/_modules.scss */
-.text-up, .reven-btn, .gift-form button {
+.text-up, .reven-btn, .gift-form button, .post-tags li a {
   text-transform: uppercase;
 }
 
@@ -6314,19 +6314,33 @@ select[type="checkbox"] {
 .post-item {
   padding: 1.875rem;
 }
-
 /* line 21, ../scss/templates/_blog.scss */
+.post-item figure img:hover {
+  opacity: .8;
+}
+
+/* line 30, ../scss/templates/_blog.scss */
 .post-date img {
   margin-right: 0.3125rem;
 }
 
-/* line 25, ../scss/templates/_blog.scss */
+/* line 34, ../scss/templates/_blog.scss */
 .post-author {
   padding: 1rem;
 }
 
+/* line 39, ../scss/templates/_blog.scss */
+.post-tags li:not(:first-child) {
+  margin-left: 0.625rem;
+}
+/* line 41, ../scss/templates/_blog.scss */
+.post-tags li:not(:first-child):before {
+  content: '\2022';
+  margin-right: 0.625rem;
+}
+
 @media only screen and (max-width: 40em) {
-  /* line 31, ../scss/templates/_blog.scss */
+  /* line 56, ../scss/templates/_blog.scss */
   #blog-header .d-table, #blog-header #map-info > .row {
     height: 13.75rem;
   }

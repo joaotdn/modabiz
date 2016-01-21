@@ -16,6 +16,15 @@
 //post na listagem
 .post-item {
 	padding: rem-calc(30);
+	figure img {
+		@extend %transition;
+		&:hover {
+			opacity: .8;
+		}
+	}
+	a {
+		@extend %transition;
+	}
 }
 .post-date {
 	img {
@@ -24,6 +33,22 @@
 }
 .post-author {
 	padding: rem-calc(16);
+}
+.post-tags {
+	li {
+		&:not(:first-child) {
+			margin-left: rem-calc(10);
+			&:before {
+				content: '\2022';
+				@extend .left;
+				margin-right: rem-calc(10);
+			}
+		}
+		a {
+			@extend .left;
+			@extend .text-up;	
+		}
+	}
 }
 
 @media #{$small-only} {

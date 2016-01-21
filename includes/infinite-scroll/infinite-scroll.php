@@ -121,7 +121,7 @@ class Infinite_Scroll {
 		$suffix = ( WP_DEBUG ) ? '.dev' : '';
 
 		$file = "/js/front-end/jquery.infinitescroll{$suffix}.js";
-		wp_enqueue_script( $this->slug, plugins_url( $file, __FILE__ ), array( 'jquery' ), $this->version, true );
+		wp_enqueue_script( $this->slug, get_stylesheet_directory_uri() . "/includes/infinite-scroll/js/front-end/jquery.infinitescroll{$suffix}.js", array( 'jquery' ), $this->version, true );
 
 		$options = apply_filters( $this->prefix . 'js_options', $this->options->get_options() );
 		wp_localize_script($this->slug, $this->slug_, json_encode($options));

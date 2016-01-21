@@ -1,5 +1,5 @@
 <?php
-define('THEME_VERSION', '1.0.3');
+define('THEME_VERSION', '1.0.12');
 define('THEME_ICON', get_stylesheet_directory_uri() . '/images/icon.png');
 error_reporting(E_ERROR | E_PARSE);
 
@@ -53,20 +53,6 @@ if (function_exists('add_image_size')) {
     add_image_size('avatar_th', 50, 50, true);
 }
 remove_filter('the_excerpt', 'wpautop'); // sem paragrafo no resumo
-//Nome da 1a categoria de uma postagem em um loop
-function get_first_category_name($post_id) {
-    $category = get_the_category($post_id);
-    if ($category[0]) {
-        return $category[0]->cat_name;
-    }
-}
-//Link da 1a categoria de uma postagem em um loop
-function get_first_category_link($post_id) {
-    $category = get_the_category($post_id);
-    if ($category[0]) {
-        return get_category_link($category[0]->term_id);
-    }
-}
 
 /**
  * Custom Post Types
@@ -116,6 +102,32 @@ require_once (dirname(__FILE__) . '/includes/functions/lookbook.presente.php');
 
 //Enviar dados de seja revendedor para o módulo
 require_once (dirname(__FILE__) . '/includes/functions/template.revendedor.php');
+
+//Pega a miniatura da postagem
+function getThumbUrl($size,$post_id) {
+    if (!isset($size)) {
+        $size = 'full';
+    }
+    $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post_id), $size);
+    if($thumb[0] != "") {
+        return $thumb[0];
+    }
+}
+
+//Nome da 1a categoria de uma postagem em um loop
+function get_first_category_name($post_id) {
+    $category = get_the_category($post_id);
+    if ($category[0]) {
+        return $category[0]->cat_name;
+    }
+}
+//Link da 1a categoria de uma postagem em um loop
+function get_first_category_link($post_id) {
+    $category = get_the_category($post_id);
+    if ($category[0]) {
+        return get_category_link($category[0]->term_id);
+    }
+}
 
 /**
  * Cofugurações SMTP
