@@ -138,6 +138,7 @@ endif;
                         <span><?php comments_number( 'Sem comentários', '1 comentário', '% comentários' ); ?></span>
                     </a>
                 </p>
+
                 <p class="right no-margin">
                     <a href="<?php the_permalink(); ?>" title="Continuar lendo" class="post-read text-up">Continuar lendo <i class="icon-chevron-thin-right"></i></a>
                 </p>
@@ -146,10 +147,12 @@ endif;
             
         </nav>
         
-        <!-- sidebar -->
-        <aside id="sidebar" class="small-12 large-4 columns">
-            
-        </aside>
+        <?php
+            /**
+             * Sidebar
+             */
+            require get_template_directory()."/templates/blog_sidebar.php";
+        ?>
 
         <footer id="nav-below" class="small-12 left text-center hide">
             <div class="divide-20"></div>
@@ -174,6 +177,12 @@ endif;
 </section>
 
 <?php
+/**
+ * newsletter
+ */
+require get_template_directory()."/templates/newsletter.php";
+//-----------------------------------------------------------
+
 $layout = $plandd_option['temp-blog-list-layout']['rodape'];
 
 if ($layout): foreach ($layout as $key=>$value) {

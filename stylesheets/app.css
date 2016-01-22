@@ -87,7 +87,7 @@ body {
   background: #fff;
   color: #222;
   cursor: auto;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: inherit;
   font-style: normal;
   font-weight: normal;
   line-height: 24px;
@@ -716,7 +716,7 @@ button, .button {
   border-style: solid;
   border-width: 0;
   cursor: pointer;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: inherit;
   font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
@@ -3981,7 +3981,7 @@ p aside {
 /* line 255, ../bower_components/foundation/scss/foundation/components/_type.scss */
 h1, h2, h3, h4, h5, h6 {
   color: #222222;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: inherit;
   font-style: normal;
   font-weight: normal;
   line-height: 1.4;
@@ -4072,7 +4072,7 @@ code {
   border-style: solid;
   border-width: 1px;
   color: #333333;
-  font-family: Consolas, "Liberation Mono", Courier, monospace;
+  font-family: inherit;
   font-weight: normal;
   padding: 0.125rem 0.3125rem 0.0625rem;
 }
@@ -4913,7 +4913,7 @@ th.hide-for-touch {
 }
 /* line 2, ../scss/_modules.scss */
 .show-onload, #list-menu, #main-menu-mo, #main-painel .owl-controls span, .slider-button, .button-cadastro, .comp-post, .comp-post > div, .grid-item figcaption, .grid-item figcaption hgroup, .grid-item figcaption span, .grid-thumb, .grid-item h2, .grid-item h4, .geo-btn,
-#comp-geo input[type="text"], #map-info, #map-info .icon-cross, .reven-btn, #look-list img, #camp-list img, .share-item, .share-icons, .reven-btn-join, #list-testimonials .owl-page span, .post-item figure img, .post-item a {
+#comp-geo input[type="text"], #map-info, #map-info .icon-cross, .reven-btn, #look-list img, #camp-list img, .share-item, .share-icons, .reven-btn-join, #list-testimonials .owl-page span, .post-item figure img, .post-item a, #sidebar a {
   transition: all .3s linear !important;
   -webkit-transition: all .3s linear !important;
   -moz-transition: all .3s linear !important;
@@ -5222,7 +5222,7 @@ th.hide-for-touch {
 }
 
 /* line 215, ../scss/_modules.scss */
-.text-up, .reven-btn, .gift-form button, .post-tags li a {
+.text-up, .reven-btn, .gift-form button, .post-tags li a, #side-search a {
   text-transform: uppercase;
 }
 
@@ -5383,6 +5383,11 @@ select[type="checkbox"] {
   -ms-transform: translateY(0.125rem);
   -webkit-transform: translateY(0.125rem);
   transform: translateY(0.125rem);
+}
+
+/* line 21, ../scss/_bases.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
 }
 
 /* line 2, ../scss/components/_header.menu.scss */
@@ -6339,10 +6344,61 @@ select[type="checkbox"] {
   margin-right: 0.625rem;
 }
 
+/* line 60, ../scss/templates/_blog.scss */
+#side-search {
+  padding: 2.5rem 1.25rem;
+}
+/* line 62, ../scss/templates/_blog.scss */
+#side-search .icon-search {
+  right: 0.5rem;
+  line-height: 4rem;
+  font-size: 1.75rem;
+}
+/* line 71, ../scss/templates/_blog.scss */
+#side-search input {
+  padding-right: 2.375rem;
+}
+
+/* line 75, ../scss/templates/_blog.scss */
+#side-instagram {
+  padding: 2.5rem 1.25rem;
+}
+/* line 78, ../scss/templates/_blog.scss */
+#side-instagram header img {
+  height: 5rem;
+  width: auto;
+}
+
+/* line 84, ../scss/templates/_blog.scss */
+#side-popular {
+  padding: 2.5rem 1.25rem;
+}
+
+/* line 87, ../scss/templates/_blog.scss */
+#blog-newsletter {
+  padding: 3.75rem 0;
+}
+/* line 90, ../scss/templates/_blog.scss */
+#blog-newsletter input {
+  width: 21.875rem;
+  display: inline-block !important;
+}
+
 @media only screen and (max-width: 40em) {
-  /* line 56, ../scss/templates/_blog.scss */
+  /* line 98, ../scss/templates/_blog.scss */
   #blog-header .d-table, #blog-header #map-info > .row {
     height: 13.75rem;
+  }
+
+  /* line 104, ../scss/templates/_blog.scss */
+  #blog-newsletter button, #blog-newsletter input {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 40.0625em) {
+  /* line 111, ../scss/templates/_blog.scss */
+  #blog-newsletter button {
+    margin-left: 1.25rem;
   }
 }
 /* line 1, ../scss/templates/_resposta.scss */

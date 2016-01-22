@@ -105,7 +105,7 @@ class Infinite_Scroll {
 			'itemSelector'    => '.post-item',
 			'contentSelector' => '#blog-list',
 			'debug'           => WP_DEBUG,
-			'callback'		    => '$("*[data-thumb]").getDataThumb();'
+			'callback'		    => '$("*[data-thumb]").getDataThumb();$(function () {function loadWidgets(){twttr.widgets.load();}loadWidgets();});FB.XFBML.parse();gapi.plusone.go();'
 		);
 	}
 
