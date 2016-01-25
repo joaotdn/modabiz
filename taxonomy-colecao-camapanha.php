@@ -103,16 +103,21 @@ $video_3gp = get_field('campanha_topo_video_3gp',$obj);
             <?php
               if(!$camp_txt):
             ?>
-            <div class="share-item abs d-table">
-                <div class="d-table-cell small-12 text-center">
+
+            <div class="share-item abs d-table colecion-share">
+                
+                <div class="d-table-cell small-12 text-center icon-share-div">
                     <span class="icon-share2"></span>
                 </div>
-                <nav class="abs share-icons">
+
+                <nav class="abs share-icons share-colection">
                     <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $link_tax; ?>" class="icon-facebook" target="_blank"></a>
                     <a href="https://twitter.com/home?status=<?php echo $link_tax; ?>" class="icon-twitter" target="_blank"></a>
                     <a href="https://pinterest.com/pin/create/button/?url=<?php echo $link_tax; ?>&media=<?php echo $th[0]; ?>&description=<?php the_title(); ?>" class="icon-pinterest2" target="_blank"></a>
                 </nav>
+
             </div>
+            
             <?php
               endif;
               if(!$camp_txt):

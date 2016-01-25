@@ -214,7 +214,7 @@
             <p class="small-12 columns">
               <a href="#" class="button reven-form-btn text-up left send-comp">Comp. de residência</a>
               <span class="right get-filename">nenhum arquivo escolhido</span>
-              <input type="file" name="comprovante" class="small-12 left" title="Anexe seu comprovante de residência" required>
+              <input type="file" name="comprovante" class="small-12 left hide" title="Anexe seu comprovante de residência" required>
             </p>
 
             <p class="small-12 columns check">

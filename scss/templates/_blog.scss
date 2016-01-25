@@ -51,6 +51,28 @@
 	}
 }
 
+//interna
+.alignleft {
+	@extend .left;
+	margin-right: rem-calc(10);
+}
+.alignright {
+	@extend .right;
+	margin-left: rem-calc(10);
+}
+.aligncenter {
+	width: 100%;
+	@extend .left;
+	margin-bottom: rem-calc(10);
+}
+#single-post {
+	a {
+		@extend %transition;
+	}
+}
+
+
+
 //Sidebar
 #sidebar {
 	a {

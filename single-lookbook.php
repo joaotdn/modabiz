@@ -4,7 +4,9 @@ get_header();
 global $plandd_option;
 global $post;
 $obj = get_queried_object();
-$height = $plandd_option['temp-cole-altura']['height']; 
+$height = $plandd_option['temp-cole-altura']['height'];
+$_h = explode('px', $height);
+$nav_height = $_h[0] - 96;
 
 $layout = $plandd_option['temp-look-int-blocks-layout']['topo'];
 
@@ -34,6 +36,7 @@ if ($layout): foreach ($layout as $key=>$value) {
         break;
 
     }
+
 }
  
 endif;
@@ -51,21 +54,22 @@ endif;
 
                 <nav class="share-footer show-for-large-up right">
                     <ul class="inline-list d-iblock no-margin">
-                        <li><div class="fb-like" data-layout="button_count" data-href="<?php the_permalink();;?>"></div></li>
-                        <li><a class="twitter-share-button" href="https://twitter.com/intent/tweet?url=<?php the_permalink();;?>">Tweet</a></li>
-                        <li><div class="g-plusone" data-size="medium" data-width="65" data-href="<?php the_permalink();;?>"></div></li>
+                        <li><div class="fb-like" data-layout="button_count" data-href="<?php the_permalink(); ?>"></div></li>
+                        <li><a class="twitter-share-button" href="https://twitter.com/intent/tweet?url=<?php the_permalink(); ?>">Tweet</a></li>
+                        <li><div class="g-plusone" data-size="medium" data-width="65" data-href="<?php the_permalink(); ?>"></div></li>
                     </ul>
                 </nav>
             </header>
             
             <section class="small-12 left rel"> 
-                <a href="#" class="next-lookbook nav-lookbook abs d-table" style="height:<?php echo $height; ?>;">
+
+                <a href="#" class="next-lookbook nav-lookbook abs d-table" style="height:<?php echo $nav_height; ?>px;">
                     <span class="d-table-cell small-12">
                         <span class="icon-chevron-thin-left"></span>
                     </span>
                 </a>
 
-                <a href="#" class="prev-lookbook nav-lookbook abs d-table" style="height:<?php echo $height; ?>;">
+                <a href="#" class="prev-lookbook nav-lookbook abs d-table" style="height:<?php echo $nav_height; ?>px;">
                     <span class="d-table-cell small-12">
                         <span class="icon-chevron-thin-right"></span>
                     </span>
@@ -82,21 +86,12 @@ endif;
                                 $id_unique_gift = uniqid();
                                 $url = $item['look_url'];
                     ?>
+
                     <div class="list-items-look item" style="height:<?php echo $height; ?>;">
+
                         <nav id="item-choices" class="divide-30">
 
                             <ul class="list-choices no-margin">
-                                
-                                <li class="share-look rel" data-tooltip aria-haspopup="true" class="has-tip" title="Compartilhe esta imagem">
-                                    <a href="#" data-hover="<?php echo $plandd_option['temp-cole-choices-share-hover']['url']; ?>" class="text-center rel">
-                                        <?php echo '<img src="'.$plandd_option['temp-cole-choices-share']['url'] . '" class="d-iblock">'; ?>
-                                    </a>
-                                    <nav class="abs share-icons">
-                                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" class="icon-facebook" target="_blank"></a>
-                                        <a href="https://twitter.com/home?status=<?php the_permalink(); ?>" class="icon-twitter" target="_blank"></a>
-                                        <a href="https://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo $item['look_img']; ?>&description=" class="icon-pinterest2" target="_blank"></a>
-                                    </nav>
-                                </li>
 
                                 <li data-tooltip aria-haspopup="true" class="has-tip" title="Medidas">
                                     <a href="#" data-reveal-id="item-<?php echo $post->ID . '-' . $id_unique; ?>" data-hover="<?php echo $plandd_option['temp-cole-choices-meter-hover']['url']; ?>" class="text-center">
@@ -112,7 +107,7 @@ endif;
                                       <div class="info-meters small-12 left text-center">
                                           <ul class="small-block-grid-4 no-margin">
                                               <li>Numeração (cm)</li>
-                                              <li>Busto (cm)<br><span data-tooltip aria-haspopup="true" class="has-tip font-small" title="Para medir o busto, contorne o tronco na altura do centro do perito com uma fita métrica">Como medir</span></li>
+                                              <li>Busto (cm)<br><span data-tooltip aria-haspopup="true" class="has-tip font-small" title="Para medir o busto, contorne o tronco na altura do centro do peito com uma fita métrica">Como medir</span></li>
                                               <li>Cintura (cm)<br><span data-tooltip aria-haspopup="true" class="has-tip font-small" title="Passe a fita métrica na região próxima ao umbigo, abaixo das costelas.">Como medir</span></li>
                                               <li>Quadril (cm)<br><span data-tooltip aria-haspopup="true" class="has-tip font-small" title="Contorne a região mais longa dos quadris para tirar a medida">Como medir</span></li>
                                           </ul>
@@ -180,10 +175,27 @@ endif;
                                         <?php echo '<img src="'.$plandd_option['temp-cole-choices-sacola']['url'] . '" class="d-iblock">'; ?>
                                     </a>
                                 </li>
-                            <?php endif; ?>
+                                <?php endif; ?>
+
+                                <li class="share-look rel">
+                                    <a href="#" data-hover="<?php echo $plandd_option['temp-cole-choices-share-hover']['url']; ?>" class="text-center rel">
+                                        <?php echo '<img src="'.$plandd_option['temp-cole-choices-share']['url'] . '" class="d-iblock">'; ?>
+                                    </a>
+                                    <nav class="abs share-icons">
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" class="icon-facebook net-icon" target="_blank"></a>
+                                        <a href="https://twitter.com/home?status=<?php the_permalink(); ?>" class="icon-twitter net-icon" target="_blank"></a>
+                                        <a href="https://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo $item['look_img']; ?>&description=" class="icon-pinterest2 net-icon" target="_blank"></a>
+                                    </nav>
+                                </li>
                             </ul>
                         </nav>
-                        <figure class="small-12 left text-center item-th" style="height:<?php echo $height; ?>;">
+
+                        <figure class="small-12 left text-center item-th rel" style="height:<?php echo $height; ?>;">
+                            <?php
+                                $ref = $item['look_ref'];
+                                if(!empty($ref))
+                                    echo '<p class="small-12 abs prod-ref text-center"><span>'. $ref .'</span></p>';
+                            ?>
                             <img src="<?php echo $item['look_img']; ?>" alt="">
                         </figure>
                     </div>
@@ -192,7 +204,6 @@ endif;
                         endforeach;
                         endif;
                     ?>
-                    
                 </nav>
             </section>
 
@@ -207,8 +218,8 @@ endif;
                 ?>
                 </nav>
 
-                <a href="#" class="abs nav-thumbs prev-carousel icon-chevron-thin-left"></a>
-                <a href="#" class="abs nav-thumbs next-carousel icon-chevron-thin-right"></a>
+                <a href="#" class="abs nav-look-thumbs prev-carousel icon-chevron-thin-left"></a>
+                <a href="#" class="abs nav-look-thumbs next-carousel icon-chevron-thin-right"></a>
             </section>
 
         </div>

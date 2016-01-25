@@ -93,17 +93,16 @@ $video_3gp = get_field('lookbook_topo_video_3gp',$obj);
 ?>
     <figure class="small-12 medium-6 columns grid-item">
 
-            <div class="share-item abs d-table">
-                <div class="d-table-cell small-12 text-center">
+            <div class="share-item abs d-table colecion-share">
+                <div class="d-table-cell small-12 text-center colecion-share icon-share-div">
                     <span class="icon-share2"></span>
                 </div>
-                <nav class="abs share-icons">
+                <nav class="abs share-icons share-colection">
                     <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" class="icon-facebook" target="_blank"></a>
                     <a href="https://twitter.com/home?status=<?php the_permalink(); ?>" class="icon-twitter" target="_blank"></a>
                     <a href="https://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo $th[0]; ?>&description=<?php the_title(); ?>" class="icon-pinterest2" target="_blank"></a>
                 </nav>
             </div>
-            
 
             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="d-block small-12 left rel">
                 <img src="<?php echo $th[0]; ?>" alt="" class="small-12 left">

@@ -1,5 +1,5 @@
 <?php
-define('THEME_VERSION', '1.0.28');
+define('THEME_VERSION', '1.0.41');
 define('THEME_ICON', get_stylesheet_directory_uri() . '/images/icon.png');
 error_reporting(E_ERROR | E_PARSE);
 
@@ -23,6 +23,7 @@ function plandd_acf_dir( $dir ) {
      // return
      return $dir;
 }
+
 /**
  * Framework para personalização de campos
  * (custom meta post)
