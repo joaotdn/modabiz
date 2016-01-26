@@ -49,21 +49,29 @@ $icon_hover = $plandd_option['comp-geo-icon-hover']['url'];
 $icon_user = $plandd_option['comp-geo-icon-user']['url'];
 $header = $plandd_option['comp-geo-header'];
 ?>
-<section id="comp-geo" class="small-12 left section-block rel">
+<section id="inner-revendedor" class="small-12 left section-block no-pb rel">
+  <div id="" class="row">
+      <div class="small-12 columnns">
+          <nav id="breadcrumb" class="small-12 left">
+              <?php the_breadcrumb(); ?>
+              <div class="divide-30"></div>
+          </nav>
+
+          <header class="divide-40">
+              <h1 class="left"><?php the_title(); ?></h1>
+
+              <nav class="share-footer show-for-large-up right">
+                  <ul class="inline-list d-iblock no-margin">
+                      <li><div class="fb-like" data-layout="button_count" data-href="<?php the_permalink();;?>"></div></li>
+                      <li><a class="twitter-share-button" href="https://twitter.com/intent/tweet?url=<?php the_permalink();;?>">Tweet</a></li>
+                      <li><div class="g-plusone" data-size="medium" data-width="65" data-href="<?php the_permalink();;?>"></div></li>
+                  </ul>
+              </nav>
+          </header>
+      </div>
+  </div>
+
   <div class="row">
-    <header class="small-12 columns text-center">
-      <?php
-        if($icon_header && !empty($icon_header)):
-      ?>
-      <figure class="d-iblock divide-20">
-        <img src="<?php echo $icon_header; ?>" alt="">
-      </figure>
-      <?php
-        endif;
-        if($header && !empty($header))
-          echo '<h2 class="divide-30">'. $header .'</h2>';
-      ?>
-    </header>
 
     <div class="small-12 large-5 columns">
       <a href="#" class="geo-btn divide-20 d-block text-up text-center btn-userlocal">

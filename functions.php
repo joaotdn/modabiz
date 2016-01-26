@@ -1,5 +1,5 @@
 <?php
-define('THEME_VERSION', '1.0.41');
+define('THEME_VERSION', '1.0.50');
 define('THEME_ICON', get_stylesheet_directory_uri() . '/images/icon.png');
 error_reporting(E_ERROR | E_PARSE);
 
@@ -30,7 +30,6 @@ function plandd_acf_dir( $dir ) {
  */
 include_once( get_stylesheet_directory() . '/includes/acf-pro/acf.php' );
 define( 'ACF_LITE' , true );
-//include_once( get_stylesheet_directory() . '/includes/acf/preconfig.php' );
 
 /**
  * Infinite Scroll
@@ -74,13 +73,14 @@ include_once( get_stylesheet_directory() . '/includes/post-types/lookbook.php' )
 //CAMPANHA
 include_once( get_stylesheet_directory() . '/includes/post-types/campanha.php' );
 
-//REVENDEDORES
+//REVENDEDORES (MODULO)
 include_once( get_stylesheet_directory() . '/includes/post-types/revendedores.php' );
 
 /**
  * Opções gerais para a aplicação e seus
  * componentes
  */
+
 require_once (dirname(__FILE__) . '/includes/options/redux-framework.php');
 require_once (dirname(__FILE__) . '/includes/options/sample/barebones-config.php');
 
@@ -88,6 +88,7 @@ require_once (dirname(__FILE__) . '/includes/options/sample/barebones-config.php
 /**
  * Funções
  */
+
 //Admin instagram
 require_once (dirname(__FILE__) . '/includes/functions/componentes.instagram.hash.php');
 require_once (dirname(__FILE__) . '/includes/functions/componentes.instagram.perfil.php');
@@ -103,6 +104,9 @@ require_once (dirname(__FILE__) . '/includes/functions/lookbook.presente.php');
 
 //Enviar dados de seja revendedor para o módulo
 require_once (dirname(__FILE__) . '/includes/functions/template.revendedor.php');
+
+// Instalar banco de dados com as cidades e estados
+// require_once (dirname(__FILE__) . '/includes/functions/cidades_estados.php');
 
 //Pega a miniatura da postagem
 function getThumbUrl($size,$post_id) {
@@ -262,8 +266,6 @@ add_action('admin_head', 'add_menu_icons_styles');
  * Ao cadastrar um mapa escreva as informações no arquivo
  * json para consultas no lado cliente
  */
-
-
 function save_gmap_meta() {
 
   $args = array(
@@ -309,4 +311,5 @@ function save_gmap_meta() {
 
 }
 add_action( 'save_post', 'save_gmap_meta' );
+
 ?>

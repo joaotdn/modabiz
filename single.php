@@ -69,7 +69,7 @@ endif;
     <div class="row">
 
         <article id="single-post" class="small-12 large-8 columns">
-            <time class="small-12 left post-date" pubdate>
+            <time class="divide-20 post-date" pubdate>
                 <img src="<?php echo $date_icon; ?>" alt="">
                 <span><?php echo the_time('d \d\e F, Y'); ?></span>
             </time> 

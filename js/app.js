@@ -199,6 +199,7 @@ $(document).on('click', '.close-menu,.open-menu', function(event) {
 
 //video na galeria
 //------------------------------------------------------------------------
+
 $.ajaxSetup({
     url: getData.ajaxDir,
     type: 'GET',
@@ -301,3 +302,21 @@ function plan_smooth_scroll(c,g) {
 
 plan_smooth_scroll('.go-faq-section','#faq-section');
 plan_smooth_scroll('.reven-btn-join','#reven-form');
+
+//Cidades e estados
+//------------------------------------------------------------------------
+(function() {
+    if($('select[data-estado]').length) {
+
+        $.getJSON(getData.urlDir+'/estados.json', function(json, textStatus) {
+            //console.log(json);
+            var max = json.length;
+
+            $(json).each(function(i,o) {
+                var opt = $('<option/>').attr('value',o.ID).text(o.Nome);
+                $('select[data-estado]').append(opt);
+            });
+        });
+
+    }
+})();

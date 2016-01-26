@@ -7,6 +7,55 @@
    * @since ModaBiz Creator 1.0
   */
 
+function modabiz_module_contato() {
+  if(isset($_POST['submited_cpf'])) {
+    
+    $nome = filter_var($_POST['nome'],FILTER_SANITIZE_STRING);
+    $nascimento = filter_var($_POST['nascimento'],FILTER_SANITIZE_STRING);
+    $telefone = filter_var($_POST['telefone'],FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST['email'],FILTER_VALIDATE_EMAIL);
+    $endereco = filter_var($_POST['endereco'],FILTER_SANITIZE_STRING);
+    $bairro = filter_var($_POST['bairro'],FILTER_SANITIZE_STRING);
+    $complemento = filter_var($_POST['complemento'],FILTER_SANITIZE_STRING);
+    $estado = filter_var($_POST['estado'],FILTER_SANITIZE_STRING);
+    $cidade = filter_var($_POST['cidade'],FILTER_SANITIZE_STRING);
+    $file = (isset($_FILES)) ? $_FILES['comprovante']['name'] : false;
+    $newsletter = $_POST['newsletter'];
+    $sms = $_POST['sms'];
+
+    $e_nome = false;
+    $e_nascimento = false;
+    $e_telefone = false;
+    $e_email = false;
+    $e_endereco = false;
+    $e_bairro = false;
+    $e_complemento = false;
+    $e_estado = false;
+    $e_cidade = false;
+
+    if(!empty($nome))
+      $e_nome = true;
+    if(!empty($nascimento))
+      $e_nascimento = true;
+    if(!empty($telefone))
+      $e_telefone = true;
+    if(!empty($email))
+      $e_email = true;
+    if(!empty($endereco))
+      $e_endereco = true;
+    if(!empty($bairro))
+      $e_bairro = true;
+    if(!empty($complemento))
+      $e_complemento = true;
+    if(!empty($estado))
+      $e_estado = true;
+    if(!empty($cidade))
+      $e_cidade = true;
+    
+  }
+}
+modabiz_module_contato();
+    
   //Header
   get_header();
 
@@ -46,7 +95,6 @@
    
   endif;
 ?>
-
 <section id="inner-revendedor" class="small-12 left section-block no-pb">
     <div class="row">
         <div class="small-12 columnns">
@@ -60,9 +108,9 @@
 
                 <nav class="share-footer show-for-large-up right">
                     <ul class="inline-list d-iblock no-margin">
-                        <li><div class="fb-like" data-layout="button_count" data-href="<?php the_permalink();;?>"></div></li>
-                        <li><a class="twitter-share-button" href="https://twitter.com/intent/tweet?url=<?php the_permalink();;?>">Tweet</a></li>
-                        <li><div class="g-plusone" data-size="medium" data-width="65" data-href="<?php the_permalink();;?>"></div></li>
+                        <li><div class="fb-like" data-layout="button_count" data-href="<?php the_permalink(); ?>"></div></li>
+                        <li><a class="twitter-share-button" href="https://twitter.com/intent/tweet?url=<?php the_permalink(); ?>">Tweet</a></li>
+                        <li><div class="g-plusone" data-size="medium" data-width="65" data-href="<?php the_permalink(); ?>"></div></li>
                     </ul>
                 </nav>
             </header>
@@ -172,8 +220,11 @@
               <h3><a href="#" class="text-up set-cnpj">Pessoa jurídica</a></h3>
             </div>
           </nav>
-
-          <form id="form-cpf" class="small-12 left active">
+          
+          <!--
+            FORM PESSOA FISICA
+          -->
+          <form action="<?php the_permalink(); ?>" id="form-cpf" class="small-12 left active" method="post">
             
             <p class="small-12 columns">
               <input type="text" name="nome" placeholder="NOME COMPLETO *" class="small-12 left" title="Seu nome" required>
@@ -204,17 +255,17 @@
             </p>
 
             <p class="small-12 columns medium-6">
-              <input type="text" name="cidade" maxlength="200" placeholder="CIDADE *" class="small-12 left" title="Sua cidade" required>
+              <input type="text" name="estado" maxlength="200" placeholder="ESTADO *" class="small-12 left" title="Seu estado" required>
             </p>
 
             <p class="small-12 columns medium-6">
-              <input type="text" name="estado" maxlength="200" placeholder="ESTADO *" class="small-12 left" title="Seu estado" required>
+              <input type="text" name="cidade" maxlength="200" placeholder="CIDADE *" class="small-12 left" title="Sua cidade" required>
             </p>
 
             <p class="small-12 columns">
               <a href="#" class="button reven-form-btn text-up left send-comp">Comp. de residência</a>
               <span class="right get-filename">nenhum arquivo escolhido</span>
-              <input type="file" name="comprovante" class="small-12 left hide" title="Anexe seu comprovante de residência" required>
+              <input type="file" name="comprovante" class="small-12 left hide" title="Anexe seu comprovante de residência">
             </p>
 
             <p class="small-12 columns check">
@@ -231,8 +282,12 @@
             </p>
             
             <input type="hidden" name="form_type" value="form_cpf">
+            <input type="hidden" name="submited_cpf" value="submit_cpf">
           </form>
           
+          <!--
+            FORM PESSOA JURIDICA
+          -->
           <form id="form-cnpj" class="small-12 left">
             
             <p class="small-12 columns">
