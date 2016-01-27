@@ -51,7 +51,28 @@ function modabiz_module_contato() {
       $e_estado = true;
     if(!empty($cidade))
       $e_cidade = true;
+
+    /*if($file != false) {
+      if ( ! function_exists( 'wp_handle_upload' ) ) require_once( ABSPATH . 'wp-admin/includes/file.php' );
+      $uploadedfile = $_FILES['comprovante'];
+          
+          $upload_overrides = array( 'test_form' => false );
+          $movefile = wp_handle_upload( $uploadedfile, $upload_overrides );
+          $attachments = $movefile[ 'file' ];
+          echo $attachments;
+
+    } else {
+      $err_anexo = false;
+    }*/
     
+    if($file != false) {
+      if ( ! function_exists( 'wp_handle_upload' ) ) require_once( ABSPATH . 'wp-admin/includes/file.php' );
+        $uploadedfile = $_FILES['comprovante'];
+        $upload_overrides = array( 'test_form' => false );
+        $movefile = wp_handle_upload( $uploadedfile, $upload_overrides );
+        var_dump($movefile);
+    }
+
   }
 }
 modabiz_module_contato();
