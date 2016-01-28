@@ -7,11 +7,10 @@
    * @since ModaBiz Creator 1.0
   */
 
-function modabiz_module_contato() {
-  if(isset($_POST['submited_cpf'])) {
+function modabiz_module_revendedores() {
+  if(isset($_POST['submited_cpf']) || isset($_POST['submited_cnpj'])) {
     
     $nome = filter_var($_POST['nome'],FILTER_SANITIZE_STRING);
-    $nascimento = filter_var($_POST['nascimento'],FILTER_SANITIZE_STRING);
     $telefone = filter_var($_POST['telefone'],FILTER_SANITIZE_STRING);
     $email = filter_var($_POST['email'],FILTER_VALIDATE_EMAIL);
     $endereco = filter_var($_POST['endereco'],FILTER_SANITIZE_STRING);
@@ -19,12 +18,21 @@ function modabiz_module_contato() {
     $complemento = filter_var($_POST['complemento'],FILTER_SANITIZE_STRING);
     $estado = filter_var($_POST['estado'],FILTER_SANITIZE_STRING);
     $cidade = filter_var($_POST['cidade'],FILTER_SANITIZE_STRING);
-    $file = (isset($_FILES)) ? $_FILES['comprovante']['name'] : false;
+    
     $newsletter = $_POST['newsletter'];
     $sms = $_POST['sms'];
 
+    if(isset($_FILES))
+      $file = (isset($_FILES)) ? $_FILES['comprovante']['name'] : false;
+    if(isset($_POST['nascimento']))
+      $nascimento = filter_var($_POST['nascimento'],FILTER_SANITIZE_STRING);
+
+    if(isset($_POST['empresa']))
+      $empresa = filter_var($_POST['empresa'],FILTER_SANITIZE_STRING);
+    if(isset($_POST['cnpj']))
+      $cnpj = filter_var($_POST['cnpj'],FILTER_SANITIZE_STRING);
+
     $e_nome = false;
-    $e_nascimento = false;
     $e_telefone = false;
     $e_email = false;
     $e_endereco = false;
@@ -35,8 +43,6 @@ function modabiz_module_contato() {
 
     if(!empty($nome))
       $e_nome = true;
-    if(!empty($nascimento))
-      $e_nascimento = true;
     if(!empty($telefone))
       $e_telefone = true;
     if(!empty($email))
@@ -52,30 +58,60 @@ function modabiz_module_contato() {
     if(!empty($cidade))
       $e_cidade = true;
 
-    /*if($file != false) {
-      if ( ! function_exists( 'wp_handle_upload' ) ) require_once( ABSPATH . 'wp-admin/includes/file.php' );
-      $uploadedfile = $_FILES['comprovante'];
-          
-          $upload_overrides = array( 'test_form' => false );
-          $movefile = wp_handle_upload( $uploadedfile, $upload_overrides );
-          $attachments = $movefile[ 'file' ];
-          echo $attachments;
-
-    } else {
-      $err_anexo = false;
-    }*/
-    
-    if($file != false) {
+    if(isset($_FILES)) {
       if ( ! function_exists( 'wp_handle_upload' ) ) require_once( ABSPATH . 'wp-admin/includes/file.php' );
         $uploadedfile = $_FILES['comprovante'];
         $upload_overrides = array( 'test_form' => false );
         $movefile = wp_handle_upload( $uploadedfile, $upload_overrides );
-        var_dump($movefile);
+        $comprovante_url = $movefile['url'];
+    }
+
+    //Publica novos posts, o titulo é o nome do revendedor
+    if($e_nome && $e_cidade && $e_estado && $e_complemento && $e_email && $e_telefone && $e_endereco) {
+
+      $revendedor_id = get_page_by_title( $nome, 'OBJECT', 'revendedores' );
+
+      if( !$revendedor_id ) {
+
+        $revendedor_id = wp_insert_post( array(
+            "post_title" => $nome,
+            "post_type" => 'revendedores',
+            "post_status" => "publish"
+        ));
+
+        update_field('revendedor_pessoa', $_POST['form_type'], $revendedor_id);
+        update_field('revendedor_nome', $nome, $revendedor_id);
+        update_field('revendedor_email', $email, $revendedor_id);
+        update_field('revendedor_telefone', $telefone, $revendedor_id);
+        update_field('revendedor_endereco', $endereco, $revendedor_id);
+        update_field('revendedor_bairro', $bairro, $revendedor_id);
+        update_field('revendedor_complemento', $complemento, $revendedor_id);
+        update_field('revendedor_estado', $estado, $revendedor_id);
+        update_field('revendedor_cidade', $cidade, $revendedor_id);
+
+        if(isset($empresa) && !empty($empresa))
+          update_field('revendedor_empresa', $empresa, $revendedor_id);
+
+        if(isset($cnpj) && !empty($cnpj))
+          update_field('revendedor_cnpj', $cnpj, $revendedor_id);
+        
+        if(isset($nascimento) && !empty($nascimento))
+          update_field('revendedor_aniversario', $nascimento, $revendedor_id);
+        
+        if(isset($comprovante_url) && !empty($comprovante_url))
+          update_field('revendedor_comprovante', $comprovante_url, $revendedor_id);
+
+      }
+
+      $confimacao = get_page_by_title("Resposta");
+      $confimacao = get_page_link($confimacao->ID);
+      wp_redirect($confimacao);
+
     }
 
   }
 }
-modabiz_module_contato();
+modabiz_module_revendedores();
     
   //Header
   get_header();
@@ -245,7 +281,7 @@ modabiz_module_contato();
           <!--
             FORM PESSOA FISICA
           -->
-          <form action="<?php the_permalink(); ?>" id="form-cpf" class="small-12 left active" method="post">
+          <form action="<?php the_permalink(); ?>" id="form-cpf" class="small-12 left active" method="post" enctype="multipart/form-data">
             
             <p class="small-12 columns">
               <input type="text" name="nome" placeholder="NOME COMPLETO *" class="small-12 left" title="Seu nome" required>
@@ -302,14 +338,15 @@ modabiz_module_contato();
               <button type="submit" class="button reven-form-btn text-up small-12 left">Enviar e dar o primeiro passo!</button>
             </p>
             
-            <input type="hidden" name="form_type" value="form_cpf">
+            <input type="hidden" name="form_type" value="Pessoa física">
             <input type="hidden" name="submited_cpf" value="submit_cpf">
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
           </form>
           
           <!--
             FORM PESSOA JURIDICA
           -->
-          <form id="form-cnpj" class="small-12 left">
+          <form action="<?php the_permalink(); ?>" id="form-cnpj" class="small-12 left" method="post">
             
             <p class="small-12 columns">
               <input type="text" name="empresa" placeholder="NOME DA EMPRESA *" class="small-12 left" title="Nome da sua empresa" required>
@@ -364,7 +401,10 @@ modabiz_module_contato();
               <button type="submit" class="button reven-form-btn text-up small-12 left">Enviar e dar o primeiro passo!</button>
             </p>
             
-            <input type="hidden" name="form_type" value="form_cnpj">
+            
+            <input type="hidden" name="form_type" value="Pessoa jurídica">
+            <input type="hidden" name="submited_cnpj" value="submit_cnpj">
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
           </form>
 
         </div>
