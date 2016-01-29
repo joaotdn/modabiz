@@ -7,6 +7,8 @@
    * @since ModaBiz Creator 1.0
   */
 
+  modabiz_module_contatos();
+  
   //Header
   get_header();
 
@@ -92,7 +94,7 @@
         <!-- formularios -->
         <div class="small-12 medium-6 columns">
 
-          <form class="small-12 left active">
+          <form action="<?php the_permalink(); ?>" class="small-12 left active" method="post">
             
             <p class="small-12 left">
               <input type="text" name="nome" placeholder="NOME COMPLETO *" class="small-12 left" title="Seu nome" required>
@@ -131,7 +133,7 @@
 
             <p class="small-12 left">
               <span class="divide-20"></span>
-              <button type="submit" class="button contato-form-btn text-up right">Enviar</button>
+              <button type="submit" class="button contato-form-btn text-up right" name="submited">Enviar</button>
             </p>
 
           </form>

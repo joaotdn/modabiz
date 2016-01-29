@@ -7,6 +7,8 @@
    * @since ModaBiz Creator 1.0
   */
 
+  modabiz_module_corriculos();
+
   //Header
   get_header();
 
@@ -94,7 +96,7 @@
         <!-- formularios -->
         <div class="small-12 medium-6 columns">
 
-          <form class="small-12 left active">
+          <form action="<?php the_permalink(); ?>" class="small-12 left active" method="post" enctype="multipart/form-data">
             
             <p class="small-12 left">
               <input type="text" name="nome" placeholder="NOME COMPLETO *" class="small-12 left" title="Seu nome" required>
@@ -105,7 +107,7 @@
             </p>
 
             <p class="small-12 left">
-              <input type="tel" name="telefone" placeholder="TELEFONE" class="small-12 left telefone" title="Seu telefone" required>
+              <input type="tel" name="telefone" placeholder="TELEFONE *" class="small-12 left telefone" title="Seu telefone" required>
             </p>
 
             <p class="small-12 left">
@@ -113,9 +115,9 @@
             </p>
 
             <p class="small-12 left">
-              <a href="#" class="button contato-form-btn text-up left send-comp">Comp. de residência</a>
+              <a href="#" class="button contato-form-btn text-up left send-comp">Currículo</a>
               <span class="right get-filename">nenhum arquivo escolhido</span>
-              <input type="file" name="comprovante" class="small-12 left hide" title="Anexe seu comprovante de residência" required>
+              <input type="file" name="curriculo" class="small-12 left hide" title="Anexe seu currículo de residência" required>
             </p>
 
             <p>
@@ -124,9 +126,10 @@
 
             <p class="small-12 left">
               <span class="divide-20"></span>
-              <button type="submit" class="button contato-form-btn text-up right">Enviar</button>
+              <button type="submit" class="button contato-form-btn text-up right" name="submited">Enviar</button>
             </p>
-
+            
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
           </form>
 
         </div>

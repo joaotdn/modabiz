@@ -76,6 +76,12 @@ include_once( get_stylesheet_directory() . '/includes/post-types/campanha.php' )
 //REVENDEDORES (MODULO)
 include_once( get_stylesheet_directory() . '/includes/post-types/revendedores.php' );
 
+//CURRÍCULOS (MODULO)
+include_once( get_stylesheet_directory() . '/includes/post-types/curriculos.php' );
+
+//CONTATO (MODULO)
+include_once( get_stylesheet_directory() . '/includes/post-types/contatos.php' );
+
 /**
  * Opções gerais para a aplicação e seus
  * componentes
@@ -103,7 +109,13 @@ require_once (dirname(__FILE__) . '/includes/functions/breadcrumb.php');
 require_once (dirname(__FILE__) . '/includes/functions/lookbook.presente.php');
 
 //Enviar dados de seja revendedor para o módulo
-require_once (dirname(__FILE__) . '/includes/functions/template.revendedor.php');
+require_once (dirname(__FILE__) . '/includes/functions/modulos.revendedores.php');
+
+//Enviar dados de trabalhe conosco para o módulo
+require_once (dirname(__FILE__) . '/includes/functions/modulos.curriculos.php');
+
+//Enviar dados de fale conosco para o módulo
+require_once (dirname(__FILE__) . '/includes/functions/modulos.contatos.php');
 
 // Instalar banco de dados com as cidades e estados
 // require_once (dirname(__FILE__) . '/includes/functions/cidades_estados.php');
@@ -228,24 +240,30 @@ add_action( 'wp_enqueue_scripts', 'plandd_scripts' );
 function add_menu_icons_styles() {
   ?>
     <style>
-    #menu-posts-painel div.wp-menu-image:before {
-      content: "\f233";
-    }
-    #menu-posts-galeria div.wp-menu-image:before {
-      content: "\f180";
-    }
-    #menu-posts-localizacao div.wp-menu-image:before {
-      content: "\f231";
-    }
-    #menu-posts-lookbook div.wp-menu-image:before {
-      content: "\f507";
-    }
-    #menu-posts-campanha div.wp-menu-image:before {
-      content: "\f488";
-    }
-    #menu-posts-revendedores div.wp-menu-image:before {
-      content: "\f307";
-    }
+      #menu-posts-painel div.wp-menu-image:before {
+        content: "\f233";
+      }
+      #menu-posts-galeria div.wp-menu-image:before {
+        content: "\f180";
+      }
+      #menu-posts-localizacao div.wp-menu-image:before {
+        content: "\f231";
+      }
+      #menu-posts-lookbook div.wp-menu-image:before {
+        content: "\f507";
+      }
+      #menu-posts-campanha div.wp-menu-image:before {
+        content: "\f488";
+      }
+      #menu-posts-revendedores div.wp-menu-image:before {
+        content: "\f307";
+      }
+      #menu-posts-curriculos div.wp-menu-image:before {
+        content: "\f481";
+      }
+      #menu-posts-contatos div.wp-menu-image:before {
+        content: "\f465";
+      }
     </style>
 
     <script>
