@@ -29,6 +29,7 @@ function plandd_acf_dir( $dir ) {
  * (custom meta post)
  */
 include_once( get_stylesheet_directory() . '/includes/acf-pro/acf.php' );
+include_once( get_stylesheet_directory() . '/includes/acf-pro/preconfig.php' );
 define( 'ACF_LITE' , true );
 
 /**
