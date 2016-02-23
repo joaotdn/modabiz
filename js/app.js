@@ -207,7 +207,7 @@ $.ajaxSetup({
 });
 
 $(document).on('click', '[data-videoid]', function(event) {
-    event.preventDefault();
+    //event.preventDefault();
     var dt = $(this).data('videoid'),
         dtv = $(this).data('reveal-id');
 
@@ -319,4 +319,55 @@ plan_smooth_scroll('.reven-btn-join','#reven-form');
         });
 
     }
+})();
+
+//Campo assunto
+//------------------------------------------------------------------------
+(function() {
+    if($('input[name="assunto"]').length) {
+
+        $('input[name="assunto"]').on('keypress',function(e) {
+            e.preventDefault();
+        });
+        $('input[name="assunto"]').focus(function(event) {
+            $('.ui-choices').addClass('active');
+        });
+        $('input[name="assunto"]').blur(function(event) {
+            setTimeout(function() { $('.ui-choices').removeClass('active'); }, 300);
+        });  
+        $('span','.ui-choices').click(function(event) {
+            var v = $(this).text();
+            $('input[name="assunto"]').val(v);
+        });
+    }
+})();
+
+//Buscar CEP
+//------------------------------------------------------------------------
+(function() {
+    $(document).on('blur','input.cep',function() {
+        var v = $(this).val();
+        if(v !== "") {
+            $.getJSON('http://cep.republicavirtual.com.br/web_cep.php?cep='+ v +'&formato=jsonp', function(json, textStatus) {
+                var bairro = json.bairro, inputBairro = $('input[name="bairro"]'),
+                    cidade = json.cidade, inputCidade = $('input[name="cidade"]'),
+                    logradouro = json.logradouro, inputComp = $('input[name="complemento"]'),
+                    uf = json.uf, inputUf = $('input[name="estado"]');
+                
+                if(bairro != "")
+                    inputBairro.val(bairro);
+                else
+                    inputBairro.val("Centro");
+
+                if(cidade != "")
+                    inputCidade.val(cidade);
+
+                if(logradouro != "")
+                    inputComp.val(logradouro);
+
+                if(uf != "")
+                    inputUf.val(uf);
+            });
+        }
+    });
 })();

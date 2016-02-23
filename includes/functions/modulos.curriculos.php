@@ -1,10 +1,13 @@
 <?php
 function modabiz_module_corriculos() {
   if(isset($_POST['submited'])) {
+    global $post;
+    global $plandd_option;
+
     $nome = filter_var($_POST['nome'],FILTER_SANITIZE_STRING);
     $email = filter_var($_POST['email'],FILTER_VALIDATE_EMAIL);
     $telefone = filter_var($_POST['telefone'],FILTER_SANITIZE_STRING);
-    $cidade = filter_var($_POST['cidade'],FILTER_SANITIZE_STRING);
+    //$cidade = filter_var($_POST['cidade'],FILTER_SANITIZE_STRING);
     $curriculo = (isset($_FILES)) ? $_FILES['curriculo']['name'] : false;
     $mensagem = filter_var($_POST['mensagem'],FILTER_SANITIZE_STRING);
 
@@ -21,8 +24,8 @@ function modabiz_module_corriculos() {
       $e_telefone = true;
     if(!empty($email))
       $e_email = true;
-    if(!empty($cidade))
-      $e_cidade = true;
+    //if(!empty($cidade))
+      //$e_cidade = true;
     if(!empty($curriculo))
       $e_curriculo = true;
     if(!empty($mensagem))
@@ -50,11 +53,32 @@ function modabiz_module_corriculos() {
         update_field('curriculo_nome', $nome, $curriculo_id);
         update_field('curriculo_email', $email, $curriculo_id);
         update_field('curriculo_telefone', $telefone, $curriculo_id);
-        update_field('curriculo_cidade', $cidade, $curriculo_id);
+        //update_field('curriculo_cidade', $cidade, $curriculo_id);
         update_field('curriculo_mensagem', $mensagem, $curriculo_id);
         
         if(isset($curriculo_url) && !empty($curriculo_url))
           update_field('curriculo_curriculo', $curriculo_url, $curriculo_id);
+
+        // dados para enviar email para o cliente
+        $assunto = $plandd_option['mail-resposta-assunto'];
+        $var_remetente = array("<% nome %>","<% email %>");
+        $remetente = array($nome,$email);
+        $mensagem = str_replace($var_remetente, $remetente, $plandd_option['temp-emails-resposta']);
+
+        // dados para enviar e-mails para usuário
+        $emails = get_field('curriculo_email',$post->ID);
+        $user_assunto = $plandd_option['mail-notica-assunto'];
+        $user_mensagem = str_replace($var_remetente, $remetente, $plandd_option['temp-emails-notifica']);
+
+        // enviar e-mail de auto resposta
+        if(!empty($assunto) && !empty($mensagem)) {
+          wp_mail( $email, $assunto, $mensagem );
+        }
+
+        // enviar e-mail de notificação
+        if(!empty($user_assunto) && !empty($user_mensagem) && isset($emails)) {
+          wp_mail( $emails, $user_assunto, $user_mensagem );
+        }
 
       }
 

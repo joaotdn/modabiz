@@ -96,3 +96,24 @@
 		height: auto;
 	}
 }
+.the-results {
+	position: absolute;
+    top: 72px;
+    z-index: 99;
+    background: #fff;
+    
+
+    h5 {
+    	@extend %transition;
+    	padding: 20px;
+    	width: 100%;
+    	float: left;
+    	margin: 0;
+    	cursor: pointer;
+
+    	&:hover {
+    		background-color: #f1f1f1;
+    	}
+    }
+}
+

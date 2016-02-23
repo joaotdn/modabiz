@@ -8,7 +8,7 @@ $height = $plandd_option['temp-cole-altura']['height'];
 $_h = explode('px', $height);
 $nav_height = $_h[0] - 96;
 
-$layout = $plandd_option['temp-look-int-blocks-layout']['topo'];
+$layout = $plandd_option['temp-cole-blocks-layout']['topo'];
 
 if ($layout): foreach ($layout as $key=>$value) {
  
@@ -35,6 +35,12 @@ if ($layout): foreach ($layout as $key=>$value) {
         case 'geolocalizacao': require get_template_directory()."/includes/componentes/geolocalizacao.php";    
         break;
 
+        case 'cabecalho': require get_template_directory()."/includes/componentes/cabecalho.php";    
+          break;
+
+          case 'rodape': require get_template_directory()."/includes/componentes/rodape.php";    
+          break;
+
     }
 
 }
@@ -43,7 +49,7 @@ endif;
 ?>
 <section id="inner-look" class="small-12 left section-block">
     <div class="row">
-        <div class="small-12 columnns">
+        <div class="small-12 columns">
             <nav id="breadcrumb" class="small-12 left">
                 <?php the_breadcrumb(); ?>
                 <div class="divide-30"></div>
@@ -87,13 +93,13 @@ endif;
                                 $url = $item['look_url'];
                     ?>
 
-                    <div class="list-items-look item" style="height:<?php echo $height; ?>;">
+                    <div class="list-items-look item" style="height:<?php echo $nav_height; ?>px;">
 
                         <nav id="item-choices" class="divide-30">
 
                             <ul class="list-choices no-margin">
 
-                                <li data-tooltip aria-haspopup="true" class="has-tip" title="Medidas">
+                                <li data-tooltip aria-haspopup="true" data-options="disable_for_touch:true" class="has-tip" title="Medidas">
                                     <a href="#" data-reveal-id="item-<?php echo $post->ID . '-' . $id_unique; ?>" data-hover="<?php echo $plandd_option['temp-cole-choices-meter-hover']['url']; ?>" class="text-center">
                                         <?php echo '<img src="'.$plandd_option['temp-cole-choices-meter']['url'] . '" class="d-iblock">'; ?>
                                     </a>
@@ -137,7 +143,7 @@ endif;
                                     </div>
                                 </li>
 
-                                <li data-tooltip aria-haspopup="true" class="has-tip" title="Envie para o email de alguém!">
+                                <li data-tooltip aria-haspopup="true" data-options="disable_for_touch:true" class="has-tip" title="Envie para o email de alguém!">
                                     <a href="#" data-reveal-id="item-<?php echo $post->ID . '-' . $id_unique_gift; ?>" data-hover="<?php echo $plandd_option['temp-cole-choices-gift-hover']['url']; ?>" class="text-center">
                                         <?php echo '<img src="'.$plandd_option['temp-cole-choices-gift']['url'] . '" class="d-iblock">'; ?>
                                     </a>
@@ -170,7 +176,7 @@ endif;
                                 <?php
                                     if($url && !empty($url)):
                                 ?>
-                                <li data-tooltip aria-haspopup="true" class="has-tip" title="Veja na loja">
+                                <li data-tooltip aria-haspopup="true" data-options="disable_for_touch:true" class="has-tip" title="Veja na loja">
                                     <a href="#" data-hover="<?php echo $plandd_option['temp-cole-choices-sacola-hover']['url']; ?>" class="text-center">
                                         <?php echo '<img src="'.$plandd_option['temp-cole-choices-sacola']['url'] . '" class="d-iblock">'; ?>
                                     </a>
@@ -190,7 +196,7 @@ endif;
                             </ul>
                         </nav>
 
-                        <figure class="small-12 left text-center item-th rel" style="height:<?php echo $height; ?>;">
+                        <figure class="small-12 left text-center item-th rel" style="height:<?php echo $nav_height; ?>px;">
                             <?php
                                 $ref = $item['look_ref'];
                                 if(!empty($ref))
@@ -226,7 +232,7 @@ endif;
     </div>
 </section>
 <?php
-$layout = $plandd_option['temp-look-int-blocks-layout']['rodape'];
+$layout = $plandd_option['temp-cole-blocks-layout']['rodape'];
 
 if ($layout): foreach ($layout as $key=>$value) {
  
@@ -252,6 +258,12 @@ if ($layout): foreach ($layout as $key=>$value) {
 
         case 'geolocalizacao': require get_template_directory()."/includes/componentes/geolocalizacao.php";    
         break;
+
+        case 'cabecalho': require get_template_directory()."/includes/componentes/cabecalho.php";    
+          break;
+
+          case 'rodape': require get_template_directory()."/includes/componentes/rodape.php";    
+          break;
 
     }
 }

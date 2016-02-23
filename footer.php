@@ -7,161 +7,7 @@
   	$cidade = $plandd_option['corp-cidade'];
   	$gmap = $plandd_option['corp-map'];
   ?>
-  <footer id="footer" class="small-12 left">
-  	<div class="row">
-  		
-  		<section class="small-12 medium-4 columns">
-  			
-  			<figure class="logo-footer divide-30 text-center">
-  				<a href="#" title="Página principal" class="d-iblock">
-  					<img src="<?php echo $marca; ?>" alt="">
-  				</a>
-  			</figure>
-
-  			<div class="address small-12 left text-center">
-				<?php
-					if(!empty($plandd_option['corp-header']))
-						echo '<p class="text-up divide-20">'. $plandd_option['corp-header'] .'</p>';
-
-					//Rua e bairro
-					if($rua && !empty($rua) || $bairro && !empty($bairro))
-						echo '<p class="divide-10">';
-
-					if($rua && !empty($rua))
-						echo $rua;
-
-					if($bairro && !empty($bairro))
-						echo ' ' . $bairro;
-
-					if($rua && !empty($rua) || $bairro && !empty($bairro))
-						echo '</p>';
-
-					//Cidade e CEP
-					if($cidade && !empty($cidade) || $cep && !empty($cep))
-						echo '<p class="divide-40">';
-
-					if($cidade && !empty($cidade))
-						echo $cidade;
-
-					if($cep && !empty($cep))
-						echo ' - CEP ' . $cep;
-
-					if($cidade && !empty($cidade) || $cep && !empty($cep))
-						echo '</p>';
-
-					if($gmap && !empty($gmap))
-						echo '<p class="divide-20 gmap-link"><a href="'. $gmap .'" target="_blank" title="Ver endereço no Google Maps">Ver endereço no Google Maps</a></p>';
-				?>
-				<p class="no-margin">
-					<a href="http://www.modabiz.com.br/" title="Desenvolvido por ModaBiz" target="_blank" class="d-iblock">
-						<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon.png" alt="">
-					</a>
-				</p>
-  			</div>
-
-  		</section>
-
-  		<section class="small-12 medium-4 columns show-for-medium-up">
-			<nav id="social-footer" class="small-12 left text-center">
-				<ul class="inline-list d-iblock">
-				<?php
-			        $facebook = $plandd_option['corp-facebook'];
-			        $twitter = $plandd_option['corp-twitter'];
-			        $instagram = $plandd_option['corp-instagram'];
-
-			        if($facebook && !empty($facebook))
-			          printf('<li><a href="%s" class="icon-facebook-with-circle" target="_blank"></a></li>',$facebook);
-
-			        if($twitter && !empty($twitter))
-			          printf('<li><a href="%s" class="icon-twitter3" target="_blank"></a></li>',$twitter);
-
-			        if($instagram && !empty($instagram))
-			          printf('<li><a href="%s" class="icon-instagram-with-circle" target="_blank"></a></li>',$instagram);
-			      ?>
-				</ul>
-			</nav>
-
-			<?php
-				$telefone = $plandd_option['corp-telefone'];
-				$telefone_header = $plandd_option['comp-footer-telefone-header'];
-
-				if($telefone && !empty($telefone)):
-			?>
-			<hgroup class="divide-30 text-center footer-tel">
-			
-				<?php if($telefone_header && !empty($telefone_header)): ?>
-				<h5 class="text-up">
-					<?php echo $telefone_header; ?>
-				</h5>
-				<?php endif; ?>
-				<h4>
-					<?php echo $telefone[0]; ?>
-				</h4>
-			</hgroup>
-			<?php
-				endif;
-
-				$wapp = $plandd_option['corp-whatsapp'];
-				if($wapp && !empty($wapp)):
-			?>
-			<hgroup class="divide-30 text-center footer-wapp">
-				<header class="small-12 left">
-					<h5 class="text-up">
-						<span class="icon-whatsapp"></span> Whatsapp
-					</h5>
-					<h4>
-						<?php echo $wapp; ?>
-					</h4>
-				</header>
-			</hgroup>
-			<?php
-				endif;
-			?>
-			
-			<!--<nav class="share-footer small-12 left show-for-large-up text-center">
-				<ul class="inline-list d-iblock no-margin">
-					<li><div class="fb-like" data-layout="button_count" data-href="<?php echo home_url();?>"></div></li>
-					<li><a class="twitter-share-button" href="https://twitter.com/intent/tweet?url=<?php echo home_url();?>">Tweet</a></li>
-					<li><div class="g-plusone" data-size="medium" data-width="65" data-href="<?php echo home_url();?>"></div></li>
-				</ul>
-			</nav>-->
-  		</section>
-
-  		<nav id="footer-menu" class="small-12 medium-4 columns show-for-medium-up text-center">
-  			<ul class="no-bullet d-iblock text-up">
-  				<?php
-			        $defaults = array(
-			          'theme_location'  => 'primary',
-			          'menu'            => 'Menu principal',
-			          'container'       => '',
-			          'container_class' => '',
-			          'container_id'    => '',
-			          'menu_class'      => '',
-			          'menu_id'         => '',
-			          'echo'            => true,
-			          'fallback_cb'     => 'primary',
-			          'before'          => '<h3>',
-			          'after'           => '</h3>',
-			          'link_before'     => '',
-			          'link_after'      => '',
-			          'items_wrap'      => '%3$s',
-			          'depth'           => 0,
-			          'walker'          => '',
-			        );
-			        wp_nav_menu($defaults);
-			    ?>
-  			</ul>
-  		</nav>
-
-  		<section id="credits" class="small-12 left text-center">
-  			<div class="divide-40"></div>
-  			<p class="no-margin"><?php echo $plandd_option['comp-footer-copy']; ?></p>
-  		</section>
-
-  	</div>
-  </footer>
-
-  <a href="#" class="close-menu close-canvas"></a>
+  
   <?php wp_footer(); ?>
 
   <script>
@@ -171,64 +17,222 @@
   	}
   });
   </script>
-  <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
-  <style>
-	.twitter-typeahead .tt-query,
-	.twitter-typeahead .tt-hint {
-		margin-bottom: 0;
-	}
-	.tt-hint {
-		display: block;
-		width: 100%;
-		height: 38px;
-		padding: 8px 12px;
-		font-size: 14px;
-		line-height: 1.428571429;
-		color: #999;
-		vertical-align: middle;
-		background-color: #ffffff;
-		border: 1px solid #cccccc;
-		border-radius: 4px;
-		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-		      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-		-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-		      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-	}
-	.tt-dropdown-menu {
-		min-width: 160px;
-		margin-top: 2px;
-		padding: 5px 0;
-		background-color: #ffffff;
-		border: 1px solid #cccccc;
-		border: 1px solid rgba(0, 0, 0, 0.15);
-		border-radius: 4px;
-		-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-		      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-		background-clip: padding-box;
-
-	}
-	.tt-suggestion {
-		display: block;
-		padding: 3px 20px;
-	}
-	.tt-suggestion.tt-is-under-cursor {
-		color: #fff;
-		background-color: #428bca;
-	}
-	.tt-suggestion.tt-is-under-cursor a {
-		color: #fff;
-	}
-	.tt-suggestion p {
-		margin: 0;
-	}
-  </style>
-
-  <style>.ig-b- { display: inline-block; }
-.ig-b- img { visibility: hidden; }
-.ig-b-:hover { background-position: 0 -60px; } .ig-b-:active { background-position: 0 -120px; }
-.ig-b-v-24 { width: 137px; height: 24px; background: url(//badges.instagram.com/static/images/ig-badge-view-sprite-24.png) no-repeat 0 0; }
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-.ig-b-v-24 { background-image: url(//badges.instagram.com/static/images/ig-badge-view-sprite-24@2x.png); background-size: 160px 178px; } }</style>
   
+
+  <style>
+    .ig-b- { display: inline-block; }
+	.ig-b- img { visibility: hidden; }
+	.ig-b-:hover { background-position: 0 -60px; } .ig-b-:active { background-position: 0 -120px; }
+	.ig-b-v-24 { width: 137px; height: 24px; background: url(//badges.instagram.com/static/images/ig-badge-view-sprite-24.png) no-repeat 0 0; }
+	@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+	.ig-b-v-24 { background-image: url(//badges.instagram.com/static/images/ig-badge-view-sprite-24@2x.png); background-size: 160px 178px; } }
+  </style>
+	
+  <!-- AUTO COMPLETAR REVENDEDORES -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <?php
+  	$args = array(
+	      'posts_per_page' => -1,
+	      'orderby' => 'date',
+	      'post_type' => 'localizacao'
+	  );
+	  $the_query = new WP_Query( $args );
+	  $output = array();
+
+	  if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_query->the_post();
+	    global $post;
+
+	    $location = get_field('gmap_latlng', $post->ID);
+
+	    //$output[] = $post->post_title . ' - ' . get_field('gmap_uf',$post->ID);
+
+	    $output[] = array(
+	      'nome' => get_field('gmap_nome',$post->ID),
+	    );
+
+	  endwhile; wp_reset_postdata(); endif;
+  ?>
+  <script>
+  	(function() {
+  			var places = [
+	  			<?php
+	  				foreach ($output as $key) {
+	  					echo "'". $key['nome'] ."',";
+	  				}
+	  			?>
+	  		];
+	  		$( "#places" ).autocomplete({
+		      source: places,
+		      select: function( event, ui ) {
+		      	var v = ui.item.value;
+		      	var mapBlock = document.getElementById('map-layer')
+		      		options = {
+						zoom: 14,
+						mapTypeId: google.maps.MapTypeId.ROADMAP,
+				        disableDefaultUI: true,
+				        mapTypeControl: false,
+				        scaleControl: false,
+				        scrollwheel: false,
+				        backgroundColor: '#f1f1f1',
+				        draggable: true,
+				        panControl: true,
+				        zoomControl: true,
+				        zoomControlOptions: {
+				          style: google.maps.ZoomControlStyle.LARGE
+				        }
+					},
+		      		mapLayer = new google.maps.Map(mapBlock,options),
+		      		ic = new google.maps.MarkerImage($('#map-layer').attr('data-brandicon')), // marcador
+					ic_over = new google.maps.MarkerImage($('#map-layer').attr('data-brandiconover')), // marcador
+			 		userLocal = new google.maps.MarkerImage($('#map-layer').attr('data-usericon')), //marcador geolocation;
+			 		places;
+
+		      	$.getJSON(getData.urlDir + '/places.json', function(json, textStatus) {
+
+		      		//Avise se o json não estiver presente
+					if(json) places = json; else alert(textStatus);
+
+					//console.log(places);
+					len = places.length;
+
+					for(var j = 0; j < len; j++) {
+						var place = places[j];
+						//console.log(place.nome);
+						if(v == place.nome) {
+		      				mapLayer.setCenter(new google.maps.LatLng(place.lat, place.lng));
+		      				
+		      				var whatsApp = (place.whatsapp != "") ? '<p class="divide-10"><i class="icon-whatsapp"></i> <strong>Whatsapp</strong></p><p class="divide-10">'+ place.whatsapp +'</p>' : "",
+		      				    horarios = (place.horarios != "") ? '<p class="divide-10"><strong>Horário de funcionamento:</strong></p><p class="divide-10">'+ place.horarios +'</p>' : "";
+
+		      				$('#map-info')
+								.find('[data-title]').text(place.nome)
+								.end()
+								.find('[data-tipo]').text(place.tipo)
+								.end()
+								.find('[data-local]').text(place.endereco)
+								.end()
+								.find('[data-cep]').text('CEP: ' + place.cep)
+								.end()
+								.find('[data-uf]').text(place.uf)
+								.end()
+								.find('[data-tel]').text(place.telefones)
+								.end()
+								.find('[data-whats]').html(whatsApp)
+								.end()
+								.find('[data-email]').text(place.email)
+								.end()
+								.find('[data-hora]').html(horarios);
+
+							if(place.facebook !== "")
+								$('#map-info').find('[data-facebook]').html('<h1><a href="' + place.facebook + '" class="icon-facebook-with-circle" target="_blank"></a></h1>');
+
+							if(place.instagram !== "")
+								$('#map-info').find('[data-instagram]').html('<h1><a href="' + place.instagram + '" class="icon-instagram-with-circle" target="_blank"></a></h1>');
+
+							if(place.twitter !== "")
+								$('#map-info').find('[data-twitter]').html('<a href="' + place.twitter + '" class="icon-twitter3" target="_blank"></a>');
+							$('#map-info, #map-info > .row').addClass('active');
+		      			}
+
+						//crie um marcador para o local
+						var marker = new google.maps.Marker({
+							position: new google.maps.LatLng(place.lat, place.lng),
+							map: mapLayer,
+							icon: ic,
+							title: place.nome
+						});
+
+						//peque os dados do local
+						var location = {
+							id: place.id,
+							nome: place.nome,
+							tipo: place.tipo,
+							endereco: place.endereco,
+							cep: place.cep,
+							uf: place.uf,
+							horarios: place.horarios,
+							telefones: place.telefones,
+							whatsapp: place.whatsapp,
+							facebook: place.facebook,
+							instagram: place.instagram,
+							email: place.email,
+							lat: place.lat,
+							lng: place.lng
+						};
+
+						//Crie eventos e a caixa de informação do local
+						(function(j, marker, location) {
+							google.maps.event.addListener(marker, 'click', function() {
+								if($('.map-info-block').length) {
+									$('.map-info-block')
+										.addClass('active');
+									var $i = $('.map-info-block');
+									return locationsData(location);
+								}
+								if($('#nav-loactions').length) {
+									$('.item-local','#nav-loactions').each(function() {
+										if($(this).data('lat') == location.lat) {
+											$(this).addClass('active')
+											.siblings('.item-local').removeClass('active');
+										}
+									});
+								}
+
+							    var whatsApp = (location.whatsapp != "") ? '<p class="divide-10"><i class="icon-whatsapp"></i> <strong>Whatsapp</strong></p><p class="divide-10" data-whats>'+ location.whatsapp +'</p>' : "",
+							        horarios = (place.horarios != "") ? '<p class="divide-10"><strong>Horário de funcionamento:</strong></p><p class="divide-10">'+ place.horarios +'</p>' : "";
+
+								$('#map-info')
+									.find('[data-title]').text(location.nome)
+									.end()
+									.find('[data-tipo]').text(location.tipo)
+									.end()
+									.find('[data-local]').text(location.endereco)
+									.end()
+									.find('[data-cep]').text('CEP: ' + location.cep)
+									.end()
+									.find('[data-uf]').text(location.uf)
+									.end()
+									.find('[data-tel]').text(location.telefones)
+									.end()
+									.find('[data-whats]').text(whatsApp)
+									.end()
+									.find('[data-email]').text(location.email)
+									.end()
+									.find('[data-hora]').html(horarios);
+
+									if(location.facebook !== "")
+										$('#map-info').find('[data-facebook]').html('<h1><a href="' + location.facebook + '" class="icon-facebook-with-circle" target="_blank"></a></h1>');
+
+									if(location.instagram !== "")
+										$('#map-info').find('[data-instagram]').html('<h1><a href="' + location.instagram + '" class="icon-instagram-with-circle" target="_blank"></a></h1>');
+
+									$('#map-info, #map-info > .row').addClass('active');
+									/*var ht = $('#map-info').position().top;
+									var body = $("html, body");
+									body.stop().animate({scrollTop:ht}, '500', 'swing');*/
+							});
+
+							google.maps.event.addListener(marker, 'mouseover', function() {
+							    marker.setIcon(ic_over);
+							});
+
+							google.maps.event.addListener(marker, 'mouseout', function() {
+							    marker.setIcon(ic);
+							});
+
+						})(j, marker, location);
+					}
+
+					$('.icon-cross','#map-info').on('click',function() {
+						$('#map-info, #map-info > .row').removeClass('active');
+					});
+		      	});
+		      }
+		    });
+  	})();
+  </script>
+   <!-- // AUTO COMPLETAR REVENDEDORES -->
+
   </body>
 </html>

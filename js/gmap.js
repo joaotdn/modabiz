@@ -72,6 +72,8 @@
 							});
 						}
 
+						var whatsApp = (location.whatsapp !== "") ? '<p class="divide-10"><i class="icon-whatsapp"></i> <strong>Whatsapp</strong></p><p class="divide-10" data-whats>'+ location.whatsapp +'</p>' : "";
+
 						$('#map-info')
 							.find('[data-title]').text(location.nome)
 							.end()
@@ -84,6 +86,8 @@
 							.find('[data-uf]').text(location.uf)
 							.end()
 							.find('[data-tel]').text(location.telefones)
+							.end()
+							.find('[data-whats]').html(whatsApp)
 							.end()
 							.find('[data-email]').text(location.email);
 
@@ -147,7 +151,7 @@
 		mapLayer = new google.maps.Map(mapBlock, options);
 		
 		//crie um marcador para o local
-		var markerOne = new google.maps.Marker({
+		/*var markerOne = new google.maps.Marker({
 			position: mainLocal,
 			map: mapLayer,
 			icon: ic
@@ -158,7 +162,7 @@
 		});
 		google.maps.event.addListener(markerOne, 'mouseout', function() {
 		    markerOne.setIcon(ic);
-		});
+		});*/
 		
 
 		//Funções de geolocalização
@@ -297,10 +301,10 @@
 			}
 		}
 
-		var my_Suggestion_class = new Bloodhound({
+		/*var my_Suggestion_class = new Bloodhound({
 		    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('vval'),
 		    queryTokenizer: Bloodhound.tokenizers.whitespace,
-		    /*prefetch: {
+		    prefetch: {
 		        url: getData.urlDir + '/places.json',
 		        filter: function(countryArray) {
 		            return $.map(countryArray, function(country) {
@@ -309,7 +313,7 @@
 		            //return catAR;
 		        },
 		        cache: false
-		    },*/
+		    },
 		    remote: {
 		        url: getData.urlDir + '/places.json',
 		        filter: function(x) {
@@ -337,7 +341,7 @@
 	        source: my_Suggestion_class.ttAdapter()
 	    });
 
-	    $('input').on([
+	    $('.typeahead').on([
 	        'typeahead:initialized',
 	        'typeahead:initialized:err',
 	        'typeahead:selected',
@@ -381,17 +385,101 @@
 						if(place.instagram !== "")
 							$('#map-info').find('[data-instagram]').html('<h1><a href="' + place.instagram + '" class="icon-instagram-with-circle" target="_blank"></a></h1>');
 
-						/*if(place.twitter !== "")
+						if(place.twitter !== "")
 							$('#map-info').find('[data-twitter]').html('<a href="' + place.twitter + '" class="icon-twitter3" target="_blank"></a>');*/
-						$('#map-info, #map-info > .row').addClass('active');
+						//$('#map-info, #map-info > .row').addClass('active');
 							/*var ht = $('#map-info').position().top;
 							var body = $("html, body");
-							body.stop().animate({scrollTop:ht}, '500', 'swing');*/
+							body.stop().animate({scrollTop:ht}, '500', 'swing');
 					}
 				}
 	        });
 
-	    });
+	    });*/
+
+		/*function searchKeyword(query) {
+            $.ajax({
+                url: getData.ajaxDir,
+                type: "GET",
+                dataType: "html",
+                data: {
+                    action: "pba_search_form",
+                    keyword: query
+                },
+                beforeSend: function() {
+                    $('.the-results').html('<h5><i class="small-12 left text-center">Aguarde...</i></h5>');
+                },
+                success: function(data) {
+                    $('.the-results').html(data);
+                    $('.the-results').perfectScrollbar();
+                    the_results_click();
+                }
+            });
+        };
+
+        $(document).on('keyup','.typeahead',function() {
+        	var timer = null;
+	        if(timer) {
+	            clearTimeout(timer);
+	        }
+        	var v = $(this).val();
+        	if(v !== '' && v.length > 3)
+        		setTimeout(searchKeyword(v), 100);
+        });
+
+        $(document).on('blur','.typeahead',function() {
+			setTimeout(function() { $(".the-results").html(""); }, 500);
+        });
+
+        function the_results_click() {
+			$(document).on('click','.the-results h5',function() {
+	        	var lat = $(this).data('lat'), lng = $(this).data('lng'), v = $(this).text();
+	        	mapLayer.setCenter(new google.maps.LatLng(lat, lng));
+
+	        	$.getJSON(getData.urlDir + '/places.json', function(json, textStatus) {
+		        	//Avise se o json não estiver presente
+					if(json) places = json; else alert(textStatus);
+					console.log(json);
+
+					//console.log(places);
+					var len = places.length;
+
+					for(var j = 0; j < len; j++) {
+						var place = places[j];
+						if(v == place.nome) {
+							$('#map-info')
+								.find('[data-title]').text(place.nome)
+								.end()
+								.find('[data-tipo]').text(place.tipo)
+								.end()
+								.find('[data-local]').text(place.endereco)
+								.end()
+								.find('[data-cep]').text('CEP: ' + place.cep)
+								.end()
+								.find('[data-uf]').text(place.uf)
+								.end()
+								.find('[data-tel]').text(place.telefones)
+								.end()
+								.find('[data-email]').text(place.email);
+
+							if(place.facebook !== "")
+								$('#map-info').find('[data-facebook]').html('<h1><a href="' + place.facebook + '" class="icon-facebook-with-circle" target="_blank"></a></h1>');
+
+							if(place.instagram !== "")
+								$('#map-info').find('[data-instagram]').html('<h1><a href="' + place.instagram + '" class="icon-instagram-with-circle" target="_blank"></a></h1>');
+
+							if(place.twitter !== "")
+								$('#map-info').find('[data-twitter]').html('<a href="' + place.twitter + '" class="icon-twitter3" target="_blank"></a>');
+							
+							$('#map-info, #map-info > .row').addClass('active');
+						}
+					}
+		        });
+
+				
+	        });
+        };*/
+        
 
 		$('.icon-cross','#map-info').on('click',function() {
 			$('#map-info, #map-info > .row').removeClass('active');

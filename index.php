@@ -1,4 +1,5 @@
 <?php
+
 get_header();
 
 global $plandd_option;
@@ -29,11 +30,18 @@ if ($layout): foreach ($layout as $key=>$value) {
         case 'geolocalizacao': require get_template_directory()."/includes/componentes/geolocalizacao.php";    
         break;
 
+        case 'cabecalho': require get_template_directory()."/includes/componentes/cabecalho.php";    
+        break;
+
+        case 'rodape': require get_template_directory()."/includes/componentes/rodape.php";    
+        break;
+
     }
 }
  
 endif;
 
 get_footer();
+
 ?>
 

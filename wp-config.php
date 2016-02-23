@@ -16,16 +16,16 @@
 
 // ** Configurações do MySQL - Você pode pegar essas informações com o serviço de hospedagem ** //
 /** O nome do banco de dados do WordPress */
-define('DB_NAME', 'plandc6');
+define('DB_NAME', 'scavencl_db');
 
 /** Usuário do banco de dados MySQL */
-define('DB_USER', 'plandc6');
+define('DB_USER', 'scavencl_user');
 
 /** Senha do banco de dados MySQL */
-define('DB_PASSWORD', 'mb20727mb');
+define('DB_PASSWORD', '#Foccus11.sc');
 
 /** nome do host do MySQL */
-define('DB_HOST', 'mysql06.plandc.hospedagemdesites.ws');
+define('DB_HOST', 'localhost');
 
 /** Conjunto de caracteres do banco de dados a ser usado na criação das tabelas. */
 define('DB_CHARSET', 'utf8mb4');
@@ -42,14 +42,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         '?MfCL~%RmZ!8>i..;jB7,LvcAE8ucv;+ytXKL/Ac*+Qm!O1k XWO8)J}vd$/bA-y');
-define('SECURE_AUTH_KEY',  '%/!/B1/}5t|` s l4JN-Aio+S:xOS+;Ff (mLL>zn]A$`:VrS9c`}+=(,Y5>s]:F');
-define('LOGGED_IN_KEY',    '9[x{-y]KqFH:#y<:j#Cyy@~S*8O?=b}OWx68D+DnE@(B~(&VR%SzmZ`wn9c|vZnl');
-define('NONCE_KEY',        'L-1T, j-;1lIt_VW3;]f`Vc)Gzy+(O}3BuTx9k3/2vIzQWip7<yM$paITLnuAFg;');
-define('AUTH_SALT',        '/,>z(ky+,Q4*DKbS~MAip${-FSJwn%R&ZK uWr$)X+jJF-.;m_zQP4~KeMP+8?@>');
-define('SECURE_AUTH_SALT', 'P#da++]-#-q>UjUyA/e&:v}lwg4|0{w]JhGl(P%4eR3;VaefO`z+p1Ead*,k`j|u');
-define('LOGGED_IN_SALT',   '+9Hj|Tdi+U=94@|m%jf8)F7O!P?onq<!$ogus]=c;2U782kl0*IGll?+4f(4|SRx');
-define('NONCE_SALT',       'VCO,%]T*uWF{prGZ/hmAf2o&/%jy<8+B5:{WY`7_hw @K@Nt2gsGI?.5hE8d;V:x');
+define('AUTH_KEY',         '>>ZDytW;FAlM^|l.[QifMm=IxR2H%)( cuh@ C!L#A~u|sL-2u4@HYbodK`j:ND6');
+define('SECURE_AUTH_KEY',  'Uu3d_UWus_|2OAcjYIGxlu#{}2T{iKBdK3jvw:%sW-wpt_$. @3^vRs:+kH0wvqi');
+define('LOGGED_IN_KEY',    'P^6N9mZ|XV$P_8C!F|9OD>$IB5M!`{$!lhth&LnqX!J> |_fte>BQhBzeS(5c_0l');
+define('NONCE_KEY',        '-0W^5r)L|{`G9T*ykUD8f:jc8!Z;$*$cS+B}1z@-- ~P5K#@L=IoaN+w7) C+eKr');
+define('AUTH_SALT',        'aqF((HVvgQc-9n&hDd)tzSkC%Qnq1:zfj?ztO3dUL|s_E0k/@+|Vmagy]=]U|VB4');
+define('SECURE_AUTH_SALT', '[t).&-)A}Pjl$[d@izDHS|=K|[&@brt|Ro-zPj-@Ml&%Ql!V@wUl}VWiv@rAo*sl');
+define('LOGGED_IN_SALT',   'C%-m_X+:3n(0YfCO[kYo!@ tcC %~Vaf~]7WeSS7S-E8pH-+EGf9xhELTg:Qi{-!');
+define('NONCE_SALT',       'MX^FV4~c-*Gsby!0+mw_-ZCx|h~9cd(EbD]bsHS[+Q@Y6c$J|^A9ma#A=GsDJEQf');
 
 /**#@-*/
 
@@ -69,10 +69,10 @@ $table_prefix  = 'wp_';
  * é altamente recomendável que os desenvolvedores de plugins e temas usem o WP_DEBUG
  * em seus ambientes de desenvolvimento.
  */
-define('WP_DEBUG', true);
+define('WP_DEBUG', false);
+define('WP_MEMORY_LIMIT', '256M');
 
 /* Isto é tudo, pode parar de editar! :) */
-define('WP_MEMORY_LIMIT', '256M');
 
 /** Caminho absoluto para o diretório WordPress. */
 if ( !defined('ABSPATH') )

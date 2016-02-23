@@ -1,10 +1,10 @@
 figure {
 	margin: 0;
 }
-a {
-	transition: all .3s linear;
-	-webkit-transition: all .3s linear;
-	-moz-transition: all .3s linear;
+a,button,.button {
+	transition: all .3s linear !important;
+	-webkit-transition: all .3s linear !important;
+	-moz-transition: all .3s linear !important;
 }
 input[type="text"],
 input[type="email"],

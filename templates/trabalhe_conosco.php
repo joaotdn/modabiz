@@ -43,6 +43,12 @@
           case 'geolocalizacao': require get_template_directory()."/includes/componentes/geolocalizacao.php";    
           break;
 
+          case 'cabecalho': require get_template_directory()."/includes/componentes/cabecalho.php";    
+          break;
+
+          case 'rodape': require get_template_directory()."/includes/componentes/rodape.php";    
+          break;
+
       }
   }
    
@@ -110,9 +116,9 @@
               <input type="tel" name="telefone" placeholder="TELEFONE *" class="small-12 left telefone" title="Seu telefone" required>
             </p>
 
-            <p class="small-12 left">
+            <!--<p class="small-12 left">
               <input type="text" name="cidade" placeholder="CIDADE/ESTADO *" class="small-12 left" title="Sua cidade" required>
-            </p>
+            </p>-->
 
             <p class="small-12 left">
               <a href="#" class="button contato-form-btn text-up left send-comp">Currículo</a>
@@ -162,7 +168,7 @@
               <span class="content-info divide-30">
                 <?php
                   foreach ($whatsapps as $tel) {
-                    echo '<span>'. $tel['contato_telefone'] .'</span>';
+                    echo '<span>'. $tel['contato_whatsapp'] .'</span>';
                   }
                 ?>
               </span>
@@ -170,7 +176,6 @@
             <?php
               endif;
             ?>
-            
 
             <?php
               if($local):
@@ -238,6 +243,12 @@
           break;
 
           case 'geolocalizacao': require get_template_directory()."/includes/componentes/geolocalizacao.php";    
+          break;
+
+          case 'cabecalho': require get_template_directory()."/includes/componentes/cabecalho.php";    
+          break;
+
+          case 'rodape': require get_template_directory()."/includes/componentes/rodape.php";    
           break;
       }
   }

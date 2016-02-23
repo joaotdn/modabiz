@@ -13,10 +13,10 @@ $icon = $plandd_option['comp-geo-icon-normal']['url'];
 $icon_hover = $plandd_option['comp-geo-icon-hover']['url'];
 $icon_user = $plandd_option['comp-geo-icon-user']['url'];
 $header = $plandd_option['comp-geo-header'];
-
 ?>
 <section id="comp-geo" class="small-12 left section-block rel">
 	<div class="row">
+		<?php if(!is_page()): ?>
 		<header class="small-12 columns text-center">
 			<?php
 				if($icon_header && !empty($icon_header)):
@@ -30,6 +30,7 @@ $header = $plandd_option['comp-geo-header'];
 					echo '<h2 class="divide-30">'. $header .'</h2>';
 			?>
 		</header>
+		<?php endif; ?>
 
 		<div class="small-12 large-5 columns">
 			<a href="#" class="geo-btn divide-20 d-block text-up text-center btn-userlocal">
@@ -37,9 +38,12 @@ $header = $plandd_option['comp-geo-header'];
 			</a>
 		</div>
 
-		<div class="small-12 large-7 columns rel search-location">
-			<input type="text" class="divide-20 geo-input text-up typeahead" placeholder="Faça uma busca personalizada">
+		<div class="small-12 large-7 columns rel search-location ui-widget">
+			<input  id="places" type="text" class="divide-20 geo-input text-up typeahead" placeholder="Faça uma busca personalizada">
 			<span class="abs icon-search"></span>
+			<nav class="the-results small-12 left"></nav>
+
+			<var id="result-container" class="result-container"></var>
 		</div>
 	</div>
 
@@ -75,7 +79,9 @@ $header = $plandd_option['comp-geo-header'];
 							<p data-uf></p>
 							<p class="divide-10"><strong>Contato</strong></p>
 							<p class="divide-10" data-tel></p>
+							<div data-whats></div>
 							<p data-email></p>
+							<p data-hora></p>
 
 							<ul class="inline-list">
 								<li data-facebook></li>

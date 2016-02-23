@@ -1,5 +1,5 @@
 <?php
-define('THEME_VERSION', '1.0.50');
+define('THEME_VERSION', '1.1.17');
 define('THEME_ICON', get_stylesheet_directory_uri() . '/images/icon.png');
 error_reporting(E_ERROR | E_PARSE);
 
@@ -117,6 +117,9 @@ require_once (dirname(__FILE__) . '/includes/functions/modulos.curriculos.php');
 
 //Enviar dados de fale conosco para o módulo
 require_once (dirname(__FILE__) . '/includes/functions/modulos.contatos.php');
+
+//Buscar revendedores
+//require_once (dirname(__FILE__) . '/includes/functions/busca_revendedores.php');
 
 // Instalar banco de dados com as cidades e estados
 // require_once (dirname(__FILE__) . '/includes/functions/cidades_estados.php');
@@ -280,6 +283,8 @@ function add_menu_icons_styles() {
   wp_enqueue_script('admin-scripts', get_stylesheet_directory_uri() . '/admin_scripts.js', array(), THEME_VERSION, true);
 }
 add_action('admin_head', 'add_menu_icons_styles');
+
+
 
 /**
  * Ao cadastrar um mapa escreva as informações no arquivo

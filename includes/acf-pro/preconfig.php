@@ -78,7 +78,7 @@ acf_add_local_field_group(array (
 			'default_value' => '',
 			'tabs' => 'all',
 			'toolbar' => 'full',
-			'media_upload' => 0,
+			'media_upload' => 1,
 		),
 		array (
 			'key' => 'field_5682af592887b',

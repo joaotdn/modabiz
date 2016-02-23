@@ -42,6 +42,12 @@
           case 'geolocalizacao': require get_template_directory()."/includes/componentes/geolocalizacao.php";    
           break;
 
+          case 'cabecalho': require get_template_directory()."/includes/componentes/cabecalho.php";    
+          break;
+
+          case 'rodape': require get_template_directory()."/includes/componentes/rodape.php";    
+          break;
+
       }
   }
    
@@ -160,7 +166,7 @@
         <div class="small-12 medium-6 columns forms-content">
 
           <header class="text-center divide-30">
-            <h2 style="font-weight:800;"><strong>Cadastre-se</strong></h2>
+            <h2 style="font-weight:800;" class="form-title-reven"><strong>Cadastre-se</strong></h2>
           </header>
           
           <nav class="divide-30">
@@ -192,6 +198,10 @@
 
             <p class="small-12 columns">
               <input type="email" name="email" placeholder="E-MAIL *" class="small-12 left" title="Seu email" required>
+            </p>
+
+            <p class="small-12 columns">
+              <input type="text" name="cep" maxlength="200" placeholder="CEP *" class="small-12 left cep" title="Seu endereço" required>
             </p>
 
             <p class="small-12 columns">
@@ -508,6 +518,12 @@
           break;
 
           case 'geolocalizacao': require get_template_directory()."/includes/componentes/geolocalizacao.php";    
+          break;
+
+          case 'cabecalho': require get_template_directory()."/includes/componentes/cabecalho.php";    
+          break;
+
+          case 'rodape': require get_template_directory()."/includes/componentes/rodape.php";    
           break;
       }
   }

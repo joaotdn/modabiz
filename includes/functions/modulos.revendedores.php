@@ -93,6 +93,27 @@ function modabiz_module_revendedores() {
         if(isset($comprovante_url) && !empty($comprovante_url))
           update_field('revendedor_comprovante', $comprovante_url, $revendedor_id);
 
+        // dados para enviar email para o cliente
+        $assunto = $plandd_option['mail-resposta-assunto'];
+        $var_remetente = array("<% nome %>","<% email %>");
+        $remetente = array($nome,$email);
+        $mensagem = str_replace($var_remetente, $remetente, $plandd_option['temp-emails-resposta']);
+
+        // dados para enviar e-mails para usuário
+        $emails = get_field('reven_emails',$post->ID);
+        $user_assunto = $plandd_option['mail-notica-assunto'];
+        $user_mensagem = str_replace($var_remetente, $remetente, $plandd_option['temp-emails-notifica']);
+
+        // enviar e-mail de auto resposta
+        if(!empty($assunto) && !empty($mensagem)) {
+          wp_mail( $email, $assunto, $mensagem );
+        }
+
+        // enviar e-mail de notificação
+        if(!empty($user_assunto) && !empty($user_mensagem) && isset($emails)) {
+          wp_mail( $emails, $user_assunto, $user_mensagem );
+        }
+
       }
 
       $confimacao = get_page_by_title("Resposta");

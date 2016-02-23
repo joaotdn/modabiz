@@ -4913,7 +4913,7 @@ th.hide-for-touch {
 }
 /* line 2, ../scss/_modules.scss */
 .show-onload, #list-menu, #main-menu-mo, #main-painel .owl-controls span, .slider-button, .button-cadastro, .comp-post, .comp-post > div, .grid-item figcaption, .grid-item figcaption hgroup, .grid-item figcaption span, .grid-thumb, .grid-item h2, .grid-item h4, .geo-btn,
-#comp-geo input[type="text"], #map-info, #map-info .icon-cross, .reven-btn, #look-list img, #camp-list img, .share-item, .share-icons, .reven-btn-join, #list-testimonials .owl-page span, .post-item figure img, .post-item a, #single-post a, #sidebar a {
+#comp-geo input[type="text"], #map-info, #map-info .icon-cross, .the-results h5, .reven-btn, #look-list img, #camp-list img, .share-item, .share-icons, .reven-btn-join, #list-testimonials .owl-page span, .ui-choices span, .post-item figure img, .post-item a, #single-post a, #sidebar a {
   transition: all .3s linear !important;
   -webkit-transition: all .3s linear !important;
   -moz-transition: all .3s linear !important;
@@ -5354,10 +5354,10 @@ figure {
 }
 
 /* line 4, ../scss/_bases.scss */
-a {
-  transition: all .3s linear;
-  -webkit-transition: all .3s linear;
-  -moz-transition: all .3s linear;
+a, button, .button {
+  transition: all .3s linear !important;
+  -webkit-transition: all .3s linear !important;
+  -moz-transition: all .3s linear !important;
 }
 
 /* line 9, ../scss/_bases.scss */
@@ -5859,6 +5859,26 @@ h1, h2, h3, h4, h5, h6 {
   height: auto;
 }
 
+/* line 99, ../scss/components/_componentes.geolocalizacao.scss */
+.the-results {
+  position: absolute;
+  top: 72px;
+  z-index: 99;
+  background: #fff;
+}
+/* line 106, ../scss/components/_componentes.geolocalizacao.scss */
+.the-results h5 {
+  padding: 20px;
+  width: 100%;
+  float: left;
+  margin: 0;
+  cursor: pointer;
+}
+/* line 114, ../scss/components/_componentes.geolocalizacao.scss */
+.the-results h5:hover {
+  background-color: #f1f1f1;
+}
+
 /* line 1, ../scss/templates/_marca.scss */
 .slideshow {
   margin: auto;
@@ -6138,7 +6158,7 @@ h1, h2, h3, h4, h5, h6 {
 .prod-ref span {
   font-size: 1rem;
   color: #fff;
-  padding: 1.25rem 2.5rem;
+  padding: 0.875rem 2.5rem;
   border: 2px solid #ffffff;
 }
 
@@ -6190,51 +6210,51 @@ h1, h2, h3, h4, h5, h6 {
 #reven-form header h2 {
   font-size: 1.875rem;
 }
-/* line 25, ../scss/templates/_revendedor.scss */
+/* line 26, ../scss/templates/_revendedor.scss */
 #reven-form nav a {
   padding: 1.25rem 0;
   font-size: 1.125rem;
   opacity: .7;
 }
-/* line 31, ../scss/templates/_revendedor.scss */
+/* line 32, ../scss/templates/_revendedor.scss */
 #reven-form nav a.active {
-  background-color: #fff;
   opacity: 1;
   text-decoration: underline;
 }
-/* line 39, ../scss/templates/_revendedor.scss */
+/* line 40, ../scss/templates/_revendedor.scss */
 #reven-form label {
   font-size: 0.875rem;
 }
 
-/* line 44, ../scss/templates/_revendedor.scss */
+/* line 45, ../scss/templates/_revendedor.scss */
 .forms-content {
   padding: 2.5rem 1.25rem;
 }
-/* line 46, ../scss/templates/_revendedor.scss */
+/* line 47, ../scss/templates/_revendedor.scss */
 .forms-content span {
   line-height: 50px;
   font-size: 0.8125rem;
 }
 
-/* line 55, ../scss/templates/_revendedor.scss */
+/* line 56, ../scss/templates/_revendedor.scss */
 .reven-info {
   padding: 2.5rem;
 }
-/* line 57, ../scss/templates/_revendedor.scss */
+/* line 58, ../scss/templates/_revendedor.scss */
 .reven-info li {
   margin-bottom: 0;
+  margin-top: 0.625rem;
   height: 40px;
   line-height: 0;
 }
 
-/* line 75, ../scss/templates/_revendedor.scss */
+/* line 77, ../scss/templates/_revendedor.scss */
 .contact-list span:not(:first-child):before {
   content: '\00a0|\00a0';
   display: inline;
 }
 
-/* line 84, ../scss/templates/_revendedor.scss */
+/* line 86, ../scss/templates/_revendedor.scss */
 #list-testimonials img {
   width: 4.0625rem;
   height: 4.0625rem;
@@ -6242,11 +6262,11 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 100%;
   margin-right: 1.25rem;
 }
-/* line 91, ../scss/templates/_revendedor.scss */
+/* line 93, ../scss/templates/_revendedor.scss */
 #list-testimonials .author-name {
   line-height: 3.75rem;
 }
-/* line 95, ../scss/templates/_revendedor.scss */
+/* line 97, ../scss/templates/_revendedor.scss */
 #list-testimonials .owl-page span {
   display: inline-block;
   width: 1rem;
@@ -6257,7 +6277,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0.3125rem;
   cursor: pointer;
 }
-/* line 107, ../scss/templates/_revendedor.scss */
+/* line 109, ../scss/templates/_revendedor.scss */
 #list-testimonials .owl-page.active span {
   background-color: transparent !important;
   color: transparent !important;
@@ -6267,46 +6287,46 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.4, 1.4);
 }
 
-/* line 119, ../scss/templates/_revendedor.scss */
+/* line 121, ../scss/templates/_revendedor.scss */
 #faq-section li, #faq-section span {
   display: block;
 }
-/* line 125, ../scss/templates/_revendedor.scss */
+/* line 127, ../scss/templates/_revendedor.scss */
 #faq-section span {
   padding: 1.25rem;
 }
-/* line 129, ../scss/templates/_revendedor.scss */
+/* line 131, ../scss/templates/_revendedor.scss */
 #faq-section .faq-answer {
   cursor: pointer;
 }
-/* line 132, ../scss/templates/_revendedor.scss */
+/* line 134, ../scss/templates/_revendedor.scss */
 #faq-section .faq-answer.active .icon-chevron-small-down {
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
-/* line 138, ../scss/templates/_revendedor.scss */
+/* line 140, ../scss/templates/_revendedor.scss */
 #faq-section .faq-reply {
   display: none;
 }
-/* line 140, ../scss/templates/_revendedor.scss */
+/* line 142, ../scss/templates/_revendedor.scss */
 #faq-section .faq-reply.active {
   display: block;
 }
-/* line 145, ../scss/templates/_revendedor.scss */
+/* line 147, ../scss/templates/_revendedor.scss */
 #faq-section .icon-chevron-small-down {
   font-size: 1.375rem;
 }
 
 @media only screen and (min-width: 64.0625em) {
-  /* line 152, ../scss/templates/_revendedor.scss */
+  /* line 154, ../scss/templates/_revendedor.scss */
   .reven-info {
     width: 30rem;
     float: right !important;
   }
 
-  /* line 156, ../scss/templates/_revendedor.scss */
+  /* line 158, ../scss/templates/_revendedor.scss */
   .icon-quotes-left {
     font-size: 5rem;
   }
@@ -6320,6 +6340,28 @@ h1, h2, h3, h4, h5, h6 {
 /* line 20, ../scss/templates/_fale_conosco.scss */
 .contato-info iframe {
   height: 23.125rem !important;
+}
+
+/* line 27, ../scss/templates/_fale_conosco.scss */
+.ui-choices {
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  display: none;
+  top: 4.5rem;
+  left: 0;
+}
+/* line 34, ../scss/templates/_fale_conosco.scss */
+.ui-choices.active {
+  display: block;
+}
+/* line 38, ../scss/templates/_fale_conosco.scss */
+.ui-choices span {
+  padding: 1.25rem;
+  cursor: pointer;
+}
+/* line 43, ../scss/templates/_fale_conosco.scss */
+.ui-choices span:hover {
+  background-color: #f1f1f1;
 }
 
 /* line 2, ../scss/templates/_blog.scss */

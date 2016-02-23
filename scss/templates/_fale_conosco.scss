@@ -23,3 +23,25 @@
 		height: rem-calc(370) !important;
 	}
 }
+
+.ui-choices {
+	background-color: #fff;
+	border: 1px solid #eaeaea;
+	display: none;
+	top: rem-calc(72);
+	left: 0;
+
+	&.active {
+		display: block;
+	}
+
+	span {
+		padding: rem-calc(20);
+		@extend %transition;
+		cursor: pointer;
+
+		&:hover {
+			background-color: #f1f1f1;
+		}
+	}
+}
